@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Navbar from './components/Navbar'
-import Hero from './pages/hero'
+import Hero from './pages/Hero'
 import Aboutus from './pages/Aboutus'
 import Contact from './pages/Contact'
 import LiveShotVideo from './pages/LiveShotVideo'
