@@ -293,7 +293,7 @@ const Hero = () => {
                 <h1
                     ref={titleRef}
                     id="hero-title"
-                    className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-tight mb-6 bg-gradient-to-r from-white via-cyan-100 to-purple-200 bg-clip-text text-transparent"
+                    className="text-2xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-black leading-tight mb-6 bg-gradient-to-r from-white via-cyan-100 to-purple-200 bg-clip-text text-transparent"
                 >
                     We Bring Stories to Life
                 </h1>
@@ -301,14 +301,14 @@ const Hero = () => {
                 {/* Subtitle */}
                 <p
                     ref={subtitleRef}
-                    className="hero-subtitle text-lg md:text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-8 font-light"
+                    className="hero-subtitle text-lg md:text-xl lg:text-2xl text-white font-semibold max-w-4xl mx-auto leading-relaxed mb-8 font-light"
                 >
                     Transform your imagination into <span className="text-cyan-300 font-semibold">breathtaking motion</span> with
                     cutting-edge animation, compelling storytelling, and immersive digital experiences that captivate audiences.
                 </p>
 
                 {/* Studio Introduction */}
-                <div className="hero-subtitle text-base md:text-lg text-gray-400 max-w-2xl mx-auto mb-12 leading-relaxed">
+                <div className="hero-subtitle text-base md:text-lg text-white font-semibold max-w-2xl mx-auto mb-12 leading-relaxed">
                     Welcome to <strong className="text-purple-300 font-bold">KEYFRAMEZ STUDIOS</strong> —
                     where every frame tells a story and every animation sparks emotion.
                     Your vision, our canvas.

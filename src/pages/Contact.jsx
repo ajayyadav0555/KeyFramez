@@ -324,10 +324,10 @@ const ContactUs = () => {
                                 Let's schedule a call to discuss your vision and how we can bring it to life with stunning animation and visual storytelling.
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                                <button className="bg-white text-blue-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition-colors duration-300 shadow-lg hover:shadow-xl">
+                                {/* <button className="bg-white text-blue-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition-colors duration-300 shadow-lg hover:shadow-xl">
                                     Schedule a Call
-                                </button>
-                                <button className="border-2 border-white text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white hover:bg-opacity-10 transition-colors duration-300">
+                                </button> */}
+                                <button className="border-2 border-white text-blue-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-200 bg-white hover:bg-opacity-10 transition-colors duration-300">
                                     View Portfolio
                                 </button>
                             </div>

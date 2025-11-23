@@ -151,7 +151,7 @@ return (
               it's the most powerful way to communicate ideas. Our team of script writers,
               animators, designers, and technologists collaborates closely with clients to
               combine creativity and innovation, delivering visually stunning, meaningful results
-              that make an impact.
+              .Over the years, we’ve worked with leading brands and institutions to create <span className='font-bold'>impactful visual content</span> that educates, entertains, and engages. Whether it’s a cinematic brand film, a learning module, or a VR simulation — we combine creativity with innovation to deliver memorable experiences.
             </p>
           </div>
         </div>
