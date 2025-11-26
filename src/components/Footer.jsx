@@ -1,235 +1,205 @@
-import React, { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-  import { FaInstagram, FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
-import { MdEmail, MdLocationOn, MdPhone } from "react-icons/md";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { 
+    Mail, 
+    Phone, 
+    MapPin, 
+    ArrowRight, 
+    Facebook, 
+    Twitter, 
+    Instagram, 
+    Linkedin, 
+    Youtube,
+    Send,
+    Heart
+} from 'lucide-react';
 
-export default function ContactFooter() {
-  const containerRef = useRef(null);
-  const headlineRef = useRef(null);
-  const contactItemsRef = useRef([]);
-  const ctaRef = useRef(null);
-
-  const addToContactRefs = (el, index) => {
-    if (el && !contactItemsRef.current.includes(el)) {
-      contactItemsRef.current[index] = el;
-    }
-  };
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Headline animation
-      gsap.from(headlineRef.current, {
-        y: 30,
-        opacity: 0,
-        duration: 1,
-        ease: "power3.out",
-        delay: 0.2
-      });
-
-      // Staggered contact items animation
-    //   if (contactItemsRef.current.length > 0) {
-    //     gsap.from(contactItemsRef.current, {
-    //       y: 40,
-    //       opacity: 0,
-    //       duration: 1,
-    //       stagger: 0.15,
-    //       ease: "power3.out",
-    //       delay: 0.4
-    //     });
-    //   }
-
-      // CTA button animation
-      if (ctaRef.current) {
-        gsap.from(ctaRef.current, {
-          y: 20,
-          opacity: 0,
-          duration: 0.8,
-          ease: "power3.out",
-          delay: 0.8
-        });
-      }
-
-      // Floating animation for background elements
-      gsap.to(".floating-element", {
-        y: -10,
-        rotation: 2,
-        duration: 4,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut"
-      });
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, []);
-
-
-
- const socialLinks = [
-  {
-    name: "Instagram",
-    icon: <FaInstagram />,
-    url: "https://instagram.com",
-  },
-  {
-    name: "Facebook",
-    icon: <FaFacebook />,
-    url: "https://facebook.com",
-  },
-  {
-    name: "LinkedIn",
-    icon: <FaLinkedin />,
-    url: "https://linkedin.com",
-  },
-  {
-    name: "Twitter",
-    icon: <FaTwitter />,
-    url: "https://twitter.com",
-  },
-];
-
-  const contactInfo = [
-  {
-    icon: <MdEmail />,
-    label: "Email",
-    value: "info@KEYFRAMZ.com",
-    link: "mailto:info@yourcompany.com",
-    color: "from-blue-500 to-cyan-500",
-  },
-  {
-    icon: <MdPhone />,
-    label: "Phone",
-    value: "+91-XXXXXXXXXX",
-    link: "tel:+91XXXXXXXXXX",
-    color: "from-green-500 to-emerald-500",
-  },
-  {
-    icon: <MdLocationOn />,
-    label: "Location",
-    value: "City, India",
-    link: "#",
-    color: "from-purple-500 to-pink-500",
-  },
-];
-
-  return (
-    <footer className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0">
-        <div className="absolute -top-24 -left-24 w-64 h-64 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 rounded-full blur-3xl floating-element"></div>
-        <div className="absolute -bottom-32 -right-32 w-80 h-80 bg-gradient-to-tr from-purple-500/10 to-pink-500/10 rounded-full blur-3xl floating-element"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-indigo-500/5 to-blue-500/5 rounded-full blur-3xl"></div>
-        
-        {/* Grid Pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="w-full h-full" style={{
-            backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-                              linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-            backgroundSize: '50px 50px'
-          }}></div>
-        </div>
-      </div>
-
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
-        <div className="max-w-6xl mx-auto" ref={containerRef}>
-          {/* Header Section */}
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 shadow-sm mb-6">
-              <div className="w-2 h-2 bg-gradient-to-r from-cyan-400 to-blue-400 rounded-full animate-pulse"></div>
-              <span className="text-sm font-medium text-white/80">Get In Touch</span>
+const Footer = () => {
+    return (
+        <footer className="bg-gradient-to-br from-gray-900 to-gray-950 text-white relative overflow-hidden">
+            {/* Background Pattern */}
+            <div className="absolute inset-0 opacity-5">
+                <div className="absolute inset-0" style={{
+                    backgroundImage: `radial-gradient(circle at 25px 25px, rgba(255,255,255,0.3) 2%, transparent 0%), radial-gradient(circle at 75px 75px, rgba(255,255,255,0.2) 2%, transparent 0%)`,
+                    backgroundSize: '100px 100px'
+                }}></div>
             </div>
-            
-            <h2 
-              ref={headlineRef}
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-6"
-            >
-              <span className="block">✉️ CONTACT US</span>
-              <span className="block text-transparent bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-2xl sm:text-3xl lg:text-4xl mt-4 font-light">
-                Let's create something amazing together
-              </span>
-            </h2>
-            
-            <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              Let's collaborate to create visuals that move, teach, and inspire your audience.
-            </p>
-          </div>
 
-          {/* Contact Information Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-16">
-            {contactInfo.map((contact, index) => (
-              <a
-                key={contact.label}
-                href={contact.link}
-                ref={(el) => addToContactRefs(el, index)}
-                className="group bg-white/5 backdrop-blur-sm rounded-2xl p-6 lg:p-8 border border-white/10 hover:border-white/20 transition-all duration-500 hover:bg-white/10 hover:transform hover:-translate-y-2"
-              >
-                <div className="text-center">
-                  <div className={`inline-flex w-16 h-16 rounded-2xl bg-gradient-to-br ${contact.color} items-center justify-center text-2xl shadow-lg mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                    {contact.icon}
-                  </div>
-                  <h3 className="text-lg font-semibold text-white mb-2">
-                    {contact.label}
-                  </h3>
-                  <p className="text-gray-300 group-hover:text-white transition-colors duration-300">
-                    {contact.value}
-                  </p>
+            {/* Main Footer Content */}
+            <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+                    
+                    {/* Company Info */}
+                    <div className="lg:col-span-1">
+                        <div className="flex items-center gap-3 mb-6">
+                            <img
+                                src="Keyframez.png"
+                                alt="Keyframez"
+                                className="w-12 h-12 object-contain"
+                            />
+                            <div>
+                                <h3 className="text-2xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+                                    Keyframez
+                                </h3>
+                                <p className="text-sm text-gray-400">Visual Productions</p>
+                            </div>
+                        </div>
+                        
+                        <p className="text-gray-300 mb-6 leading-relaxed">
+                            Crafting exceptional visual experiences through innovative video production, 
+                            animation, and creative storytelling that captivates audiences worldwide.
+                        </p>
+                        
+                        {/* Social Links */}
+                        <div className="flex items-center gap-3">
+                            {[
+                                { icon: <Facebook size={18} />, color: 'hover:text-blue-400' },
+                                { icon: <Twitter size={18} />, color: 'hover:text-blue-300' },
+                                { icon: <Instagram size={18} />, color: 'hover:text-pink-400' },
+                                { icon: <Linkedin size={18} />, color: 'hover:text-blue-500' },
+                                { icon: <Youtube size={18} />, color: 'hover:text-red-400' }
+                            ].map((social, index) => (
+                                <a
+                                    key={index}
+                                    href="#"
+                                    className={`w-10 h-10 rounded-xl bg-gray-800/50 backdrop-blur-sm flex items-center justify-center transition-all duration-300 transform hover:scale-110 hover:bg-gray-700/50 border border-gray-700/50 ${social.color}`}
+                                >
+                                    {social.icon}
+                                </a>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Quick Links */}
+                    <div>
+                        <h4 className="text-lg font-semibold mb-6 text-white flex items-center gap-2">
+                            Quick Links
+                            <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                        </h4>
+                        <ul className="space-y-3">
+                            {[
+                                'Home', 'About Us', 'Services', 'Portfolio', 
+                                'Case Studies', 'Testimonials', 'Careers', 'Blog'
+                            ].map((item) => (
+                                <li key={item}>
+                                    <Link
+                                        to={`/${item.toLowerCase().replace(' ', '-')}`}
+                                        className="text-gray-300 hover:text-white transition-all duration-300 flex items-center gap-2 group"
+                                    >
+                                        <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all duration-300" />
+                                        {item}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    {/* Services */}
+                    <div>
+                        <h4 className="text-lg font-semibold mb-6 text-white flex items-center gap-2">
+                            Our Services
+                            <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                        </h4>
+                        <ul className="space-y-3">
+                            {[
+                                'Video Production', '3D Animation', 'Visual Effects',
+                                'Motion Graphics', 'Explainer Videos', 'Corporate Videos',
+                                'Product Demos', 'E-Learning Content'
+                            ].map((service) => (
+                                <li key={service}>
+                                    <Link
+                                        to={`/services/${service.toLowerCase().replace(' ', '-')}`}
+                                        className="text-gray-300 hover:text-white transition-all duration-300 flex items-center gap-2 group"
+                                    >
+                                        <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all duration-300" />
+                                        {service}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    {/* Contact & Newsletter */}
+                    <div>
+                        <h4 className="text-lg font-semibold mb-6 text-white flex items-center gap-2">
+                            Stay Connected
+                            <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                        </h4>
+                        
+                        {/* Contact Info */}
+                        <div className="space-y-4 mb-6">
+                            <div className="flex items-center gap-3 text-gray-300 group hover:text-white transition-colors duration-300">
+                                <div className="w-10 h-10 rounded-xl bg-blue-500/20 flex items-center justify-center group-hover:bg-blue-500/30 transition-colors duration-300">
+                                    <Mail size={18} className="text-blue-400" />
+                                </div>
+                                <div>
+                                    <p className="text-sm">hello@keyframez.com</p>
+                                    <p className="text-xs text-gray-400">Send us an email</p>
+                                </div>
+                            </div>
+                            
+                            <div className="flex items-center gap-3 text-gray-300 group hover:text-white transition-colors duration-300">
+                                <div className="w-10 h-10 rounded-xl bg-green-500/20 flex items-center justify-center group-hover:bg-green-500/30 transition-colors duration-300">
+                                    <Phone size={18} className="text-green-400" />
+                                </div>
+                                <div>
+                                    <p className="text-sm">+1 (555) 123-4567</p>
+                                    <p className="text-xs text-gray-400">Call us anytime</p>
+                                </div>
+                            </div>
+                            
+                            <div className="flex items-center gap-3 text-gray-300 group hover:text-white transition-colors duration-300">
+                                <div className="w-10 h-10 rounded-xl bg-purple-500/20 flex items-center justify-center group-hover:bg-purple-500/30 transition-colors duration-300">
+                                    <MapPin size={18} className="text-purple-400" />
+                                </div>
+                                <div>
+                                    <p className="text-sm">New York, NY 10001</p>
+                                    <p className="text-xs text-gray-400">Visit our studio</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Newsletter */}
+                        <div className="bg-gray-800/30 backdrop-blur-sm rounded-2xl p-4 border border-gray-700/50">
+                            <h5 className="font-semibold mb-2 text-white">Newsletter</h5>
+                            <p className="text-sm text-gray-300 mb-3">Get updates on our latest projects</p>
+                            <div className="flex gap-2">
+                                <input
+                                    type="email"
+                                    placeholder="Enter your email"
+                                    className="flex-1 bg-gray-700/50 border border-gray-600/50 rounded-xl px-3 py-2 text-sm text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors duration-300"
+                                />
+                                <button className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 p-2 rounded-xl transition-all duration-300 transform hover:scale-105">
+                                    <Send size={16} className="text-white" />
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </a>
-            ))}
-          </div>
 
-          {/* CTA Section */}
-          <div className="text-center" ref={ctaRef}>
-            <div className="bg-gradient-to-r from-white/5 to-white/10 backdrop-blur-sm rounded-3xl p-8 lg:p-12 border border-white/10 shadow-2xl max-w-4xl mx-auto">
-              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
-                Ready to Start Your Project?
-              </h3>
-              <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
-                Let's discuss how we can bring your vision to life with stunning visuals and seamless production.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <button className="px-8 py-4 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 flex items-center gap-2">
-                  <span>🚀</span>
-                  Start Your Project
-                </button>
-                <button className="px-8 py-4 rounded-full bg-white/10 backdrop-blur-sm text-white font-medium border border-white/20 hover:bg-white/20 hover:border-white/30 transition-all duration-300 flex items-center gap-2">
-                  <span>💼</span>
-                  View Our Portfolio
-                </button>
-              </div>
-            </div>
-          </div>
-
-          {/* Bottom Bar */}
-          <div className="mt-16 pt-8 border-t border-white/10">
-            <div className="flex flex-col lg:flex-row justify-between items-center gap-4">
-              <div className="text-white text-sm font-black">
-                © 2025 Your Company. All rights reserved.
-              </div>
-              
-              <div className="flex items-center gap-6">
-                <span className="text-white text-sm text-2xl font-black">Follow us:</span>
-                <div className="flex gap-4">
-                  {socialLinks.map((icon, index) => (
-                    <button
-                      key={index}
-                      className="w-10 h-10 rounded-full bg-white hover:bg-white border border-white/10 flex items-center justify-center text-sm transition-all duration-300 hover:scale-110"
-                    >
-                      {icon?.icon}
-                    </button>
-                  ))}
+                {/* Bottom Bar */}
+                <div className="border-t border-gray-800/50 mt-12 pt-8">
+                    <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <div className="text-gray-400 text-sm flex items-center gap-1">
+                            © 2024 Keyframez Visual Productions. All rights reserved. 
+                            Made with <Heart size={14} className="text-red-400 fill-current mx-1" /> 
+                            for creative excellence
+                        </div>
+                        
+                        <div className="flex items-center gap-6 text-sm text-gray-400">
+                            <a href="#" className="hover:text-white transition-colors duration-300">Privacy Policy</a>
+                            <a href="#" className="hover:text-white transition-colors duration-300">Terms of Service</a>
+                            <a href="#" className="hover:text-white transition-colors duration-300">Cookies</a>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
-        </div>
-      </div>
 
-      {/* Floating decorative elements */}
-      <div className="absolute top-10 right-10 w-8 h-8 bg-cyan-400/20 rounded-full floating-element"></div>
-      <div className="absolute bottom-20 left-10 w-6 h-6 bg-purple-400/20 rounded-full floating-element"></div>
-      <div className="absolute top-1/3 right-1/4 w-4 h-4 bg-blue-400/20 rounded-full floating-element"></div>
-    </footer>
-  );
-}
+            {/* Floating Elements */}
+            <div className="absolute -top-20 -right-20 w-40 h-40 bg-blue-500/10 rounded-full blur-3xl"></div>
+            <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-purple-500/10 rounded-full blur-3xl"></div>
+        </footer>
+    );
+};
+
+export default Footer;

@@ -353,7 +353,6 @@ const Hero = () => {
         </section>
             <Services/>
             <WhyChooseUs />
-            <ContactFooter />
       </div>
     );
 };

@@ -245,19 +245,7 @@ return (
         </div>
 
         {/* CTA Section */}
-        <div className="text-center mt-20">
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl p-12 text-white">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Ready to Bring Your Vision to Life?
-            </h2>
-            <p className="text-xl mb-8 opacity-90">
-              Let's create something extraordinary together.
-            </p>
-            <button className="bg-white text-blue-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition-colors duration-300 shadow-lg hover:shadow-xl">
-              Start Your Project
-            </button>
-          </div>
-        </div>
+        
       </div>
     </section>
   </div>

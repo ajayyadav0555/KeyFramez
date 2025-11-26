@@ -315,24 +315,7 @@ const ContactUs = () => {
 
 
                     {/* CTA Section */}
-                    <div className="text-center mt-16">
-                        <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl p-12 text-white">
-                            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                                Ready to Start Your Project?
-                            </h2>
-                            <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-                                Let's schedule a call to discuss your vision and how we can bring it to life with stunning animation and visual storytelling.
-                            </p>
-                            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                                {/* <button className="bg-white text-blue-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition-colors duration-300 shadow-lg hover:shadow-xl">
-                                    Schedule a Call
-                                </button> */}
-                                <button className="border-2 border-white text-blue-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-200 bg-white hover:bg-opacity-10 transition-colors duration-300">
-                                    View Portfolio
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
             </section>
         </div>

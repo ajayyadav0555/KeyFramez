@@ -1,10 +1,9 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { gsap } from 'gsap';
-import { Play, Pause, Volume2, VolumeX, Box, Zap, RotateCw, Camera, ArrowRight } from 'lucide-react';
-import { Link, useNavigate } from 'react-router-dom';
-import { BiCube } from 'react-icons/bi';
+import { Play, Pause, Volume2, VolumeX, Building, Eye, Zap, Map, ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
-const ThreeDModeling = () => {
+const ArchitectureVR = () => {
   const videoRef = useRef(null);
   const sectionRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -20,12 +19,12 @@ const ThreeDModeling = () => {
       }
     });
 
-    tl.fromTo('.modeling-content',
+    tl.fromTo('.architecture-vr-content',
       { opacity: 0, x: -50 },
       { opacity: 1, x: 0, duration: 1, ease: "power3.out" }
     );
 
-    tl.fromTo('.modeling-video',
+    tl.fromTo('.architecture-vr-video',
       { opacity: 0, x: 50, scale: 0.9 },
       { opacity: 1, x: 0, scale: 1, duration: 1, ease: "back.out(1.7)" },
       "-=0.5"
@@ -57,19 +56,19 @@ const ThreeDModeling = () => {
   };
 
   const services = [
-    "Product Visualization",
-    "Architectural Rendering",
-    "Character Design",
-    "Medical Animation",
-    "Engineering Prototypes",
-    "Marketing Assets"
+    "Residential Projects",
+    "Commercial Buildings",
+    "Urban Developments",
+    "Interior Designs",
+    "Client Presentations",
+    "Planning Approvals"
   ];
 
   const features = [
-    { icon: <BiCube className="w-5 h-5" />, text: "3D Modeling" },
-    { icon: <Box className="w-5 h-5" />, text: "Texturing & Lighting" },
-    { icon: <Zap className="w-5 h-5" />, text: "Animation" },
-    { icon: <RotateCw className="w-5 h-5" />, text: "360° Rotation" }
+    { icon: <Building className="w-5 h-5" />, text: "Immersive Walkthroughs" },
+    { icon: <Eye className="w-5 h-5" />, text: "Realistic Lighting" },
+    { icon: <Zap className="w-5 h-5" />, text: "Interactive Elements" },
+    { icon: <Map className="w-5 h-5" />, text: "Spatial Depth" }
   ];
 
   return (
@@ -80,24 +79,35 @@ const ThreeDModeling = () => {
         <div className="grid lg:grid-cols-2 gap-32 items-center max-w-7xl mx-auto py-20">
 
           {/* Left Content */}
-          <div className="modeling-content space-y-8">
+          <div className="architecture-vr-content space-y-8">
             <div className="space-y-6">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 rounded-full text-blue-600 font-semibold text-sm">
-                <BiCube className="w-4 h-4" />
-                3D Modeling & Animation
+                <Building className="w-4 h-4" />
+                Architecture VR
               </div>
 
               <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
-                Bring Your Vision to Life with{' '}
+                Experience Your Designs{' '}
                 <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                  Stunning 3D Visuals
+                  Before They're Built
                 </span>
               </h2>
 
               <p className="text-lg text-white leading-relaxed">
-                Our 3D Modeling service transforms your ideas into photorealistic 3D assets and animations. 
-                From product visualization to architectural rendering, we create immersive experiences that 
-                captivate audiences and drive engagement across all platforms.
+                Experience your designs before they're built with our Architecture VR solutions. 
+                We create immersive virtual reality environments that allow architects, developers, 
+                and clients to walk through, explore, and interact with architectural spaces in stunning detail.
+              </p>
+
+              <p className="text-lg text-white leading-relaxed">
+                From residential and commercial projects to urban developments and interior designs, 
+                our VR experiences bring blueprints to life — showcasing realistic lighting, materials, 
+                and spatial depth. This helps in better visualization, faster decision-making, and more 
+                impactful client presentations.
+              </p>
+
+              <p className="text-lg text-white leading-relaxed">
+                Step inside your vision with Architecture VR — where imagination meets immersive innovation.
               </p>
             </div>
 
@@ -135,7 +145,7 @@ const ThreeDModeling = () => {
           </div>
 
           {/* Right Video Section */}
-          <div className="modeling-video relative">
+          <div className="architecture-vr-video relative">
             <div className="relative rounded-3xl overflow-hidden shadow-2xl group">
               {/* Video Player */}
               <video
@@ -147,7 +157,7 @@ const ThreeDModeling = () => {
                 loop
                 playsInline
               >
-                <source src="/videos/3d-modeling-demo.mp4" type="video/mp4" />
+                <source src="/videos/architecture-vr-demo.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
 
@@ -157,8 +167,8 @@ const ThreeDModeling = () => {
               {/* Floating Badge */}
               <div className="absolute -top-4 -right-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-2xl shadow-xl animate-pulse">
                 <div className="flex items-center gap-2 text-sm font-semibold">
-                  <BiCube className="w-4 h-4" />
-                  3D Modeling
+                  <Building className="w-4 h-4" />
+                  VR Experience
                 </div>
               </div>
             </div>
@@ -213,7 +223,7 @@ const ThreeDModeling = () => {
                     </div>
                     <span className="text-sm font-semibold text-gray-900">Google Reviews</span>
                   </div>
-                  <p className="text-xs text-gray-600 mt-0.5">285+ 3D projects delivered</p>
+                  <p className="text-xs text-gray-600 mt-0.5">145+ architectural VR projects delivered</p>
                 </div>
               </div>
 
@@ -245,13 +255,13 @@ const ThreeDModeling = () => {
           {/* Right Side - Text + Button Only */}
           <div className="flex flex-col justify-center space-y-6">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
-              Want to see more 3D creations?
+              Ready to step inside more virtual spaces?
             </h2>
 
             {/* CTA Button Only */}
             <button className="group w-fit bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
               <div className="flex items-center justify-center gap-3">
-                <span>View 3D Portfolio</span>
+                <span>View VR Portfolio</span>
                 <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" />
               </div>
             </button>
@@ -260,12 +270,12 @@ const ThreeDModeling = () => {
         </div>
       </div>
 
-      <ThreeDWorkShowcase />
+      <ArchitectureVRWorkShowcase />
     </section>
   );
 };
 
-const ThreeDWorkShowcase = () => {
+const ArchitectureVRWorkShowcase = () => {
   const sectionRef = useRef(null);
   const [playingVideo, setPlayingVideo] = useState(null);
   const navigate = useNavigate();
@@ -306,51 +316,27 @@ const ThreeDWorkShowcase = () => {
   const workVideos = [
     {
       id: 1,
-      title: "Product Visualization",
-      category: "3D Modeling",
-      thumbnail: "/api/placeholder/400/300",
-      videoUrl: "/videos/product-3d.mp4",
-      description: "Photorealistic product rendering for e-commerce and marketing"
+      title: "Luxury Villa Tour",
+      category: "Residential VR",
+      videoUrl: "/videos/luxury-villa-vr.mp4"
     },
     {
       id: 2,
-      title: "Architectural Walkthrough",
-      category: "3D Animation",
-      thumbnail: "/api/placeholder/400/300",
-      videoUrl: "/videos/architectural-3d.mp4",
-      description: "Immersive virtual tours of architectural spaces and buildings"
+      title: "Commercial Complex",
+      category: "Commercial VR", 
+      videoUrl: "/videos/commercial-complex-vr.mp4"
     },
     {
       id: 3,
-      title: "Character Animation",
-      category: "3D Character",
-      thumbnail: "/api/placeholder/400/300",
-      videoUrl: "/videos/character-3d.mp4",
-      description: "Lifelike character modeling and animation for games and films"
+      title: "Urban Development",
+      category: "City Planning VR",
+      videoUrl: "/videos/urban-development-vr.mp4"
     },
     {
       id: 4,
-      title: "Medical Visualization",
-      category: "Scientific 3D",
-      thumbnail: "/api/placeholder/400/300",
-      videoUrl: "/videos/medical-3d.mp4",
-      description: "Detailed anatomical models and medical procedure animations"
-    },
-    {
-      id: 5,
-      title: "Industrial Design",
-      category: "Engineering 3D",
-      thumbnail: "/api/placeholder/400/300",
-      videoUrl: "/videos/industrial-3d.mp4",
-      description: "Precise 3D models for manufacturing and engineering"
-    },
-    {
-      id: 6,
-      title: "Motion Graphics",
-      category: "3D Animation",
-      thumbnail: "/api/placeholder/400/300",
-      videoUrl: "/videos/motion-3d.mp4",
-      description: "Dynamic 3D animations for branding and advertising"
+      title: "Interior Design",
+      category: "Space Planning VR",
+      videoUrl: "/videos/interior-design-vr.mp4"
     }
   ];
 
@@ -378,99 +364,50 @@ const ThreeDWorkShowcase = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            3D Modeling <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Portfolio</span>
+            Architecture VR <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Portfolio</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Explore our collection of stunning 3D models and animations that bring ideas to life with unparalleled realism and creativity.
+            Step inside stunning virtual architectural spaces that bring blueprints to life with immersive detail.
           </p>
         </div>
 
-        {/* Work Grid */}
-      <div className="work-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-12">
-  {[
-    {
-      id: 1,
-      title: "Amorphic Videos",
-      category: "3D Animation",
-      videoUrl: "/videos/amorphic-videos.mp4",
-      description: "Fluid and organic 3D animations that transform and evolve",
-      path:"/services/amorphic-videos"
-    },
-    {
-      id: 2,
-      title: "Architecture Videos",
-      category: "Architectural 3D",
-      videoUrl: "/videos/architecture-videos.mp4",
-      description: "Immersive architectural walkthroughs and building visualizations",
-      path:"/services/architecture-videos"
-    },
-    {
-      id: 3,
-      title: "Product Model",
-      category: "3D Modeling",
-      videoUrl: "/videos/project-model.mp4",
-      description: "Detailed 3D project models and prototype visualizations",
-      path:"/services/product-videos"
-    },
-    {
-      id: 4,
-      title: "Project Simulations",
-      category: "3D Simulation",
-      videoUrl: "/videos/project-simulations.mp4",
-      description: "Realistic project simulations and dynamic scenario testing",
-      path:"/services/project-videos"
-    }
-  ].map((work) => (
-    <div
-      key={work.id}
-      className="work-item group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden hover:-translate-y-2"
-    >
-      {/* Video Container */}
-      <div className="relative aspect-video overflow-hidden bg-gray-900">
-        <video
-          className="w-full h-full object-cover"
-          src='/video.mp4'
-          loop
-          playsInline
-          autoPlay
-          muted
-        >
-          <source src={work.videoUrl} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        {/* Work Grid - Only Videos */}
+        <div className="work-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+          {workVideos.map((work) => (
+            <div
+              key={work.id}
+              className="work-item group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden hover:-translate-y-2"
+            >
+              {/* Video Container */}
+              <div className="relative aspect-video overflow-hidden bg-gray-900">
+                <video
+                  className="w-full h-full object-cover"
+                  src='/video.mp4'
+                  loop
+                  playsInline
+                  autoPlay
+                  muted
+                >
+                  <source src={work.videoUrl} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
 
-        {/* Video Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                {/* Video Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-        {/* Category Badge */}
-        <div className="absolute top-4 left-4">
-          <span className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
-            {work.category}
-          </span>
+                {/* Category Badge */}
+                <div className="absolute top-4 left-4">
+                  <span className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
+                    {work.category}
+                  </span>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
-      </div>
 
-      {/* Content with Title and Arrow */}
-      <div className="p-6">
-        <div className="flex items-center justify-between">
-          <div>
-            <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors duration-300">
-              {work.title}
-            </h3>
-            <p className="text-gray-600 text-sm">
-              {work.description}
-            </p>
-          </div>
-          <button className="flex items-center justify-center w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full hover:scale-110 transition-all duration-300 transform group-hover:translate-x-1 shadow-lg">
-          <Link to={work?.path}><ArrowRight className="w-5 h-5" /></Link>
-          </button>
-        </div>
-      </div>
-    </div>
-  ))}
-</div>
-
-       
+        {/* CTA Section */}
+        
       </div>
 
       {/* Auto-play on hover functionality */}
@@ -524,4 +461,4 @@ const ThreeDWorkShowcase = () => {
   );
 };
 
-export default ThreeDModeling;
+export default ArchitectureVR;
