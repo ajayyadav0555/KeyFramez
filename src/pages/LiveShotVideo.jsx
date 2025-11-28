@@ -148,7 +148,7 @@ const LiveShotProduction = () => {
               <video
                 ref={videoRef}
                 className="w-full h-auto aspect-video object-cover"
-                src='/video.mp4'
+                src='https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764264910/LANDMARK_-_Loop_oq0t1g.mp4'
                 muted
                 autoPlay
                 loop
@@ -279,7 +279,7 @@ const LiveShotProduction = () => {
             <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-gray-900 aspect-video">
               <video
                 className="w-full h-full object-cover"
-                src="/video.mp4"
+                src="https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764348729/BIG_BAZAAR_SPARK_-_Loop_mfpoox.mp4"
                 autoPlay
                 muted
               />
@@ -357,7 +357,7 @@ const navigate=useNavigate()
       title: "Corporate Brand Film",
       category: "Live-shot Production",
       thumbnail: "/api/placeholder/400/300",
-      videoUrl: "/videos/corporate-brand.mp4",
+      videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764349116/1_Live-shot_Video_Production_exqgta.mp4",
       description: "Cinematic corporate storytelling for global brand"
     },
     {
@@ -365,7 +365,7 @@ const navigate=useNavigate()
       title: "Product Explainer",
       category: "Animation",
       thumbnail: "/api/placeholder/400/300",
-      videoUrl: "/videos/product-explainer.mp4",
+      videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764348729/BIG_BAZAAR_SPARK_-_Loop_mfpoox.mp4",
       description: "Animated product demonstration video"
     },
     {
@@ -373,7 +373,7 @@ const navigate=useNavigate()
       title: "Training Module",
       category: "E-Learning",
       thumbnail: "/api/placeholder/400/300",
-      videoUrl: "/videos/training-module.mp4",
+      videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764264915/Bugworks_-_Loop_ku2ksm.mp4",
       description: "Interactive learning experience"
     },
     {
@@ -381,7 +381,7 @@ const navigate=useNavigate()
       title: "Social Media Campaign",
       category: "Live-shot Production",
       thumbnail: "/api/placeholder/400/300",
-      videoUrl: "/videos/social-media.mp4",
+      videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764264910/LANDMARK_-_Loop_oq0t1g.mp4",
       description: "Engaging content for social platforms"
     },
     {
@@ -389,17 +389,17 @@ const navigate=useNavigate()
       title: "3D Product Visualization",
       category: "3D Modeling",
       thumbnail: "/api/placeholder/400/300",
-      videoUrl: "/videos/3d-visualization.mp4",
+      videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764264882/IMP_POWER_ENERGY_-_Loop_f7nd6t.mp4",
       description: "Realistic product rendering and animation"
     },
-    {
-      id: 6,
-      title: "Character Animation",
-      category: "Animation",
-      thumbnail: "/api/placeholder/400/300",
-      videoUrl: "/videos/character-animation.mp4",
-      description: "Bringing characters to life with personality"
-    }
+    // {
+    //   id: 6,
+    //   title: "Character Animation",
+    //   category: "Animation",
+    //   thumbnail: "/api/placeholder/400/300",
+    //   videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764264882/IMP_POWER_ENERGY_-_Loop_f7nd6t.mp4",
+    //   description: "Bringing characters to life with personality"
+    // }
   ];
 
   const togglePlay = (videoId, videoElement) => {
@@ -444,7 +444,7 @@ const navigate=useNavigate()
               <div className="relative aspect-video overflow-hidden bg-gray-900">
                 <video
                   className="w-full h-full object-cover"
-                  src='/video.mp4'
+                  src={work.videoUrl}
                   loop
                   playsInline
                   autoPlay

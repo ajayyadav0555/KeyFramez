@@ -105,10 +105,10 @@ const InteractiveContent = () => {
                 we blend creativity, technology, and storytelling to deliver content that captivates attention and drives engagement.
               </p>
 
-              <p className="text-lg text-white leading-relaxed">
+              {/* <p className="text-lg text-white leading-relaxed">
                 Perfect for marketing campaigns, presentations, education, and entertainment, our interactive creations 
                 transform passive viewers into active participants — making your message memorable, dynamic, and impactful.
-              </p>
+              </p> */}
             </div>
 
             {/* Features */}
@@ -151,7 +151,7 @@ const InteractiveContent = () => {
               <video
                 ref={videoRef}
                 className="w-full h-auto aspect-video object-cover"
-                src='/video.mp4'
+                src='https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764352101/3D_GLASS_slyk4d.mp4'
                 muted
                 autoPlay
                 loop
@@ -244,7 +244,7 @@ const InteractiveContent = () => {
             <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-gray-900 aspect-video">
               <video
                 className="w-full h-full object-cover"
-                src="/video.mp4"
+                src="https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764352103/AR-VR_SIDE_BY_SIDE_VIDEOS_ij25b5.mp4"
                 autoPlay
                 muted
                 loop
@@ -318,7 +318,7 @@ const InteractiveWorkShowcase = () => {
       id: 1,
       title: "AR/VR Experience",
       category: "Immersive Tech",
-      videoUrl: "/videos/ar-vr-experience.mp4",
+      videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764352101/3D_GLASS_slyk4d.mp4",
       description: "Augmented and Virtual Reality interactive experiences",
       path: "/services/ar-vr"
     },
@@ -326,26 +326,26 @@ const InteractiveWorkShowcase = () => {
       id: 2,
       title: "Architecture VR",
       category: "Virtual Tours",
-      videoUrl: "/videos/architecture-vr.mp4",
+      videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764352103/AR-VR_SIDE_BY_SIDE_VIDEOS_ij25b5.mp4",
       description: "Immersive architectural walkthroughs in virtual reality",
       path: "/services/architecture-vr"
     },
-    {
-      id: 3,
-      title: "Interactive E-books",
-      category: "Digital Publishing",
-      videoUrl: "/videos/interactive-ebooks.mp4",
-      description: "Engaging digital books with interactive elements",
-      path: "/services/e-book"
-    },
-    {
-      id: 4,
-      title: "Interactive Product Books",
-      category: "Product Marketing",
-      videoUrl: "/videos/interactive-product-books.mp4",
-      description: "Dynamic product catalogs with interactive features",
-      path: "/services/productApps"
-    }
+    // {
+    //   id: 3,
+    //   title: "Interactive E-books",
+    //   category: "Digital Publishing",
+    //   videoUrl: "/videos/interactive-ebooks.mp4",
+    //   description: "Engaging digital books with interactive elements",
+    //   path: "/services/e-book"
+    // },
+    // {
+    //   id: 4,
+    //   title: "Interactive Product Books",
+    //   category: "Product Marketing",
+    //   videoUrl: "/videos/interactive-product-books.mp4",
+    //   description: "Dynamic product catalogs with interactive features",
+    //   path: "/services/productApps"
+    // }
   ];
 
   const togglePlay = (videoId, videoElement) => {
@@ -394,7 +394,7 @@ const InteractiveWorkShowcase = () => {
               <div className="relative aspect-video overflow-hidden bg-gray-900">
                 <video
                   className="w-full h-full object-cover"
-                  src='/video.mp4'
+                  src={work.videoUrl}
                   loop
                   playsInline
                   autoPlay
@@ -405,18 +405,18 @@ const InteractiveWorkShowcase = () => {
                 </video>
 
                 {/* Video Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                {/* <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" /> */}
 
-                {/* Category Badge */}
+                {/* Category Badge
                 <div className="absolute top-4 left-4">
                   <span className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
                     {work.category}
                   </span>
-                </div>
+                </div> */}
               </div>
 
               {/* Title and Arrow */}
-              <div className="p-6 flex items-center justify-between">
+              {/* <div className="p-6 flex items-center justify-between">
                 <div>
                   <h3 className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
                     {work.title}
@@ -431,7 +431,7 @@ const InteractiveWorkShowcase = () => {
                 >
                   <ArrowRight className="w-4 h-4" />
                 </button>
-              </div>
+              </div> */}
             </div>
           ))}
         </div>

@@ -141,11 +141,12 @@ const ThreeDModeling = () => {
               <video
                 ref={videoRef}
                 className="w-full h-auto aspect-video object-cover"
-                src='/video.mp4'
+                src='https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764350904/Product_Models_-_Loop_xr3he2.mp4'
                 muted
                 autoPlay
                 loop
                 playsInline
+                width={"fit"}
               >
                 <source src="/videos/3d-modeling-demo.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
@@ -234,7 +235,7 @@ const ThreeDModeling = () => {
             <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-gray-900 aspect-video">
               <video
                 className="w-full h-full object-cover"
-                src="/video.mp4"
+                src="https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764350661/3dmodeling/ANAMORPHIC_01_m9tqqj.mp4"
                 autoPlay
                 muted
                 loop
@@ -303,56 +304,56 @@ const ThreeDWorkShowcase = () => {
     );
   }, []);
 
-  const workVideos = [
-    {
-      id: 1,
-      title: "Product Visualization",
-      category: "3D Modeling",
-      thumbnail: "/api/placeholder/400/300",
-      videoUrl: "/videos/product-3d.mp4",
-      description: "Photorealistic product rendering for e-commerce and marketing"
-    },
-    {
-      id: 2,
-      title: "Architectural Walkthrough",
-      category: "3D Animation",
-      thumbnail: "/api/placeholder/400/300",
-      videoUrl: "/videos/architectural-3d.mp4",
-      description: "Immersive virtual tours of architectural spaces and buildings"
-    },
-    {
-      id: 3,
-      title: "Character Animation",
-      category: "3D Character",
-      thumbnail: "/api/placeholder/400/300",
-      videoUrl: "/videos/character-3d.mp4",
-      description: "Lifelike character modeling and animation for games and films"
-    },
-    {
-      id: 4,
-      title: "Medical Visualization",
-      category: "Scientific 3D",
-      thumbnail: "/api/placeholder/400/300",
-      videoUrl: "/videos/medical-3d.mp4",
-      description: "Detailed anatomical models and medical procedure animations"
-    },
-    {
-      id: 5,
-      title: "Industrial Design",
-      category: "Engineering 3D",
-      thumbnail: "/api/placeholder/400/300",
-      videoUrl: "/videos/industrial-3d.mp4",
-      description: "Precise 3D models for manufacturing and engineering"
-    },
-    {
-      id: 6,
-      title: "Motion Graphics",
-      category: "3D Animation",
-      thumbnail: "/api/placeholder/400/300",
-      videoUrl: "/videos/motion-3d.mp4",
-      description: "Dynamic 3D animations for branding and advertising"
-    }
-  ];
+  // const workVideos = [
+  //   {
+  //     id: 1,
+  //     title: "Product Visualization",
+  //     category: "3D Modeling",
+  //     thumbnail: "/api/placeholder/400/300",
+  //     videoUrl: "/videos/product-3d.mp4",
+  //     description: "Photorealistic product rendering for e-commerce and marketing"
+  //   },
+  //   {
+  //     id: 2,
+  //     title: "Architectural Walkthrough",
+  //     category: "3D Animation",
+  //     thumbnail: "/api/placeholder/400/300",
+  //     videoUrl: "/videos/architectural-3d.mp4",
+  //     description: "Immersive virtual tours of architectural spaces and buildings"
+  //   },
+  //   {
+  //     id: 3,
+  //     title: "Character Animation",
+  //     category: "3D Character",
+  //     thumbnail: "/api/placeholder/400/300",
+  //     videoUrl: "/videos/character-3d.mp4",
+  //     description: "Lifelike character modeling and animation for games and films"
+  //   },
+  //   {
+  //     id: 4,
+  //     title: "Medical Visualization",
+  //     category: "Scientific 3D",
+  //     thumbnail: "/api/placeholder/400/300",
+  //     videoUrl: "/videos/medical-3d.mp4",
+  //     description: "Detailed anatomical models and medical procedure animations"
+  //   },
+  //   {
+  //     id: 5,
+  //     title: "Industrial Design",
+  //     category: "Engineering 3D",
+  //     thumbnail: "/api/placeholder/400/300",
+  //     videoUrl: "/videos/industrial-3d.mp4",
+  //     description: "Precise 3D models for manufacturing and engineering"
+  //   },
+  //   {
+  //     id: 6,
+  //     title: "Motion Graphics",
+  //     category: "3D Animation",
+  //     thumbnail: "/api/placeholder/400/300",
+  //     videoUrl: "/videos/motion-3d.mp4",
+  //     description: "Dynamic 3D animations for branding and advertising"
+  //   }
+  // ];
 
   const togglePlay = (videoId, videoElement) => {
     if (playingVideo === videoId) {
@@ -392,7 +393,7 @@ const ThreeDWorkShowcase = () => {
       id: 1,
       title: "Amorphic Videos",
       category: "3D Animation",
-      videoUrl: "/videos/amorphic-videos.mp4",
+      videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764350654/3dmodeling/SAMPLE_PREVIEW_u28qet.mp4",
       description: "Fluid and organic 3D animations that transform and evolve",
       path:"/services/amorphic-videos"
     },
@@ -400,7 +401,7 @@ const ThreeDWorkShowcase = () => {
       id: 2,
       title: "Architecture Videos",
       category: "Architectural 3D",
-      videoUrl: "/videos/architecture-videos.mp4",
+      videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764350882/BATHSENSE_CONCEALED_CISTERN_INSTALLATION_-_Loop_poxfai.mp4",
       description: "Immersive architectural walkthroughs and building visualizations",
       path:"/services/architecture-videos"
     },
@@ -408,7 +409,7 @@ const ThreeDWorkShowcase = () => {
       id: 3,
       title: "Product Model",
       category: "3D Modeling",
-      videoUrl: "/videos/project-model.mp4",
+      videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764350876/3D_LAMP_fbalz4.mp4",
       description: "Detailed 3D project models and prototype visualizations",
       path:"/services/product-videos"
     },
@@ -416,7 +417,15 @@ const ThreeDWorkShowcase = () => {
       id: 4,
       title: "Project Simulations",
       category: "3D Simulation",
-      videoUrl: "/videos/project-simulations.mp4",
+      videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764350850/FLAT_ANAMORPHIK_LOOP_mwa1gd.mp4",
+      description: "Realistic project simulations and dynamic scenario testing",
+      path:"/services/project-videos"
+    },
+    {
+      id: 4,
+      title: "Project Simulations",
+      category: "3D Simulation",
+      videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764350661/3dmodeling/ANAMORPHIC_01_m9tqqj.mp4",
       description: "Realistic project simulations and dynamic scenario testing",
       path:"/services/project-videos"
     }
@@ -429,7 +438,7 @@ const ThreeDWorkShowcase = () => {
       <div className="relative aspect-video overflow-hidden bg-gray-900">
         <video
           className="w-full h-full object-cover"
-          src='/video.mp4'
+          src={work.vi}
           loop
           playsInline
           autoPlay
@@ -443,15 +452,15 @@ const ThreeDWorkShowcase = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
         {/* Category Badge */}
-        <div className="absolute top-4 left-4">
+        {/* <div className="absolute top-4 left-4">
           <span className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
             {work.category}
           </span>
-        </div>
+        </div> */}
       </div>
 
       {/* Content with Title and Arrow */}
-      <div className="p-6">
+      {/* <div className="p-6">
         <div className="flex items-center justify-between">
           <div>
             <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors duration-300">
@@ -465,7 +474,7 @@ const ThreeDWorkShowcase = () => {
           <Link to={work?.path}><ArrowRight className="w-5 h-5" /></Link>
           </button>
         </div>
-      </div>
+      </div> */}
     </div>
   ))}
 </div>

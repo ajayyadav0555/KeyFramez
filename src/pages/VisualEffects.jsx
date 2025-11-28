@@ -140,7 +140,7 @@ const VisualEffects = () => {
               <video
                 ref={videoRef}
                 className="w-full h-auto aspect-video object-cover"
-                src='/video.mp4'
+                src='https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764352970/Compositing_and_Green_Screen_Integration_-_Loop_owjc0o.mp4'
                 muted
                 autoPlay
                 loop
@@ -233,7 +233,7 @@ const VisualEffects = () => {
             <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-gray-900 aspect-video">
               <video
                 className="w-full h-full object-cover"
-                src="/video.mp4"
+                src="https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764352922/Train_Shot_-_Green_Screen_vdrbav.mp4"
                 autoPlay
                 muted
                 loop
@@ -307,25 +307,25 @@ const VFXWorkShowcase = () => {
       id: 1,
       title: "Epic Fantasy World",
       category: "CG Integration",
-      videoUrl: "/videos/fantasy-vfx.mp4"
+      videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764352918/VIVEKANAND_-_GREEN_SCREEN_etbixg.mp4"
     },
     {
       id: 2,
       title: "Sci-Fi Transformation",
       category: "Digital Effects",
-      videoUrl: "/videos/scifi-vfx.mp4"
+      videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764352915/SHIVAJI_MAHARAJ_-_GREEN_SCREEN_x0zdva.mp4"
     },
     {
       id: 3,
       title: "Explosion Sequences",
       category: "Particle Effects",
-      videoUrl: "/videos/explosion-vfx.mp4"
+      videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764352912/Dr._Chandraprakash_Dwivedi_-_Green_Screen_ffar1t.mp4"
     },
     {
       id: 4,
       title: "Digital Environments",
       category: "Matte Painting",
-      videoUrl: "/videos/environment-vfx.mp4"
+      videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764352891/HARISHCHANDRA_-_GREEN_SCREEN_vio2ns.mp4"
     }
   ];
 
@@ -371,7 +371,7 @@ const VFXWorkShowcase = () => {
               <div className="relative aspect-video overflow-hidden bg-gray-900">
                 <video
                   className="w-full h-full object-cover"
-                  src='/video.mp4'
+                  src={work.videoUrl}
                   loop
                   playsInline
                   autoPlay
@@ -385,11 +385,11 @@ const VFXWorkShowcase = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
                 {/* Category Badge */}
-                <div className="absolute top-4 left-4">
+                {/* <div className="absolute top-4 left-4">
                   <span className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
                     {work.category}
                   </span>
-                </div>
+                </div> */}
               </div>
             </div>
           ))}

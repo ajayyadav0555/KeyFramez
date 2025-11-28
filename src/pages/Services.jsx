@@ -21,43 +21,43 @@ const Services = () => {
   const services = [
     {
       title: "Live-shot Video Production",
-      video: "/video.mp4",
+      video: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764264915/Bugworks_-_Loop_ku2ksm.mp4",
       description: "Professional video production for commercials, corporate videos, and brand storytelling.",
       path:"/services/live-shot-video"
     },
     {
       title: "Explainer Videos",
-      video: "/video.mp4",
+      video: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764264915/Bugworks_-_Loop_ku2ksm.mp4",
       description: "Engaging animated videos that simplify complex concepts and showcase your products.",
       path:"/services/explainer-videos"
     },
     {
       title: "3D Modelling & Simulations",
-      video: "/video.mp4",
+      video: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764264915/Bugworks_-_Loop_ku2ksm.mp4",
       description: "High-quality 3D models and realistic simulations for various applications.",
       path:"/services/3d-modelling"
     },
     {
       title: "Interactive Content Creation",
-      video: "/video.mp4",
+      video: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764264915/Bugworks_-_Loop_ku2ksm.mp4",
       description: "Immersive interactive experiences including AR/VR and web-based content.",
       path:"/services/interactive-content"
     },
     {
       title: "Character Animation",
-      video: "/video.mp4",
+      video: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764264915/Bugworks_-_Loop_ku2ksm.mp4",
       description: "Bringing characters to life with expressive animation for various media.",
       path:"/services/character-animation"
     },
     {
       title: "Inventive Film",
-      video: "/video.mp4",
+      video: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764264915/Bugworks_-_Loop_ku2ksm.mp4",
       description: "Creative film production that pushes boundaries and tells unique stories.",
       path:"/services/amorphic-videos"
     },
     {
       title: "Visual Effects (VFX)",
-      video: "/video.mp4",
+      video: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764264915/Bugworks_-_Loop_ku2ksm.mp4",
       description: "Creative film production that pushes boundaries and tells unique stories.",
       path:"/services/visual-effects"
     },
