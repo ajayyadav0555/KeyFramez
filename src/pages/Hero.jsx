@@ -209,6 +209,7 @@ const Hero = () => {
             ref={rootRef}
             aria-labelledby="hero-title"
             className="relative w-full min-h-screen flex items-center justify-center text-white overflow-hidden bg-black"
+            id=""
         >
             {/* Animated Background Elements */}
             <div className="absolute inset-0 -z-10">

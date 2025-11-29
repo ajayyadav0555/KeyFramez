@@ -1,50 +1,62 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { gsap } from 'gsap';
-import { Play, Pause, Volume2, VolumeX, Zap, Eye, BookOpen, ArrowRight } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import {
+  Play, Pause, Volume2, VolumeX, Zap, Eye, BookOpen, ArrowRight,
+  Star,
+  CheckCircle2
+} from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
+
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { BiCube } from 'react-icons/bi';
 
+
+gsap.registerPlugin(ScrollTrigger);
+
 const InteractiveContent = () => {
+  const containerRef = useRef(null);
   const videoRef = useRef(null);
-  const sectionRef = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(true);
 
   useEffect(() => {
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top 70%",
-        end: "bottom 20%",
-        toggleActions: "play none none reverse"
-      }
-    });
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 60%",
+          end: "bottom top",
+          toggleActions: "play none none reverse"
+        }
+      });
 
-    tl.fromTo('.interactive-content',
-      { opacity: 0, x: -50 },
-      { opacity: 1, x: 0, duration: 1, ease: "power3.out" }
-    );
+      // Text Reveal
+      tl.fromTo('.reveal-text',
+        { y: 50, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1, stagger: 0.1, ease: "power4.out" }
+      );
 
-    tl.fromTo('.interactive-video',
-      { opacity: 0, x: 50, scale: 0.9 },
-      { opacity: 1, x: 0, scale: 1, duration: 1, ease: "back.out(1.7)" },
-      "-=0.5"
-    );
+      // Feature Cards
+      tl.fromTo('.feature-card',
+        { y: 30, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.8, stagger: 0.1, ease: "back.out(1.2)" },
+        "-=0.6"
+      );
 
-    tl.fromTo('.service-feature',
-      { opacity: 0, y: 20 },
-      { opacity: 1, y: 0, duration: 0.6, stagger: 0.1, ease: "power2.out" },
-      "-=0.3"
-    );
+      // Main Video Container
+      tl.fromTo('.hero-video-container',
+        { scale: 0.9, opacity: 0, borderRadius: "50px" },
+        { scale: 1, opacity: 1, borderRadius: "24px", duration: 1.2, ease: "power3.out" },
+        "-=1"
+      );
+    }, containerRef);
+
+    return () => ctx.revert();
   }, []);
 
   const togglePlay = () => {
     if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause();
-      } else {
-        videoRef.current.play();
-      }
+      isPlaying ? videoRef.current.pause() : videoRef.current.play();
       setIsPlaying(!isPlaying);
     }
   };
@@ -66,214 +78,211 @@ const InteractiveContent = () => {
   ];
 
   const features = [
-    { icon: <Zap className="w-5 h-5" />, text: "Immersive Experiences" },
-    { icon: <Eye className="w-5 h-5" />, text: "User Interaction" },
-    { icon: <BookOpen className="w-5 h-5" />, text: "Digital Storytelling" },
-    { icon: <BiCube className="w-5 h-5" />, text: "3D Integration" }
+    { icon: <Zap className="w-5 h-5" />, title: "Immersive Experiences", desc: "AR/VR & Kiosks" },
+    { icon: <Eye className="w-5 h-5" />, title: "User Interaction", desc: "Configurators & Demos" },
+    { icon: <BookOpen className="w-5 h-5" />, title: "Digital Storytelling", desc: "Interactive E-books" },
+    { icon: <BiCube className="w-5 h-5" />, title: "3D Integration", desc: "Unity/Unreal Engine" }
   ];
 
-  return (
-    <section ref={sectionRef} className="py-2 bg-white">
-      <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 " style={{
-        backgroundColor: "rgb(38, 38, 38)"
-      }}>
-        <div className="grid lg:grid-cols-2 gap-32 items-center max-w-7xl mx-auto py-20">
 
-          {/* Left Content */}
-          <div className="interactive-content space-y-8">
-            <div className="space-y-6">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 rounded-full text-blue-600 font-semibold text-sm">
-                <Zap className="w-4 h-4" />
-                Interactive Content Creation
+  return (
+    <>
+      <div ref={containerRef} className="bg-zinc-950 text-white overflow-hidden selection:bg-pink-500/30">
+
+        {/* SECTION 1: HERO */}
+        <section className="relative py-24 lg:py-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+
+          {/* Ambient Background Glows (Pink/Violet for High Engagement) */}
+          <div className="absolute top-0 right-0 w-96 h-96 bg-pink-600/20 rounded-full blur-[128px] pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-violet-600/10 rounded-full blur-[128px] pointer-events-none" />
+
+          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center relative z-10">
+
+            {/* Left Content */}
+            <div className="space-y-10">
+              <div className="reveal-text space-y-6">
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900/50 border border-zinc-800 rounded-full backdrop-blur-md">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-pink-500"></span>
+                  </span>
+                  <span className="text-xs font-semibold tracking-wide uppercase text-zinc-300">Interactive Content</span>
+                </div>
+
+                <h2 className="text-5xl md:text-6xl font-bold leading-tight tracking-tight">
+                  Engage Your Audience <br />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-400 to-violet-400">
+                    Like Never Before.
+                  </span>
+                </h2>
+
+                <p className="text-lg text-zinc-400 leading-relaxed max-w-xl">
+                  Transform passive viewers into **active participants** using AR/VR, interactive product configurators, and immersive digital kiosks.
+                </p>
               </div>
 
-              <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
-                Engage Your Audience Like{' '}
-                <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                  Never Before
-                </span>
-              </h2>
-
-              <p className="text-lg text-white leading-relaxed">
-                Engage your audience like never before with our Interactive Content Creation services. 
-                We design and develop immersive digital experiences that invite users to explore, interact, 
-                and connect with your brand in meaningful ways.
-              </p>
-
-              <p className="text-lg text-white leading-relaxed">
-                From Interactive videos, Interactive E-books, AR/VR experiences, and 3D Product Demos to Virtual Tours, 
-                we blend creativity, technology, and storytelling to deliver content that captivates attention and drives engagement.
-              </p>
-
-              {/* <p className="text-lg text-white leading-relaxed">
-                Perfect for marketing campaigns, presentations, education, and entertainment, our interactive creations 
-                transform passive viewers into active participants — making your message memorable, dynamic, and impactful.
-              </p> */}
-            </div>
-
-            {/* Features */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {features.map((feature, index) => (
-                <div
-                  key={index}
-                  className="flex items-center gap-3 p-4 bg-gradient-to-br from-blue-50 to-indigo-50 
-                 rounded-2xl border-4 border-blue-800"
-                >
-                  <div className="text-blue-600">
-                    {feature.icon}
-                  </div>
-
-                  <span className="text-gray-700 font-medium text-sm sm:text-base">
-                    {feature.text}
-                  </span>
-                </div>
-              ))}
-            </div>
-
-            {/* Services List */}
-            <div className="space-y-4">
-              <h3 className="text-xl font-semibold text-white">Perfect For:</h3>
-              <div className="grid sm:grid-cols-2 gap-3">
-                {services.map((service, index) => (
-                  <div key={index} className="service-feature flex items-center gap-3 p-3 bg-gray-800 rounded-xl hover:bg-blue-900 transition-colors duration-300">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full" />
-                    <span className="text-white font-medium">{service}</span>
+              {/* Feature Grid (Bento Style) */}
+              <div className="grid grid-cols-2 gap-4">
+                {features.map((feature, index) => (
+                  <div key={index} className="feature-card group p-4 rounded-2xl bg-zinc-900/40 border border-white/5 hover:bg-zinc-800/60 hover:border-pink-500/30 transition-all duration-300">
+                    <div className="mb-3 p-2 w-fit rounded-lg bg-gradient-to-br from-pink-500/10 to-violet-500/10 text-pink-400 group-hover:text-pink-300 group-hover:scale-110 transition-transform duration-300">
+                      {feature.icon}
+                    </div>
+                    <h4 className="font-semibold text-zinc-200">{feature.title}</h4>
+                    <p className="text-xs text-zinc-500 mt-1">{feature.desc}</p>
                   </div>
                 ))}
               </div>
+
+              {/* Services List */}
+              <div className="space-y-4 reveal-text pt-4">
+                <h3 className="text-xl font-semibold text-white">Perfect For:</h3>
+                <div className="grid sm:grid-cols-2 gap-3">
+                  {services.map((service, index) => (
+                    <div key={index} className="service-feature flex items-center gap-3 p-3 bg-zinc-900 rounded-xl hover:bg-violet-900/50 transition-colors duration-300 border border-zinc-800">
+                      <div className="w-2 h-2 bg-pink-500 rounded-full" />
+                      <span className="text-white font-medium text-sm">{service}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
-          </div>
 
-          {/* Right Video Section */}
-          <div className="interactive-video relative">
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl group">
-              {/* Video Player */}
-              <video
-                ref={videoRef}
-                className="w-full h-auto aspect-video object-cover"
-                src='https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764352101/3D_GLASS_slyk4d.mp4'
-                muted
-                autoPlay
-                loop
-                playsInline
-              >
-                <source src="/videos/interactive-content-demo.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+            {/* Right Video - The Hero Asset */}
+            <div className="hero-video-container relative group">
+              {/* Glow Effect behind video */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-pink-600 to-violet-600 rounded-3xl opacity-20 group-hover:opacity-40 blur-lg transition duration-500"></div>
 
-              {/* Video Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+              <div className="relative rounded-3xl overflow-hidden aspect-video shadow-2xl bg-black border border-white/10">
+                <video
+                  ref={videoRef}
+                  className="w-full h-full object-cover scale-[1.01]"
+                  src='https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764352101/3D_GLASS_slyk4d.mp4'
+                  muted={isMuted}
+                  autoPlay
+                  loop
+                  playsInline
+                />
+
+                {/* Overlay Gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+
+                {/* Controls */}
+                {/* <div className="absolute bottom-4 left-4 right-4 flex justify-between items-center z-20">
+                  <div className="flex items-center gap-2">
+                    <div className="px-3 py-1 bg-black/60 backdrop-blur-md rounded-lg border border-white/10 text-xs font-medium text-white/90 flex items-center gap-2">
+                      <Zap size={12} /> AR/VR Experience
+                    </div>
+                  </div>
+
+                  <div className="flex gap-2">
+                    <button onClick={toggleMute} className="p-2.5 rounded-full bg-white/10 backdrop-blur-md hover:bg-white/20 transition-all">
+                      {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
+                    </button>
+                    <button onClick={togglePlay} className="p-2.5 rounded-full bg-white/10 backdrop-blur-md hover:bg-white/20 transition-all">
+                      {isPlaying ? <Pause size={18} /> : <Play size={18} />}
+                    </button>
+                  </div>
+                </div> */}
+              </div>
 
               {/* Floating Badge */}
-              <div className="absolute -top-4 -right-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-2xl shadow-xl animate-pulse">
-                <div className="flex items-center gap-2 text-sm font-semibold">
-                  <Zap className="w-4 h-4" />
-                  Interactive
+              <div className="absolute -top-6 -right-6 hidden sm:block animate-bounce-slow">
+                <div className="bg-zinc-900 border border-zinc-700 text-white px-5 py-3 rounded-2xl shadow-xl flex items-center gap-3">
+                  <div className="w-2 h-2 rounded-full bg-pink-500 animate-pulse"></div>
+                  <span className="font-semibold text-sm">Real-Time Graphics</span>
                 </div>
               </div>
             </div>
           </div>
+        </section>
 
-        </div>
-        <div className="flex items-center justify-center pb-10">
-          <div className="group relative">
-            <div className="flex items-center sm:gap-4 bg-white/95 backdrop-blur-xl sm:px-6 sm:py-4 py-2 rounded-2xl shadow-lg border border-gray-200/80 hover:shadow-xl transition-all duration-500 hover:scale-105 w-fit">
+        ---
 
-              {/* Google Icon with Animation */}
-              <div className="relative">
-                <div className="flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-br from-white to-gray-50 shadow-inner border border-gray-200/60 group-hover:scale-110 transition-transform duration-500">
-                  <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-[#4285F4] shadow-lg">
-                    <svg className="w-6 h-6" viewBox="0 0 24 24">
-                      <path fill="white" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
-                      <path fill="white" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
-                      <path fill="white" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
-                      <path fill="white" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
-                    </svg>
-                  </div>
+        {/* SECTION 2: SOCIAL PROOF STRIP */}
+        <div className="border-y border-white/5 bg-zinc-900/30 backdrop-blur-sm">
+          <div className="max-w-7xl mx-auto px-4 py-8 flex flex-wrap justify-center md:justify-between items-center gap-6">
+
+            {/* Custom Google Review Component */}
+            <div className="group flex items-center gap-4 bg-zinc-950/50 px-6 py-3 rounded-2xl border border-white/5 hover:border-pink-500/20 transition-colors">
+              <div className="bg-white p-2 rounded-lg">
+                <svg className="w-5 h-5" viewBox="0 0 24 24">
+                  <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                  <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                  <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
+                  <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+                </svg>
+              </div>
+              <div>
+                <div className="flex gap-1 mb-1">
+                  {[1, 2, 3, 4, 5].map(i => <Star key={i} className="w-3.5 h-3.5 text-yellow-400 fill-current" />)}
                 </div>
-                <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/10 to-green-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm -z-10"></div>
+                <p className="text-xs text-zinc-400"><span className="text-white font-bold">4.8/5</span> from 220+ projects</p>
+              </div>
+            </div>
+
+            <div className="hidden md:flex items-center gap-8 text-zinc-500 text-sm font-medium">
+              <span className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-pink-500" /> AR/VR Apps</span>
+              <span className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-pink-500" /> Digital Kiosks</span>
+              <span className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-pink-500" /> Product Configs</span>
+            </div>
+          </div>
+        </div>
+
+        ---
+
+        {/* SECTION 3: LIGHT MODE BRIDGE */}
+        <section className="bg-white py-24 lg:py-32">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+
+              {/* Visual */}
+              <div className="relative order-2 lg:order-1">
+                <div className="absolute inset-0 bg-pink-100 rounded-[2rem] transform rotate-3 scale-105 opacity-50"></div>
+                <div className="relative rounded-[2rem] overflow-hidden shadow-2xl group">
+                  <video
+                    className="w-full h-full object-cover aspect-[4/3] group-hover:scale-105 transition-transform duration-700 ease-in-out"
+                    src="https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764352103/AR-VR_SIDE_BY_SIDE_VIDEOS_ij25b5.mp4"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                  />
+                  <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
+                </div>
               </div>
 
-              {/* Rating Content */}
-              <div className="flex items-center gap-4">
-                <div className="text-center">
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-2xl font-bold text-gray-900">4.8</span>
-                    <span className="text-sm text-gray-500">/5</span>
-                  </div>
-                  <div className="flex items-center gap-0.5 mt-1">
-                    {[1, 2, 3, 4, 5].map((star) => (
-                      <svg key={star} className="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
-                        <path d="M10 15l-5.878 3.09L5.82 11.545.64 7.41l6.078-.883L10 1l3.282 5.527 6.078.883-5.18 4.135 1.698 6.545z" />
-                      </svg>
-                    ))}
-                  </div>
-                </div>
+              {/* CTA Content */}
+              <div className="order-1 lg:order-2 space-y-8">
+                <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 leading-tight">
+                  Ready to explore more <span className="text-pink-600">immersive</span> experiences?
+                </h2>
+                <p className="text-lg text-zinc-600 leading-relaxed">
+                  From mobile AR filters to full-scale virtual reality environments, our solutions drive deeper engagement and higher retention rates.
+                </p>
 
-                <div className="h-8 w-px bg-gradient-to-b from-gray-300/50 to-transparent"></div>
+                <div className="flex flex-wrap gap-4">
 
-                <div>
-                  <div className="flex items-center gap-2">
-                    <div className="flex">
-                      {[1, 2, 3, 4, 5].map((star) => (
-                        <svg key={star} className="w-3 h-3 text-green-500 fill-current" viewBox="0 0 20 20">
-                          <path d="M10 15l-5.878 3.09L5.82 11.545.64 7.41l6.078-.883L10 1l3.282 5.527 6.078.883-5.18 4.135 1.698 6.545z" />
-                        </svg>
-                      ))}
+                  <Link to={'/portfolio'}>  <button className="group relative px-8 py-4 bg-zinc-900 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300">
+                    <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-pink-600 to-violet-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="relative flex items-center gap-3 text-white font-semibold">
+                      <span>View Interactive Portfolio</span>
+                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </div>
-                    <span className="text-sm font-semibold text-gray-900">Google Reviews</span>
-                  </div>
-                  <p className="text-xs text-gray-600 mt-0.5">220+ interactive projects delivered</p>
+                  </button></Link>
                 </div>
               </div>
 
-              {/* Trust Badge */}
-              <div className="flex items-center gap-1.5 px-3 py-1.5 bg-green-50 rounded-full border border-green-200/60">
-                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                <span className="text-xs font-medium text-green-700">Trusted</span>
-              </div>
             </div>
           </div>
-        </div>
+        </section>
+
       </div>
-      <div className="w-full max-w-7xl mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-
-          {/* Left Side - Video */}
-          <div className="relative group">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-gray-900 aspect-video">
-              <video
-                className="w-full h-full object-cover"
-                src="https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764352103/AR-VR_SIDE_BY_SIDE_VIDEOS_ij25b5.mp4"
-                autoPlay
-                muted
-                loop
-              />
-            </div>
-          </div>
-
-          {/* Right Side - Text + Button Only */}
-          <div className="flex flex-col justify-center space-y-6">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
-              Ready to explore more interactive experiences?
-            </h2>
-
-            {/* CTA Button Only */}
-            <button className="group w-fit bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
-              <div className="flex items-center justify-center gap-3">
-                <span>View Interactive Portfolio</span>
-                <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" />
-              </div>
-            </button>
-          </div>
-
-        </div>
-      </div>
-
       <InteractiveWorkShowcase />
-    </section>
+    </>
   );
 };
+
 
 const InteractiveWorkShowcase = () => {
   const sectionRef = useRef(null);
@@ -368,7 +377,33 @@ const InteractiveWorkShowcase = () => {
   const handleNavigation = (path) => {
     navigate(path);
   };
-
+  let imglink = [
+    "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764438734/Interactive_Content_Creation_-_Multi_Loop_ertbry.mp4",
+    "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764438754/Colgate_Sensitive_Clove_Essence_-_Loop_sugcsg.mp4",
+    "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764438787/Architecture_VR_-_Loop_ppmbdq.mp4",
+    "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764438790/AR_VR_Experiences_-_Multi_Loop_uwsjyu.mp4",
+    "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764438823/Cyril_the_Mandrill_-_Loop_vreuf3.mp4",
+    "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764438871/Cyril_the_Mandrill_-_Multi_Loop_tmefff.mp4",
+    "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764438875/Architecture_VR_-_Multi_Loop_cvby6e.mp4",
+    "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764438897/CHAKRAM_GAME_-_Loop_islbbu.mp4",
+    "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764438906/Camel_Guns_Jezail_and_Cannon_-_Loop_uex52o.mp4",
+    "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764438925/Children_s_Gallery_-_Loop_ykmr2d.mp4",
+    "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764438939/Employee_Training_Modules_-_Loop_xzl01f.mp4",
+    "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764438951/DAGGER_INTERACTIVE_-_Loop_yfefb5.mp4",
+    "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764438958/Coin_Interactive_-_Loop_yrudyc.mp4",
+    "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764438965/SCREEN_MAP_-_Loop_qhe9ho.mp4",
+    "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764438972/JIGSAW_-_Loop_hhnpqj.mp4",
+    "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764438996/Try_Out_The_Costumes_-_Loop_mrq1xt.mp4",
+    "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764438997/Masterstroke_-_Loop_vsbe0x.mp4",
+    "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764438997/Traditional_Weapons_-_Loop_ya5o4t.mp4",
+    "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764439007/Features_of_the_Magazine_-_Loop_ge6jtd.mp4",
+    "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764439029/Conservation_Process_of_CB_-_Loop_yxyj0m.mp4",
+    "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764439045/The_Ghatka_-_Loop_qcyzfn.mp4",
+    "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764439047/VCONNECT_-_Loop_mjvzl8.mp4",
+    "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764439050/Interactive_Product_Apps_-_Multi_Loop_vdymn7.mp4",
+    "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764352101/3D_GLASS_slyk4d.mp4",
+    "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764352103/AR-VR_SIDE_BY_SIDE_VIDEOS_ij25b5.mp4",
+  ]
   return (
     <section ref={sectionRef} className="py-20 bg-gradient-to-br from-gray-50 to-blue-50/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -385,24 +420,22 @@ const InteractiveWorkShowcase = () => {
 
         {/* Work Grid */}
         <div className="work-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-          {workVideos.map((work) => (
+          {imglink.map((work) => (
             <div
-              key={work.id}
+              key={work}
               className="work-item group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden hover:-translate-y-2"
             >
               {/* Video Container */}
               <div className="relative aspect-video overflow-hidden bg-gray-900">
                 <video
                   className="w-full h-full object-cover"
-                  src={work.videoUrl}
+                  src={work}
                   loop
                   playsInline
                   autoPlay
                   muted
-                >
-                  <source src={work.videoUrl} type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
+                />
+
 
                 {/* Video Overlay */}
                 {/* <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" /> */}
@@ -437,7 +470,7 @@ const InteractiveWorkShowcase = () => {
         </div>
 
         {/* CTA Section */}
-        
+
       </div>
 
       {/* Auto-play on hover functionality */}

@@ -1,20 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { 
-    Mail, 
-    Phone, 
-    MapPin, 
-    ArrowRight, 
-    Facebook, 
-    Twitter, 
-    Instagram, 
-    Linkedin, 
+import {
+    Mail,
+    Phone,
+    MapPin,
+    ArrowRight,
+    Facebook,
+    Twitter,
+    Instagram,
+    Linkedin,
     Youtube,
     Send,
     Heart
 } from 'lucide-react';
+import toast from 'react-hot-toast';
 
 const Footer = () => {
+    const [input, setInput] = useState("")
+    const navItems = [
+        { label: 'Home', path: '/' },
+        { label: 'About Us', path: '/about-us' },
+        { label: 'Services', path: '/services' },
+        { label: 'Portfolio', path: '/portfolio' },
+    ];
+    const SERVICES = [
+        { name: "Video Production", path: "live-shot-video" },
+        { name: "Explainer Videos", path: "explainer-videos" },
+        { name: "3D Animation", path: "3d-modelling" },
+        { name: "Visual Effects", path: "visual-effects" },
+        { name: "Interactive Content Creation", path: "interactive-content" },
+        { name: "Character Animation", path: "character-animation" },
+        { name: "LMS-Based E-Learning Content", path: "lms-content" },
+        { name: "Visual-effects", path: "visual-effects" }
+    ];
+
     return (
         <footer className="bg-gradient-to-br from-gray-900 to-gray-950 text-white relative overflow-hidden">
             {/* Background Pattern */}
@@ -28,12 +47,12 @@ const Footer = () => {
             {/* Main Footer Content */}
             <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-                    
+
                     {/* Company Info */}
                     <div className="lg:col-span-1">
                         <div className="flex items-center gap-3 mb-6">
                             <img
-                                src="Keyframez.png"
+                                src="/Keyframez.png"
                                 alt="Keyframez"
                                 className="w-12 h-12 object-contain"
                             />
@@ -44,12 +63,12 @@ const Footer = () => {
                                 <p className="text-sm text-gray-400">Visual Productions</p>
                             </div>
                         </div>
-                        
+
                         <p className="text-gray-300 mb-6 leading-relaxed">
-                            Crafting exceptional visual experiences through innovative video production, 
+                            Crafting exceptional visual experiences through innovative video production,
                             animation, and creative storytelling that captivates audiences worldwide.
                         </p>
-                        
+
                         {/* Social Links */}
                         <div className="flex items-center gap-3">
                             {[
@@ -77,17 +96,17 @@ const Footer = () => {
                             <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
                         </h4>
                         <ul className="space-y-3">
-                            {[
-                                'Home', 'About Us', 'Services', 'Portfolio', 
-                                'Case Studies', 'Testimonials', 'Careers', 'Blog'
-                            ].map((item) => (
-                                <li key={item}>
+                            {navItems.map(({ label, path }) => (
+                                <li key={label}>
                                     <Link
-                                        to={`/${item.toLowerCase().replace(' ', '-')}`}
+                                        to={path}
                                         className="text-gray-300 hover:text-white transition-all duration-300 flex items-center gap-2 group"
                                     >
-                                        <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all duration-300" />
-                                        {item}
+                                        <ArrowRight
+                                            size={14}
+                                            className="opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all duration-300"
+                                        />
+                                        {label}
                                     </Link>
                                 </li>
                             ))}
@@ -101,22 +120,23 @@ const Footer = () => {
                             <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
                         </h4>
                         <ul className="space-y-3">
-                            {[
-                                'Video Production', '3D Animation', 'Visual Effects',
-                                'Motion Graphics', 'Explainer Videos', 'Corporate Videos',
-                                'Product Demos', 'E-Learning Content'
-                            ].map((service) => (
-                                <li key={service}>
+                            {SERVICES.map(({ name, path }) => (
+                                <li key={path}>
                                     <Link
-                                        to={`/services/${service.toLowerCase().replace(' ', '-')}`}
+                                        to={`/services/${path}`}
                                         className="text-gray-300 hover:text-white transition-all duration-300 flex items-center gap-2 group"
                                     >
-                                        <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all duration-300" />
-                                        {service}
+                                        <ArrowRight
+                                            size={14}
+                                            className="opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all duration-300"
+                                        />
+                                        {name}
                                     </Link>
                                 </li>
                             ))}
                         </ul>
+
+
                     </div>
 
                     {/* Contact & Newsletter */}
@@ -125,7 +145,7 @@ const Footer = () => {
                             Stay Connected
                             <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                         </h4>
-                        
+
                         {/* Contact Info */}
                         <div className="space-y-4 mb-6">
                             <div className="flex items-center gap-3 text-gray-300 group hover:text-white transition-colors duration-300">
@@ -133,11 +153,11 @@ const Footer = () => {
                                     <Mail size={18} className="text-blue-400" />
                                 </div>
                                 <div>
-                                    <p className="text-sm">hello@keyframez.com</p>
+                                    <p className="text-sm">hari@keyframez.com</p>
                                     <p className="text-xs text-gray-400">Send us an email</p>
                                 </div>
                             </div>
-                            
+
                             <div className="flex items-center gap-3 text-gray-300 group hover:text-white transition-colors duration-300">
                                 <div className="w-10 h-10 rounded-xl bg-green-500/20 flex items-center justify-center group-hover:bg-green-500/30 transition-colors duration-300">
                                     <Phone size={18} className="text-green-400" />
@@ -147,14 +167,14 @@ const Footer = () => {
                                     <p className="text-xs text-gray-400">Call us anytime</p>
                                 </div>
                             </div>
-                            
+
                             <div className="flex items-center gap-3 text-gray-300 group hover:text-white transition-colors duration-300">
                                 <div className="w-10 h-10 rounded-xl bg-purple-500/20 flex items-center justify-center group-hover:bg-purple-500/30 transition-colors duration-300">
                                     <MapPin size={18} className="text-purple-400" />
                                 </div>
                                 <div>
-                                    <p className="text-sm">New York, NY 10001</p>
-                                    <p className="text-xs text-gray-400">Visit our studio</p>
+                                    <p className="text-sm">malad west , mumbai</p>
+                                    <p className="text-xs text-gray-400">Visit our office</p>
                                 </div>
                             </div>
                         </div>
@@ -168,10 +188,22 @@ const Footer = () => {
                                     type="email"
                                     placeholder="Enter your email"
                                     className="flex-1 bg-gray-700/50 border border-gray-600/50 rounded-xl px-3 py-2 text-sm text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors duration-300"
+                                    value={input}
+                                    onChange={(e) => {
+                                        setInput(e.target.value)
+                                    }}
                                 />
-                                <button className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 p-2 rounded-xl transition-all duration-300 transform hover:scale-105">
+                                <button
+                                    className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 p-2 rounded-xl transition-all duration-300 transform hover:scale-105"
+                                    onClick={() => {
+                                        if (!input) return toast.error("Please enter an email"); // optional
+                                        setInput("");
+                                        toast.success("Subscribed to Keyframez");
+                                    }}
+                                >
                                     <Send size={16} className="text-white" />
                                 </button>
+
                             </div>
                         </div>
                     </div>
@@ -181,11 +213,11 @@ const Footer = () => {
                 <div className="border-t border-gray-800/50 mt-12 pt-8">
                     <div className="flex flex-col md:flex-row justify-between items-center gap-4">
                         <div className="text-gray-400 text-sm flex items-center gap-1">
-                            © 2024 Keyframez Visual Productions. All rights reserved. 
-                            Made with <Heart size={14} className="text-red-400 fill-current mx-1" /> 
+                            © 2024 Keyframez Visual Productions. All rights reserved.
+                            Made with <Heart size={14} className="text-red-400 fill-current mx-1" />
                             for creative excellence
                         </div>
-                        
+
                         <div className="flex items-center gap-6 text-sm text-gray-400">
                             <a href="#" className="hover:text-white transition-colors duration-300">Privacy Policy</a>
                             <a href="#" className="hover:text-white transition-colors duration-300">Terms of Service</a>

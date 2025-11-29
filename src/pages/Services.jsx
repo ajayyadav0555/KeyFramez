@@ -21,7 +21,7 @@ const Services = () => {
   const services = [
     {
       title: "Live-shot Video Production",
-      video: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764264915/Bugworks_-_Loop_ku2ksm.mp4",
+      video: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764264910/LANDMARK_-_Loop_oq0t1g.mp4",
       description: "Professional video production for commercials, corporate videos, and brand storytelling.",
       path:"/services/live-shot-video"
     },
@@ -33,19 +33,19 @@ const Services = () => {
     },
     {
       title: "3D Modelling & Simulations",
-      video: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764264915/Bugworks_-_Loop_ku2ksm.mp4",
+      video: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764350904/Product_Models_-_Loop_xr3he2.mp4",
       description: "High-quality 3D models and realistic simulations for various applications.",
       path:"/services/3d-modelling"
     },
     {
       title: "Interactive Content Creation",
-      video: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764264915/Bugworks_-_Loop_ku2ksm.mp4",
+      video: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764352101/3D_GLASS_slyk4d.mp4",
       description: "Immersive interactive experiences including AR/VR and web-based content.",
       path:"/services/interactive-content"
     },
     {
       title: "Character Animation",
-      video: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764264915/Bugworks_-_Loop_ku2ksm.mp4",
+      video: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764439999/Animatic_Film_-_ELF_MOTO_SNAKE_LADDER_sntoa1.mp4",
       description: "Bringing characters to life with expressive animation for various media.",
       path:"/services/character-animation"
     },
@@ -57,7 +57,7 @@ const Services = () => {
     },
     {
       title: "Visual Effects (VFX)",
-      video: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764264915/Bugworks_-_Loop_ku2ksm.mp4",
+      video: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764352970/Compositing_and_Green_Screen_Integration_-_Loop_owjc0o.mp4",
       description: "Creative film production that pushes boundaries and tells unique stories.",
       path:"/services/visual-effects"
     },

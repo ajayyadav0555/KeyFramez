@@ -20,38 +20,43 @@ import ArchitectureVr from './components/ArchitectureVr'
 import InteractiveEBooks from './components/Ebook'
 import InteractiveProductApps from './components/InteractiveProductApps'
 import Portfolio from './pages/Portfolio'
+import { Toaster } from 'react-hot-toast'
 const App = () => {
   return (
-    <BrowserRouter>
-      <Navbar />
-      <div className="sm:pt-30 pt-16">
-        <Routes>
-          <Route path='/' element={<Hero />} />
-          <Route path='/about' element={<Aboutus />} />
-          <Route path='/contact' element={<Contact />} />
-          <Route path='/portfolio' element={<Portfolio />} />
-          <Route path='services' >
-            <Route path="live-shot-video" element={<LiveShotVideo />} />
-            <Route path="/services/explainer-videos" element={<ExplainerVideos />} />
-            <Route path="/services/3d-modelling" element={<ThreeDModelling />} />
-            <Route path="/services/interactive-content" element={<InteractiveContent />} />
-            <Route path="/services/ar-vr" element={<ARVRExperiences />} />
-            <Route path="/services/architecture-vr" element={<ArchitectureVr />} />
-            <Route path="/services/e-book" element={<InteractiveEBooks/>} />
-            <Route path="/services/productApps" element={<InteractiveProductApps/>} />
-            <Route path="/services/character-animation" element={<CharacterAnimation />} />
-            <Route path="/services/lms-content" element={<LMSContent />} />
-            <Route path="/services/visual-effects" element={<VisualEffects />} />
-            <Route path="/services/amorphic-videos" element={<AmorphicVideos />} />
-            <Route path="/services/architecture-videos" element={<ArchitectureModels />} />
-            <Route path="/services/product-videos" element={<ProductModel />} />
-            <Route path="/services/project-videos" element={<ProjectSimulations />} />
-          </Route>
-        </Routes>
-      </div>
-                  <ContactFooter />
+    <>
+      <BrowserRouter>
+        <Navbar />
+        <div className="sm:pt-30 pt-16">
+          <Routes>
+            <Route path='/' element={<Hero />} />
+            <Route path='/about' element={<Aboutus />} />
+            <Route path='/contact' element={<Contact />} />
+            <Route path='/portfolio' element={<Portfolio />} />
+            <Route path='services' >
+              <Route path="live-shot-video" element={<LiveShotVideo />} />
+              <Route path="/services/explainer-videos" element={<ExplainerVideos />} />
+              <Route path="/services/3d-modelling" element={<ThreeDModelling />} />
+              <Route path="/services/interactive-content" element={<InteractiveContent />} />
+              <Route path="/services/ar-vr" element={<ARVRExperiences />} />
+              <Route path="/services/architecture-vr" element={<ArchitectureVr />} />
+              <Route path="/services/e-book" element={<InteractiveEBooks />} />
+              <Route path="/services/productApps" element={<InteractiveProductApps />} />
+              <Route path="/services/character-animation" element={<CharacterAnimation />} />
+              <Route path="/services/lms-content" element={<LMSContent />} />
+              <Route path="/services/visual-effects" element={<VisualEffects />} />
+              <Route path="/services/amorphic-videos" element={<AmorphicVideos />} />
+              <Route path="/services/architecture-videos" element={<ArchitectureModels />} />
+              <Route path="/services/product-videos" element={<ProductModel />} />
+              <Route path="/services/project-videos" element={<ProjectSimulations />} />
+            </Route>
+          </Routes>
+        </div>
+        <ContactFooter />
 
-    </BrowserRouter>
+      </BrowserRouter>
+      <Toaster position="top-right" reverseOrder={false} />
+
+    </>
   )
 }
 

@@ -66,19 +66,19 @@ const Navbar = () => {
             }
         );
 
-        tl.fromTo(logoRef.current,
-            {
-                scale: 0,
-                rotation: -180,
-            },
-            {
-                scale: 1,
-                rotation: 0,
-                duration: 0.8,
-                ease: "back.out(1.7)",
-            },
-            "-=0.3"
-        );
+        // tl.fromTo(logoRef.current,
+        //     {
+        //         scale: 0,
+        //         rotation: -180,
+        //     },
+        //     {
+        //         scale: 1,
+        //         rotation: 0,
+        //         duration: 0.8,
+        //         ease: "back.out(1.7)",
+        //     },
+        //     "-=0.3"
+        // );
 
         tl.fromTo(menuItemsRef.current,
             {
@@ -255,7 +255,9 @@ const Navbar = () => {
             >
                 <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 flex justify-around items-center">
                     {/* Enhanced Logo */}
-                    <div ref={logoRef} className="flex items-center">
+                    <div 
+                    ref={logoRef} 
+                    className="flex items-center">
                         <Link
                             to="/"
                             className="relative group flex items-center gap-3"
@@ -263,7 +265,7 @@ const Navbar = () => {
                         >
                             <div className="relative">
                                 <img
-                                    src="Keyframez.png"
+                                    src="/Keyframez.png"
                                     alt="Keyframez"
                                     className="w-12 h-12 sm:w-16 sm:h-16 object-contain transition-all duration-500 group-hover:scale-110 group-hover:rotate-2"
                                 />
@@ -431,7 +433,7 @@ const Navbar = () => {
                             onClick={handleMobileLinkClick}
                         >
                             <img
-                                src="Keyframez.png"
+                                src="/Keyframez.png"
                                 alt="Keyframez"
                                 className="w-12 h-12 object-contain"
                             />

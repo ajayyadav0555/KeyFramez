@@ -1,50 +1,63 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { gsap } from 'gsap';
-import { Play, Pause, Volume2, VolumeX, Box, Zap, RotateCw, Camera, ArrowRight } from 'lucide-react';
-import { Link, useNavigate } from 'react-router-dom';
-import { BiCube } from 'react-icons/bi';
+import { Play, Pause, Volume2, VolumeX, Box, Zap, RotateCw, Camera, ArrowRight,  Layers, 
+  Move3d, 
+  Rotate3d, 
+  Star,
+  CheckCircle2,
+  Cuboid } from 'lucide-react';
+import { Link, Links, useNavigate } from 'react-router-dom';
+
+
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+
+gsap.registerPlugin(ScrollTrigger);
 
 const ThreeDModeling = () => {
+  const containerRef = useRef(null);
   const videoRef = useRef(null);
-  const sectionRef = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(true);
 
   useEffect(() => {
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top 70%",
-        end: "bottom 20%",
-        toggleActions: "play none none reverse"
-      }
-    });
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 60%",
+          end: "bottom top",
+          toggleActions: "play none none reverse"
+        }
+      });
 
-    tl.fromTo('.modeling-content',
-      { opacity: 0, x: -50 },
-      { opacity: 1, x: 0, duration: 1, ease: "power3.out" }
-    );
+      // Text Reveal
+      tl.fromTo('.reveal-text',
+        { y: 50, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1, stagger: 0.1, ease: "power4.out" }
+      );
 
-    tl.fromTo('.modeling-video',
-      { opacity: 0, x: 50, scale: 0.9 },
-      { opacity: 1, x: 0, scale: 1, duration: 1, ease: "back.out(1.7)" },
-      "-=0.5"
-    );
+      // Feature Cards
+      tl.fromTo('.feature-card',
+        { y: 30, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.8, stagger: 0.1, ease: "back.out(1.2)" },
+        "-=0.6"
+      );
 
-    tl.fromTo('.service-feature',
-      { opacity: 0, y: 20 },
-      { opacity: 1, y: 0, duration: 0.6, stagger: 0.1, ease: "power2.out" },
-      "-=0.3"
-    );
+      // Main Video Container
+      tl.fromTo('.hero-video-container',
+        { scale: 0.9, opacity: 0, borderRadius: "50px" },
+        { scale: 1, opacity: 1, borderRadius: "24px", duration: 1.2, ease: "power3.out" },
+        "-=1"
+      );
+    }, containerRef);
+
+    return () => ctx.revert();
   }, []);
 
   const togglePlay = () => {
     if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause();
-      } else {
-        videoRef.current.play();
-      }
+      isPlaying ? videoRef.current.pause() : videoRef.current.play();
       setIsPlaying(!isPlaying);
     }
   };
@@ -56,215 +69,198 @@ const ThreeDModeling = () => {
     }
   };
 
-  const services = [
-    "Product Visualization",
-    "Architectural Rendering",
-    "Character Design",
-    "Medical Animation",
-    "Engineering Prototypes",
-    "Marketing Assets"
-  ];
-
   const features = [
-    { icon: <BiCube className="w-5 h-5" />, text: "3D Modeling" },
-    { icon: <Box className="w-5 h-5" />, text: "Texturing & Lighting" },
-    { icon: <Zap className="w-5 h-5" />, text: "Animation" },
-    { icon: <RotateCw className="w-5 h-5" />, text: "360° Rotation" }
+    { icon: <Cuboid className="w-5 h-5" />, title: "3D Modeling", desc: "High-Poly & CAD" },
+    { icon: <Layers className="w-5 h-5" />, title: "Texturing", desc: "Photorealistic" },
+    { icon: <Move3d className="w-5 h-5" />, title: "Animation", desc: "Physics & rigging" },
+    { icon: <Rotate3d className="w-5 h-5" />, title: "360° Views", desc: "Interactive" }
   ];
 
   return (
-    <section ref={sectionRef} className="py-2 bg-white">
-      <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 " style={{
-        backgroundColor: "rgb(38, 38, 38)"
-      }}>
-        <div className="grid lg:grid-cols-2 gap-32 items-center max-w-7xl mx-auto py-20">
+  <>
+    <div ref={containerRef} className="bg-zinc-950 text-white overflow-hidden selection:bg-cyan-500/30">
+      
+      {/* SECTION 1: HERO */}
+      <section className="relative py-24 lg:py-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        
+        {/* Ambient Background Glows (Cyan/Indigo for 3D Tech feel) */}
+        <div className="absolute top-0 left-0 w-96 h-96 bg-cyan-600/20 rounded-full blur-[128px] pointer-events-none" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-indigo-600/10 rounded-full blur-[128px] pointer-events-none" />
+
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center relative z-10">
 
           {/* Left Content */}
-          <div className="modeling-content space-y-8">
-            <div className="space-y-6">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 rounded-full text-blue-600 font-semibold text-sm">
-                <BiCube className="w-4 h-4" />
-                3D Modeling & Animation
+          <div className="space-y-10">
+            <div className="reveal-text space-y-6">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900/50 border border-zinc-800 rounded-full backdrop-blur-md">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
+                </span>
+                <span className="text-xs font-semibold tracking-wide uppercase text-zinc-300">3D Visualization</span>
               </div>
 
-              <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
-                Bring Your Vision to Life with{' '}
-                <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                  Stunning 3D Visuals
+              <h2 className="text-5xl md:text-6xl font-bold leading-tight tracking-tight">
+                Bring Your Vision to <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400">
+                  Life in 3D.
                 </span>
               </h2>
 
-              <p className="text-lg text-white leading-relaxed">
-                Our 3D Modeling service transforms your ideas into photorealistic 3D assets and animations. 
-                From product visualization to architectural rendering, we create immersive experiences that 
-                captivate audiences and drive engagement across all platforms.
+              <p className="text-lg text-zinc-400 leading-relaxed max-w-xl">
+                Visualize. Interact. Experience. We turn imagination into reality with detailed 3D models, architectural renderings, and product simulations.
               </p>
             </div>
 
-            {/* Features */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {/* Feature Grid (Bento Style) */}
+            <div className="grid grid-cols-2 gap-4">
               {features.map((feature, index) => (
-                <div
-                  key={index}
-                  className="flex items-center gap-3 p-4 bg-gradient-to-br from-blue-50 to-indigo-50 
-                 rounded-2xl border-4 border-blue-800"
-                >
-                  <div className="text-blue-600">
+                <div key={index} className="feature-card group p-4 rounded-2xl bg-zinc-900/40 border border-white/5 hover:bg-zinc-800/60 hover:border-cyan-500/30 transition-all duration-300">
+                  <div className="mb-3 p-2 w-fit rounded-lg bg-gradient-to-br from-cyan-500/10 to-indigo-500/10 text-cyan-400 group-hover:text-cyan-300 group-hover:scale-110 transition-transform duration-300">
                     {feature.icon}
                   </div>
-
-                  <span className="text-gray-700 font-medium text-sm sm:text-base">
-                    {feature.text}
-                  </span>
+                  <h4 className="font-semibold text-zinc-200">{feature.title}</h4>
+                  <p className="text-xs text-zinc-500 mt-1">{feature.desc}</p>
                 </div>
               ))}
             </div>
-
-            {/* Services List */}
-            <div className="space-y-4">
-              <h3 className="text-xl font-semibold text-white">Perfect For:</h3>
-              <div className="grid sm:grid-cols-2 gap-3">
-                {services.map((service, index) => (
-                  <div key={index} className="service-feature flex items-center gap-3 p-3 bg-gray-800 rounded-xl hover:bg-blue-900 transition-colors duration-300">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full" />
-                    <span className="text-white font-medium">{service}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
 
-          {/* Right Video Section */}
-          <div className="modeling-video relative">
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl group">
-              {/* Video Player */}
+          {/* Right Video - The Hero Asset */}
+          <div className="hero-video-container relative group">
+            {/* Glow Effect behind video */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-cyan-600 to-indigo-600 rounded-3xl opacity-20 group-hover:opacity-40 blur-lg transition duration-500"></div>
+            
+            <div className="relative rounded-3xl overflow-hidden aspect-video shadow-2xl bg-black border border-white/10">
               <video
                 ref={videoRef}
-                className="w-full h-auto aspect-video object-cover"
+                className="w-full h-full object-cover scale-[1.01]"
                 src='https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764350904/Product_Models_-_Loop_xr3he2.mp4'
-                muted
+                muted={isMuted}
                 autoPlay
                 loop
                 playsInline
-                width={"fit"}
-              >
-                <source src="/videos/3d-modeling-demo.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-
-              {/* Video Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-
-              {/* Floating Badge */}
-              <div className="absolute -top-4 -right-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-2xl shadow-xl animate-pulse">
-                <div className="flex items-center gap-2 text-sm font-semibold">
-                  <BiCube className="w-4 h-4" />
-                  3D Modeling
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-        <div className="flex items-center justify-center pb-10">
-          <div className="group relative">
-            <div className="flex items-center sm:gap-4 bg-white/95 backdrop-blur-xl sm:px-6 sm:py-4 py-2 rounded-2xl shadow-lg border border-gray-200/80 hover:shadow-xl transition-all duration-500 hover:scale-105 w-fit">
-
-              {/* Google Icon with Animation */}
-              <div className="relative">
-                <div className="flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-br from-white to-gray-50 shadow-inner border border-gray-200/60 group-hover:scale-110 transition-transform duration-500">
-                  <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-[#4285F4] shadow-lg">
-                    <svg className="w-6 h-6" viewBox="0 0 24 24">
-                      <path fill="white" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
-                      <path fill="white" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
-                      <path fill="white" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
-                      <path fill="white" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
-                    </svg>
-                  </div>
-                </div>
-                <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/10 to-green-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm -z-10"></div>
-              </div>
-
-              {/* Rating Content */}
-              <div className="flex items-center gap-4">
-                <div className="text-center">
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-2xl font-bold text-gray-900">4.9</span>
-                    <span className="text-sm text-gray-500">/5</span>
-                  </div>
-                  <div className="flex items-center gap-0.5 mt-1">
-                    {[1, 2, 3, 4, 5].map((star) => (
-                      <svg key={star} className="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
-                        <path d="M10 15l-5.878 3.09L5.82 11.545.64 7.41l6.078-.883L10 1l3.282 5.527 6.078.883-5.18 4.135 1.698 6.545z" />
-                      </svg>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="h-8 w-px bg-gradient-to-b from-gray-300/50 to-transparent"></div>
-
-                <div>
-                  <div className="flex items-center gap-2">
-                    <div className="flex">
-                      {[1, 2, 3, 4, 5].map((star) => (
-                        <svg key={star} className="w-3 h-3 text-green-500 fill-current" viewBox="0 0 20 20">
-                          <path d="M10 15l-5.878 3.09L5.82 11.545.64 7.41l6.078-.883L10 1l3.282 5.527 6.078.883-5.18 4.135 1.698 6.545z" />
-                        </svg>
-                      ))}
-                    </div>
-                    <span className="text-sm font-semibold text-gray-900">Google Reviews</span>
-                  </div>
-                  <p className="text-xs text-gray-600 mt-0.5">285+ 3D projects delivered</p>
-                </div>
-              </div>
-
-              {/* Trust Badge */}
-              <div className="flex items-center gap-1.5 px-3 py-1.5 bg-green-50 rounded-full border border-green-200/60">
-                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                <span className="text-xs font-medium text-green-700">Trusted</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="w-full max-w-7xl mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-
-          {/* Left Side - Video */}
-          <div className="relative group">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-gray-900 aspect-video">
-              <video
-                className="w-full h-full object-cover"
-                src="https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764350661/3dmodeling/ANAMORPHIC_01_m9tqqj.mp4"
-                autoPlay
-                muted
-                loop
               />
+              
+              {/* Overlay Gradient */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+
+              {/* Controls */}
+              <div className="absolute bottom-4 left-4 right-4 flex justify-between items-center z-20">
+                <div className="flex items-center gap-2">
+                   <div className="px-3 py-1 bg-black/60 backdrop-blur-md rounded-lg border border-white/10 text-xs font-medium text-white/90 flex items-center gap-2">
+                     <Box size={12} /> Product Rendering
+                   </div>
+                </div>
+                
+                <div className="flex gap-2">
+                  <button onClick={toggleMute} className="p-2.5 rounded-full bg-white/10 backdrop-blur-md hover:bg-white/20 transition-all">
+                    {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
+                  </button>
+                  <button onClick={togglePlay} className="p-2.5 rounded-full bg-white/10 backdrop-blur-md hover:bg-white/20 transition-all">
+                     {isPlaying ? <Pause size={18} /> : <Play size={18} />}
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Floating Badge */}
+            <div className="absolute -top-6 -right-6 hidden sm:block animate-bounce-slow">
+              <div className="bg-zinc-900 border border-zinc-700 text-white px-5 py-3 rounded-2xl shadow-xl flex items-center gap-3">
+                 <div className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse"></div>
+                 <span className="font-semibold text-sm">CGI Production</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      {/* SECTION 2: SOCIAL PROOF STRIP */}
+      <div className="border-y border-white/5 bg-zinc-900/30 backdrop-blur-sm">
+        <div className="max-w-7xl mx-auto px-4 py-8 flex flex-wrap justify-center md:justify-between items-center gap-6">
+          
+          {/* Custom Google Review Component */}
+          <div className="group flex items-center gap-4 bg-zinc-950/50 px-6 py-3 rounded-2xl border border-white/5 hover:border-cyan-500/20 transition-colors">
+            <div className="bg-white p-2 rounded-lg">
+               <svg className="w-5 h-5" viewBox="0 0 24 24">
+                  <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                  <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                  <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
+                  <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+                </svg>
+            </div>
+            <div>
+              <div className="flex gap-1 mb-1">
+                {[1,2,3,4,5].map(i => <Star key={i} className="w-3.5 h-3.5 text-yellow-400 fill-current" />)}
+              </div>
+              <p className="text-xs text-zinc-400"><span className="text-white font-bold">4.9/5</span> from 285+ projects</p>
             </div>
           </div>
 
-          {/* Right Side - Text + Button Only */}
-          <div className="flex flex-col justify-center space-y-6">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
-              Want to see more 3D creations?
-            </h2>
-
-            {/* CTA Button Only */}
-            <button className="group w-fit bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
-              <div className="flex items-center justify-center gap-3">
-                <span>View 3D Portfolio</span>
-                <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" />
-              </div>
-            </button>
+          <div className="hidden md:flex items-center gap-8 text-zinc-500 text-sm font-medium">
+             <span className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-cyan-500"/> Product Vis</span>
+             <span className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-cyan-500"/> Architectural</span>
+             <span className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-cyan-500"/> Anamorphic 3D</span>
           </div>
-
         </div>
       </div>
 
-      <ThreeDWorkShowcase />
-    </section>
+      {/* SECTION 3: LIGHT MODE BRIDGE */}
+      <section className="bg-white py-24 lg:py-32">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            
+            {/* Visual */}
+            <div className="relative order-2 lg:order-1">
+              <div className="absolute inset-0 bg-cyan-100 rounded-[2rem] transform rotate-3 scale-105 opacity-50"></div>
+              <div className="relative rounded-[2rem] overflow-hidden shadow-2xl group">
+                 <video
+                  className="w-full h-full object-cover aspect-[4/3] group-hover:scale-105 transition-transform duration-700 ease-in-out"
+                  src="https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764350661/3dmodeling/ANAMORPHIC_01_m9tqqj.mp4"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                />
+                <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
+              </div>
+            </div>
+
+            {/* CTA Content */}
+            <div className="order-1 lg:order-2 space-y-8">
+              <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 leading-tight">
+                Not just pixels. <br/>
+                We create <span className="text-cyan-600">Dimensions.</span>
+              </h2>
+              <p className="text-lg text-zinc-600 leading-relaxed">
+                From hyper-realistic product demos to mind-bending anamorphic billboards. See how we help brands stand out in a three-dimensional world.
+              </p>
+              
+              <div className="flex flex-wrap gap-4">
+                <Link to={'/portfolio'}>
+                <button className="group relative px-8 py-4 bg-zinc-900 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300">
+                  <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-cyan-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="relative flex items-center gap-3 text-white font-semibold">
+                    <span>View  Portfolio</span>
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </button>
+                </Link>
+              
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+    </div>
+      <ThreeDWorkShowcase /> 
+  </>
   );
 };
+
 
 const ThreeDWorkShowcase = () => {
   const sectionRef = useRef(null);
@@ -387,80 +383,80 @@ const ThreeDWorkShowcase = () => {
         </div>
 
         {/* Work Grid */}
-      <div className="work-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-12">
-  {[
-    {
-      id: 1,
-      title: "Amorphic Videos",
-      category: "3D Animation",
-      videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764350654/3dmodeling/SAMPLE_PREVIEW_u28qet.mp4",
-      description: "Fluid and organic 3D animations that transform and evolve",
-      path:"/services/amorphic-videos"
-    },
-    {
-      id: 2,
-      title: "Architecture Videos",
-      category: "Architectural 3D",
-      videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764350882/BATHSENSE_CONCEALED_CISTERN_INSTALLATION_-_Loop_poxfai.mp4",
-      description: "Immersive architectural walkthroughs and building visualizations",
-      path:"/services/architecture-videos"
-    },
-    {
-      id: 3,
-      title: "Product Model",
-      category: "3D Modeling",
-      videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764350876/3D_LAMP_fbalz4.mp4",
-      description: "Detailed 3D project models and prototype visualizations",
-      path:"/services/product-videos"
-    },
-    {
-      id: 4,
-      title: "Project Simulations",
-      category: "3D Simulation",
-      videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764350850/FLAT_ANAMORPHIK_LOOP_mwa1gd.mp4",
-      description: "Realistic project simulations and dynamic scenario testing",
-      path:"/services/project-videos"
-    },
-    {
-      id: 4,
-      title: "Project Simulations",
-      category: "3D Simulation",
-      videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764350661/3dmodeling/ANAMORPHIC_01_m9tqqj.mp4",
-      description: "Realistic project simulations and dynamic scenario testing",
-      path:"/services/project-videos"
-    }
-  ].map((work) => (
-    <div
-      key={work.id}
-      className="work-item group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden hover:-translate-y-2"
-    >
-      {/* Video Container */}
-      <div className="relative aspect-video overflow-hidden bg-gray-900">
-        <video
-          className="w-full h-full object-cover"
-          src={work.vi}
-          loop
-          playsInline
-          autoPlay
-          muted
-        >
-          <source src={work.videoUrl} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        <div className="work-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-12">
+          {[
+            {
+              id: 1,
+              title: "Amorphic Videos",
+              category: "3D Animation",
+              videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764350654/3dmodeling/SAMPLE_PREVIEW_u28qet.mp4",
+              description: "Fluid and organic 3D animations that transform and evolve",
+              path: "/services/amorphic-videos"
+            },
+            {
+              id: 2,
+              title: "Architecture Videos",
+              category: "Architectural 3D",
+              videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764350882/BATHSENSE_CONCEALED_CISTERN_INSTALLATION_-_Loop_poxfai.mp4",
+              description: "Immersive architectural walkthroughs and building visualizations",
+              path: "/services/architecture-videos"
+            },
+            {
+              id: 3,
+              title: "Product Model",
+              category: "3D Modeling",
+              videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764350876/3D_LAMP_fbalz4.mp4",
+              description: "Detailed 3D project models and prototype visualizations",
+              path: "/services/product-videos"
+            },
+            {
+              id: 4,
+              title: "Project Simulations",
+              category: "3D Simulation",
+              videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764350850/FLAT_ANAMORPHIK_LOOP_mwa1gd.mp4",
+              description: "Realistic project simulations and dynamic scenario testing",
+              path: "/services/project-videos"
+            },
+            {
+              id: 4,
+              title: "Project Simulations",
+              category: "3D Simulation",
+              videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764350661/3dmodeling/ANAMORPHIC_01_m9tqqj.mp4",
+              description: "Realistic project simulations and dynamic scenario testing",
+              path: "/services/project-videos"
+            }
+          ].map((work) => (
+            <div
+              key={work.id}
+              className="work-item group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden hover:-translate-y-2"
+            >
+              {/* Video Container */}
+              <div className="relative aspect-video overflow-hidden bg-gray-900">
+                <video
+                  className="w-full h-full object-cover"
+                  src={work.vi}
+                  loop
+                  playsInline
+                  autoPlay
+                  muted
+                >
+                  <source src={work.videoUrl} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
 
-        {/* Video Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                {/* Video Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-        {/* Category Badge */}
-        {/* <div className="absolute top-4 left-4">
+                {/* Category Badge */}
+                {/* <div className="absolute top-4 left-4">
           <span className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
             {work.category}
           </span>
         </div> */}
-      </div>
+              </div>
 
-      {/* Content with Title and Arrow */}
-      {/* <div className="p-6">
+              {/* Content with Title and Arrow */}
+              {/* <div className="p-6">
         <div className="flex items-center justify-between">
           <div>
             <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors duration-300">
@@ -475,11 +471,11 @@ const ThreeDWorkShowcase = () => {
           </button>
         </div>
       </div> */}
-    </div>
-  ))}
-</div>
+            </div>
+          ))}
+        </div>
 
-       
+
       </div>
 
       {/* Auto-play on hover functionality */}
