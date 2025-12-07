@@ -71,10 +71,10 @@ const ExplainerVideos = () => {
   };
 
   const features = [
-    { icon: <PenTool className="w-5 h-5" />, title: "Script & Board", desc: "Full Concepting" },
-    { icon: <Sparkles className="w-5 h-5" />, title: "Motion Graphics", desc: "Premium 2D/3D" },
-    { icon: <Target className="w-5 h-5" />, title: "Focused Messaging", desc: "Clear ROI" },
-    { icon: <Lightbulb className="w-5 h-5" />, title: "Storytelling", desc: "Engaging Narrative" }
+    { icon: <PenTool className="w-5 h-5" />, title: "Product demos ", desc: "Full Concepting" },
+    { icon: <Sparkles className="w-5 h-5" />, title: "Awareness campaigns ", desc: "Premium 2D/3D" },
+    { icon: <Target className="w-5 h-5" />, title: "Internal training and induction", desc: "Clear ROI" },
+    { icon: <Lightbulb className="w-5 h-5" />, title: "E-learning content", desc: "Engaging Narrative" }
   ];
 
   return (
@@ -98,18 +98,20 @@ const ExplainerVideos = () => {
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-purple-500"></span>
                   </span>
-                  <span className="text-xs font-semibold tracking-wide uppercase text-zinc-300">Explainer Series</span>
+                  <span className="text-3xl font-semibold tracking-wide uppercase text-zinc-300">Explainer Videos</span>
                 </div>
 
-                <h2 className="text-5xl md:text-6xl font-bold leading-tight tracking-tight">
+                {/* <h2 className="text-5xl md:text-6xl font-bold leading-tight tracking-tight">
                   Make Complex Ideas <br />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400">
                     Simple & Engaging.
                   </span>
-                </h2>
+                </h2> */}
 
                 <p className="text-lg text-zinc-400 leading-relaxed max-w-xl">
-                  Turn intricate concepts into visual delights. We combine motion graphics and strategic storytelling to educate your audience and drive conversions.
+                  Turn complex ideas into clear, engaging, and visually delightful videos.
+                  We combine motion graphics, storytelling, and design to communicate complex ideas in a way that’s both visually appealing and easy to understand. <br />
+                  We take extra care to ensure the creation of the best solution perfect for your business, for marketing, education, or internal training.
                 </p>
               </div>
 
@@ -128,7 +130,7 @@ const ExplainerVideos = () => {
             </div>
 
             {/* Right Video - The Hero Asset */}
-            <div className="hero-video-container relative group">
+            <div className="hero-video-container relative group sm:w-2xl md:m-w-3xl lg:w-4xl md:h-72">
               {/* Glow Effect behind video */}
               <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-blue-600 rounded-3xl opacity-20 group-hover:opacity-40 blur-lg transition duration-500"></div>
 
@@ -136,7 +138,7 @@ const ExplainerVideos = () => {
                 <video
                   ref={videoRef}
                   className="w-full h-full object-cover scale-[1.01]"
-                  src="/videos/explainer-demo.mp4" // Ideally use a Cloudinary link here
+                  src="/video.mp4" // Ideally use a Cloudinary link here
                   muted={isMuted}
                   autoPlay
                   loop
@@ -208,52 +210,7 @@ const ExplainerVideos = () => {
         </div>
 
         {/* SECTION 3: LIGHT MODE BRIDGE */}
-        <section className="bg-white py-24 lg:py-32">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
 
-              {/* Visual */}
-              <div className="relative order-2 lg:order-1">
-                <div className="absolute inset-0 bg-purple-100 rounded-[2rem] transform -rotate-3 scale-105 opacity-50"></div>
-                <div className="relative rounded-[2rem] overflow-hidden shadow-2xl group">
-                  <video
-                    className="w-full h-full object-cover aspect-[4/3] group-hover:scale-105 transition-transform duration-700 ease-in-out"
-                    src="/video.mp4"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                  />
-                  <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
-                </div>
-              </div>
-
-              {/* CTA Content */}
-              <div className="order-1 lg:order-2 space-y-8">
-                <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 leading-tight">
-                  Would you like to explore <br />
-                  more <span className="text-purple-600">Animation?</span>
-                </h2>
-                <p className="text-lg text-zinc-600 leading-relaxed">
-                  From 2D vector art to complex 3D visualizations, our portfolio showcases the power of visual explanations. See how we help brands like yours.
-                </p>
-
-                <div className="flex flex-wrap gap-4">
-                  <Link to={'/portfolio'}>
-                    <button className="group relative px-8 py-4 bg-zinc-900 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300">
-                      <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-purple-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                      <div className="relative flex items-center gap-3 text-white font-semibold">
-                        <span>View Animation Portfolio</span>
-                        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                      </div>
-                    </button>
-                  </Link>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </section>
 
       </div>
       <ExplainerWorkShowcase />
@@ -485,3 +442,66 @@ const ExplainerWorkShowcase = () => {
 };
 
 export default ExplainerVideos;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//  <section className="bg-white py-24 lg:py-32">
+//     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+//       <div className="grid lg:grid-cols-2 gap-16 items-center">
+
+//         {/* Visual */}
+//         <div className="relative order-2 lg:order-1">
+//           <div className="absolute inset-0 bg-purple-100 rounded-[2rem] transform -rotate-3 scale-105 opacity-50"></div>
+//           <div className="relative rounded-[2rem] overflow-hidden shadow-2xl group">
+//             <video
+//               className="w-full h-full object-cover aspect-[4/3] group-hover:scale-105 transition-transform duration-700 ease-in-out"
+//               src="/video.mp4"
+//               autoPlay
+//               muted
+//               loop
+//               playsInline
+//             />
+//             <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
+//           </div>
+//         </div>
+
+//         {/* CTA Content */}
+//         <div className="order-1 lg:order-2 space-y-8">
+//           <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 leading-tight">
+//             Would you like to explore <br />
+//             more <span className="text-purple-600">Animation?</span>
+//           </h2>
+//           <p className="text-lg text-zinc-600 leading-relaxed">
+//             From 2D vector art to complex 3D visualizations, our portfolio showcases the power of visual explanations. See how we help brands like yours.
+//           </p>
+
+//           <div className="flex flex-wrap gap-4">
+//             <Link to={'/portfolio'}>
+//               <button className="group relative px-8 py-4 bg-zinc-900 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300">
+//                 <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-purple-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+//                 <div className="relative flex items-center gap-3 text-white font-semibold">
+//                   <span>View Animation Portfolio</span>
+//                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+//                 </div>
+//               </button>
+//             </Link>
+//           </div>
+//         </div>
+
+//       </div>
+//     </div>
+//   </section>

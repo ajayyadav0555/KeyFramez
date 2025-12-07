@@ -21,6 +21,11 @@ import InteractiveEBooks from './components/Ebook'
 import InteractiveProductApps from './components/InteractiveProductApps'
 import Portfolio from './pages/Portfolio'
 import { Toaster } from 'react-hot-toast'
+import TDanimation from './components/TDanimation'
+import THDanimation from './components/THDanimation'
+import Compositing from './components/Compositing'
+import Aianimation from './pages/Aianimation'
+import Motivation from './pages/Motivation'
 const App = () => {
   return (
     <>
@@ -48,6 +53,11 @@ const App = () => {
               <Route path="/services/architecture-videos" element={<ArchitectureModels />} />
               <Route path="/services/product-videos" element={<ProductModel />} />
               <Route path="/services/project-videos" element={<ProjectSimulations />} />
+              <Route path="/services/2d" element={<TDanimation />} />
+              <Route path="/services/3d" element={<THDanimation />} />
+              <Route path="/services/compositing" element={<Compositing />} />
+              <Route path="/services/aibasedanimation" element={<Aianimation />} />
+              <Route path="/services/motivation" element={<Motivation />} />
             </Route>
           </Routes>
         </div>

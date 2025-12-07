@@ -23,45 +23,57 @@ const Services = () => {
       title: "Live-shot Video Production",
       video: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764264910/LANDMARK_-_Loop_oq0t1g.mp4",
       description: "Professional video production for commercials, corporate videos, and brand storytelling.",
-      path:"/services/live-shot-video"
+      path: "/services/live-shot-video"
     },
     {
       title: "Explainer Videos",
       video: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764264915/Bugworks_-_Loop_ku2ksm.mp4",
       description: "Engaging animated videos that simplify complex concepts and showcase your products.",
-      path:"/services/explainer-videos"
+      path: "/services/explainer-videos"
     },
     {
       title: "3D Modelling & Simulations",
       video: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764350904/Product_Models_-_Loop_xr3he2.mp4",
       description: "High-quality 3D models and realistic simulations for various applications.",
-      path:"/services/3d-modelling"
+      path: "/services/3d-modelling"
     },
     {
       title: "Interactive Content Creation",
       video: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764352101/3D_GLASS_slyk4d.mp4",
       description: "Immersive interactive experiences including AR/VR and web-based content.",
-      path:"/services/interactive-content"
+      path: "/services/interactive-content"
     },
     {
       title: "Character Animation",
       video: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764439999/Animatic_Film_-_ELF_MOTO_SNAKE_LADDER_sntoa1.mp4",
       description: "Bringing characters to life with expressive animation for various media.",
-      path:"/services/character-animation"
+      path: "/services/character-animation"
     },
     {
       title: "Inventive Film",
       video: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764264915/Bugworks_-_Loop_ku2ksm.mp4",
       description: "Creative film production that pushes boundaries and tells unique stories.",
-      path:"/services/amorphic-videos"
+      path: "/services/amorphic-videos"
     },
     {
       title: "Visual Effects (VFX)",
       video: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764352970/Compositing_and_Green_Screen_Integration_-_Loop_owjc0o.mp4",
       description: "Creative film production that pushes boundaries and tells unique stories.",
-      path:"/services/visual-effects"
+      path: "/services/visual-effects"
     },
-    
+    {
+      title: "Ai Based Animation",
+      video: "/video.mp4",
+      description: "Creative film production that pushes boundaries and tells unique stories.",
+      path: "/services/visual-effects"
+    },
+    {
+      title: "Motivational AV's",
+      video: "/video.mp4",
+      description: "Creative film production that pushes boundaries and tells unique stories.",
+      path: "/services/visual-effects"
+    },
+
 
   ];
 
@@ -167,9 +179,14 @@ const Services = () => {
           <h1 className="hero-title text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-center">
             Welcome to <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">KEYFRAMEZ</span>
           </h1>
-         <p className="text-lg md:text-xl lg:text-2xl text-gray-700 max-w-4xl mx-auto text-center leading-relaxed">
-  Welcome to <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 font-bold">KEYFRAMEZ</span>, a full-service animation and video production studio that transforms ideas into visually striking stories. From corporate videos and explainer films to 3D simulations, AR/VR experiments, and e-learning content, we help brands educate, inspire, and deeply connect with their audiences. Blending creativity, strategy, and cutting-edge technology, our mission is simple — to make your ideas truly unforgettable.
-</p>
+          <div className="hero-subtitle text-base md:text-2xl text-black  mt-20 mb-12 leading-relaxed w-full ">
+            Welcome to
+             <strong className="text-purple-300 font-bold"> KEYFRAMEZ </strong>
+            a full-service animation and video production studio that turns ideas into visually striking stories. From <span className=" font-bold">corporate videos and explainer films to 3D simulations, AR/VR experiences, and e-learning content</span>, we help brands educate, inspire, and connect with audiences.
+           <p> Our work blends creativity, strategy, and technology. Our mission is simple — to make your ideas unforgettable.</p>
+
+          </div>
+
 
         </div>
       </section>
@@ -182,7 +199,6 @@ const Services = () => {
 
       <Swiper
         effect={"coverflow"}
-
         grabCursor
         centeredSlides
         slidesPerView={"auto"}
@@ -199,7 +215,7 @@ const Services = () => {
         }}
         pagination
         modules={[EffectCoverflow, Pagination]}
-        className="mySwiper"
+        className="mySwiper custom-pagination"
       >
         {services.map((item, index) => (
           <SwiperSlide key={item.title}  >
@@ -216,9 +232,9 @@ const Services = () => {
                 className="rounded-2xl object-cover"
               />
 
-             <div className="mt-3  text-center text-black font-semibold text-xl md:mr-96 text-nowrap ">
-  {item.title}
-</div>
+              <div className="mt-3  text-center text-black font-semibold md:text-3xl text-xl text-nowrap mb-10">
+                {item.title}
+              </div>
 
             </div>
           </SwiperSlide>

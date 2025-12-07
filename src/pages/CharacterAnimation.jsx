@@ -1,9 +1,21 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { gsap } from 'gsap';
-import { Play, Pause, Volume2, VolumeX, Users, Heart, Zap, Star, ArrowRight ,  CheckCircle2,
-  Smile,
-  Film} from 'lucide-react';
-import { Link, useNavigate } from 'react-router-dom';
+import {
+  Play, Pause, Volume2, VolumeX, Box, Zap, RotateCw, Camera, ArrowRight, Layers,
+  Move3d,
+  Rotate3d,
+  Star,
+  CheckCircle2,
+  Cuboid,
+  Building,
+  Target,
+  Megaphone,
+  GraduationCap,
+  Film,
+  Gamepad2
+} from 'lucide-react';
+import { Link, Links, useNavigate } from 'react-router-dom';
+
 
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -65,110 +77,109 @@ const CharacterAnimation = () => {
     }
   };
 
-  const services = [
-    "Animated Films",
-    "Commercials & Ads",
-    "Explainer Videos",
-    "Brand Storytelling",
-    "Video Games",
-    "Educational Content"
-  ];
-
-  const features = [
-    { icon: <Smile className="w-5 h-5" />, title: "Expressive Characters", desc: "Instantly relatable design" },
-    { icon: <Heart className="w-5 h-5" />, title: "Emotional Storytelling", desc: "Depth and personality" },
-    { icon: <Film className="w-5 h-5" />, title: "2D & 3D Animation", desc: "From cell to photorealism" },
-    { icon: <Zap className="w-5 h-5" />, title: "Motion Capture Ready", desc: "Seamless Mocap integration" }
+  const newFeatures = [
+    {
+      icon: <Megaphone className="w-5 h-5" />,
+      title: "Brand Storytelling",
+    },
+    {
+      icon: <GraduationCap className="w-5 h-5" />,
+      title: "Training Content",
+    },
+    {
+      icon: <Film className="w-5 h-5" />,
+      title: "Entertainment",
+    },
+    {
+      icon: <Gamepad2 className="w-5 h-5" />,
+      title: "Game Design",
+    },
   ];
 
   return (
-   <>
-    <div ref={containerRef} className="bg-zinc-950 text-white overflow-hidden selection:bg-cyan-500/30">
-      
-      {/* SECTION 1: HERO */}
-      <section className="relative py-24 lg:py-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        
-        {/* Ambient Background Glows (Teal/Blue for Creativity) */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-600/10 rounded-full blur-[128px] pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-600/10 rounded-full blur-[128px] pointer-events-none" />
+    <>
+      <div ref={containerRef} className="bg-zinc-950 text-white overflow-hidden selection:bg-cyan-500/30">
 
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center relative z-10">
+        {/* SECTION 1: HERO */}
+        <section className="relative py-24 lg:py-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
 
-          {/* Left Content */}
-          <div className="space-y-10">
-            <div className="reveal-text space-y-6">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900/50 border border-zinc-800 rounded-full backdrop-blur-md">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
+          {/* Ambient Background Glows (Cyan/Indigo for 3D Tech feel) */}
+          <div className="absolute top-0 left-0 w-96 h-96 bg-cyan-600/20 rounded-full blur-[128px] pointer-events-none" />
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-indigo-600/10 rounded-full blur-[128px] pointer-events-none" />
+
+          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center relative z-10">
+
+            {/* Left Content */}
+            <div className="space-y-10">
+              <div className="reveal-text space-y-6">
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900/50 border border-zinc-800 rounded-full backdrop-blur-md">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
+                  </span>
+                  <span className="text-4xl font-semibold tracking-wide uppercase text-zinc-300">Character Animation</span>
+                </div>
+
+                {/* <h2 className="text-5xl md:text-6xl font-bold leading-tight tracking-tight">
+                Bring Your Vision to <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400">
+                  Life in 3D.
                 </span>
-                <span className="text-xs font-semibold tracking-wide uppercase text-zinc-300">Character Animation</span>
+              </h2> */}
+
+                <p className="text-lg text-zinc-400 leading-relaxed max-w-xl">
+                  (2D & 3D Character Animation) <br />
+                  Characters bring emotion, humour, and emotional connect to storytelling.
+                  Our artists specialize in designing and animating expressive 2D and 3D characters that audiences instantly connect with — from brand mascots and explainer heroes to cinematic personalities.
+
+                </p>
+
+
               </div>
 
-              <h2 className="text-5xl md:text-6xl font-bold leading-tight tracking-tight">
-                Bring Stories & Emotions <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-cyan-400 to-blue-400">
-                  to Life.
-                </span>
-              </h2>
-
-              <p className="text-lg text-zinc-400 leading-relaxed max-w-xl">
-                We craft **expressive 2D and 3D characters** that drive emotional connection, humour, and genuine engagement for any narrative or brand.
-              </p>
-            </div>
-
-            {/* Feature Grid (Bento Style) */}
-            <div className="grid grid-cols-2 gap-4">
-              {features.map((feature, index) => (
-                <div key={index} className="feature-card group p-4 rounded-2xl bg-zinc-900/40 border border-white/5 hover:bg-zinc-800/60 hover:border-cyan-500/30 transition-all duration-300">
-                  <div className="mb-3 p-2 w-fit rounded-lg bg-gradient-to-br from-cyan-500/10 to-blue-500/10 text-cyan-400 group-hover:text-cyan-300 group-hover:scale-110 transition-transform duration-300">
-                    {feature.icon}
-                  </div>
-                  <h4 className="font-semibold text-zinc-200">{feature.title}</h4>
-                  <p className="text-xs text-zinc-500 mt-1">{feature.desc}</p>
-                </div>
-              ))}
-            </div>
-
-            {/* Services List */}
-            <div className="space-y-4 reveal-text pt-4">
-              <h3 className="text-xl font-semibold text-white">Perfect For:</h3>
-              <div className="grid sm:grid-cols-2 gap-3">
-                {services.map((service, index) => (
-                  <div key={index} className="service-feature flex items-center gap-3 p-3 bg-zinc-900 rounded-xl hover:bg-blue-900/50 transition-colors duration-300 border border-zinc-800">
-                    <div className="w-2 h-2 bg-cyan-500 rounded-full" />
-                    <span className="text-white font-medium text-sm">{service}</span>
+              {/* Feature Grid (Bento Style) */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {newFeatures.map((feature, index) => (
+                  <div
+                    key={index}
+                    className="feature-card group p-6 rounded-2xl bg-zinc-900/40 border border-white/5 
+                   hover:bg-zinc-800/60 hover:border-cyan-500/30 transition-all duration-300"
+                  >
+                    <div className="mb-3 p-3 w-fit rounded-xl bg-gradient-to-br from-cyan-500/10 to-indigo-500/10 text-cyan-400 
+                        group-hover:text-cyan-300 group-hover:scale-105 transition-transform duration-300">
+                      {feature.icon}
+                    </div>
+                    <h4 className="font-bold text-lg text-zinc-200">{feature.title}</h4>
+                    <p className="text-sm text-zinc-500 mt-1">{feature.desc}</p>
                   </div>
                 ))}
               </div>
             </div>
-          </div>
 
-          {/* Right Video - The Hero Asset */}
-          <div className="hero-video-container relative group">
-            {/* Glow Effect behind video */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-3xl opacity-20 group-hover:opacity-40 blur-lg transition duration-500"></div>
-            
-            <div className="relative rounded-3xl overflow-hidden aspect-video shadow-2xl bg-black border border-white/10">
-              <video
-                ref={videoRef}
-                className="w-full h-full object-cover scale-[1.01]"
-                // Placeholder video source, replace with actual production asset
-                src="https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764439999/Animatic_Film_-_ELF_MOTO_SNAKE_LADDER_sntoa1.mp4"
-                muted={isMuted}
-                autoPlay
-                loop
-                playsInline
-              />
-              
-              {/* Overlay Gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+            {/* Right Video - The Hero Asset */}
+            <div className="hero-video-container relative group sm:w-2xl md:m-w-3xl lg:w-4xl md:h-72 lg:-mt-40">
+              {/* Glow Effect behind video */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-cyan-600 to-indigo-600 rounded-3xl opacity-20 group-hover:opacity-40 blur-lg transition duration-500"></div>
 
-              {/* Controls */}
-              <div className="absolute bottom-4 left-4 right-4 flex justify-between items-center z-20">
+              <div className="relative rounded-3xl overflow-hidden aspect-video shadow-2xl bg-black border border-white/10">
+                <video
+                  ref={videoRef}
+                  className="w-full h-full object-cover scale-[1.01]"
+                  src='https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764440609/Character_Animation_-_Multi_Loop_iycq6t.mp4'
+                  muted={isMuted}
+                  autoPlay
+                  loop
+                  playsInline
+                />
+
+                {/* Overlay Gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+
+                {/* Controls */}
+                {/* <div className="absolute bottom-4 left-4 right-4 flex justify-between items-center z-20">
                 <div className="flex items-center gap-2">
                    <div className="px-3 py-1 bg-black/60 backdrop-blur-md rounded-lg border border-white/10 text-xs font-medium text-white/90 flex items-center gap-2">
-                     <Smile size={12} /> Brand Mascot
+                     <Box size={12} /> Product Rendering
                    </div>
                 </div>
                 
@@ -180,110 +191,61 @@ const CharacterAnimation = () => {
                      {isPlaying ? <Pause size={18} /> : <Play size={18} />}
                   </button>
                 </div>
+              </div> */}
               </div>
-            </div>
 
-            {/* Floating Badge */}
-            <div className="absolute -top-6 -right-6 hidden sm:block animate-bounce-slow">
-              <div className="bg-zinc-900 border border-zinc-700 text-white px-5 py-3 rounded-2xl shadow-xl flex items-center gap-3">
-                 <div className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse"></div>
-                 <span className="font-semibold text-sm">Emotional Resonance</span>
+              {/* Floating Badge */}
+              <div className="absolute -top-6 -right-6 hidden sm:block animate-bounce-slow">
+                <div className="bg-zinc-900 border border-zinc-700 text-white px-5 py-3 rounded-2xl shadow-xl flex items-center gap-3">
+                  <div className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse"></div>
+                  <span className="font-semibold text-sm">CGI Production</span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      ---
 
-      {/* SECTION 2: SOCIAL PROOF STRIP */}
-      <div className="border-y border-white/5 bg-zinc-900/30 backdrop-blur-sm">
-        <div className="max-w-7xl mx-auto px-4 py-8 flex flex-wrap justify-center md:justify-between items-center gap-6">
-          
-          {/* Custom Google Review Component */}
-          <div className="group flex items-center gap-4 bg-zinc-950/50 px-6 py-3 rounded-2xl border border-white/5 hover:border-cyan-500/20 transition-colors">
-            <div className="bg-white p-2 rounded-lg">
-               <svg className="w-5 h-5" viewBox="0 0 24 24">
+        {/* SECTION 2: SOCIAL PROOF STRIP */}
+        <div className="border-y border-white/5 bg-zinc-900/30 backdrop-blur-sm">
+          <div className="max-w-7xl mx-auto px-4 py-8 flex flex-wrap justify-center md:justify-between items-center gap-6">
+
+            {/* Custom Google Review Component */}
+            <div className="group flex items-center gap-4 bg-zinc-950/50 px-6 py-3 rounded-2xl border border-white/5 hover:border-cyan-500/20 transition-colors">
+              <div className="bg-white p-2 rounded-lg">
+                <svg className="w-5 h-5" viewBox="0 0 24 24">
                   <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
                   <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
                   <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
                   <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
                 </svg>
-            </div>
-            <div>
-              <div className="flex gap-1 mb-1">
-                {[1,2,3,4,5].map(i => <Star key={i} className="w-3.5 h-3.5 text-yellow-400 fill-current" />)}
               </div>
-              <p className="text-xs text-zinc-400"><span className="text-white font-bold">4.8/5</span> from 180+ animations</p>
+              <div>
+                <div className="flex gap-1 mb-1">
+                  {[1, 2, 3, 4, 5].map(i => <Star key={i} className="w-3.5 h-3.5 text-yellow-400 fill-current" />)}
+                </div>
+                <p className="text-xs text-zinc-400"><span className="text-white font-bold">4.9/5</span> from 285+ projects</p>
+              </div>
             </div>
-          </div>
 
-          <div className="hidden md:flex items-center gap-8 text-zinc-500 text-sm font-medium">
-             <span className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-cyan-500"/> Brand Mascots</span>
-             <span className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-cyan-500"/> Game Ready Rigs</span>
-             <span className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-cyan-500"/> Full Animated Shorts</span>
+            <div className="hidden md:flex items-center gap-8 text-zinc-500 text-sm font-medium">
+              <span className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-cyan-500" /> Product Vis</span>
+              <span className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-cyan-500" /> Architectural</span>
+              <span className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-cyan-500" /> Anamorphic 3D</span>
+            </div>
           </div>
         </div>
+
+        {/* SECTION 3: LIGHT MODE BRIDGE */}
+
       </div>
-
-      ---
-      
-      {/* SECTION 3: LIGHT MODE BRIDGE */}
-      <section className="bg-white py-24 lg:py-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            
-            {/* Visual */}
-            <div className="relative order-2 lg:order-1">
-              <div className="absolute inset-0 bg-blue-100 rounded-[2rem] transform rotate-3 scale-105 opacity-50"></div>
-              <div className="relative rounded-[2rem] overflow-hidden shadow-2xl group">
-                 <video
-                  className="w-full h-full object-cover aspect-[4/3] group-hover:scale-105 transition-transform duration-700 ease-in-out"
-                  // Placeholder video source, replace with actual production asset
-                  src="https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764440609/Character_Animation_-_Multi_Loop_iycq6t.mp4"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                />
-                <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
-              </div>
-            </div>
-
-            {/* CTA Content */}
-            <div className="order-1 lg:order-2 space-y-8">
-              <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 leading-tight">
-                Ready to see your brand's <span className="text-cyan-600">animated characters</span> come alive?
-              </h2>
-              <p className="text-lg text-zinc-600 leading-relaxed">
-                From mascot design to final polished motion, we handle the entire character production pipeline for film, web, and games.
-              </p>
-              
-              <div className="flex flex-wrap gap-4">
-                <Link to={'/portfolio'}>
-                <button className="group relative px-8 py-4 bg-zinc-900 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300">
-                  <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-cyan-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  <div className="relative flex items-center gap-3 text-white font-semibold">
-                    <span>View Animation Portfolio</span>
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </button>
-                </Link>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-    </div>
-      <CharacterWorkShowcase /> 
-   </>
+      <ThreeDWorkShowcase />
+    </>
   );
 };
 
 
-const CharacterWorkShowcase = () => {
+const ThreeDWorkShowcase = () => {
   const sectionRef = useRef(null);
   const [playingVideo, setPlayingVideo] = useState(null);
   const navigate = useNavigate();
@@ -320,26 +282,6 @@ const CharacterWorkShowcase = () => {
       }
     );
   }, []);
-
-  const workVideos = [
-   "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764439968/Asian_Paint_SandPaper_AV_nkbejx.mp4",
-   "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764439985/SANDPAPER_PATHSHALA_rvatgp.mp4",
-   "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764439986/SBI_MUTUAL_FUND_EXPLAINER_VIDEO_uc4gpv.mp4",
-   "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764439989/APPRENTICESHIP_AV_HINDI_axcprq.mp4",
-   "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764439991/Masterstrokes_AV_02_uswvif.mp4",
-   "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764439994/AIML_Capabilities_AV_xfeu8y.mp4",
-   "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764439999/Animatic_Film_-_ELF_MOTO_SNAKE_LADDER_sntoa1.mp4",
-   "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764440404/2D_CHARECTER_ANIMATION_-_MULTI_LOOP_j37jls.mp4",
-   "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764440421/Asian_Paints_Project_Sales_Genie_-_Loop_nahx19.mp4",
-   "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764440449/YOGA_GIRL_-_Loop_xuvwyj.mp4",
-   "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764440452/India_vs_New_Zealand_-_Rassi_Bomb_and_Lal_Phataka_-_Loop_oedxhj.mp4",
-   "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764440463/India_vs_New_Zealand_-_Rockets_-_Loop_wy7rq0.mp4",
-   "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764440470/HUL_CloseUp_-_Loop_zbwvcs.mp4",
-   "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764440474/Capex_Cashews_-_Loop_cx6hap.mp4",
-   "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764440544/3D_CHARECTER_ANIMATION_-_Multi_Loop_e3kxxe.mp4",
-   "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764440609/Character_Animation_-_Multi_Loop_iycq6t.mp4"
-  ];
-
   const togglePlay = (videoId, videoElement) => {
     if (playingVideo === videoId) {
       videoElement.pause();
@@ -360,29 +302,43 @@ const CharacterWorkShowcase = () => {
   return (
     <section ref={sectionRef} className="py-20 bg-gradient-to-br from-gray-50 to-blue-50/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="work-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-12">
+          {[
+            {
+              id: 1,
+              title: "2D CHARACTER ANIMATION",
+              category: "3D Animation",
+              videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764440404/2D_CHARECTER_ANIMATION_-_MULTI_LOOP_j37jls.mp4",
+              description: "Creating optical illusions that captivate audiences in real-world settings",
+              path: "/services/2d"
+            },
+            {
+              id: 2,
+              title: "3D CHARACTER ANIMATION",
+              category: "Architectural 3D",
+              videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764440544/3D_CHARECTER_ANIMATION_-_Multi_Loop_e3kxxe.mp4",
+              description: "Walkthroughs and flythroughs that bring spaces to life",
+              path: "/services/3d"
+            },
 
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Character Animation <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Portfolio</span>
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Discover how we bring characters to life with personality, emotion, and captivating performances that turn imagination into motion.
-          </p>
-        </div>
-
-        {/* Work Grid - Only Videos */}
-        <div className="work-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-          {workVideos.map((work) => (
+            // {
+            //   id: 4,
+            //   title: "Project Simulations",
+            //   category: "3D Simulation",
+            //   videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764350661/3dmodeling/ANAMORPHIC_01_m9tqqj.mp4",
+            //   description: "Realistic project simulations and dynamic scenario testing",
+            //   path: "/services/project-videos"
+            // }
+          ].map((work) => (
             <div
-              key={work}
+              key={work.id}
               className="work-item group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden hover:-translate-y-2"
             >
               {/* Video Container */}
               <div className="relative aspect-video overflow-hidden bg-gray-900">
                 <video
                   className="w-full h-full object-cover"
-                  src={work}
+                  src={work.vi}
                   loop
                   playsInline
                   autoPlay
@@ -397,16 +353,44 @@ const CharacterWorkShowcase = () => {
 
                 {/* Category Badge */}
                 {/* <div className="absolute top-4 left-4">
-                  <span className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
-                    {work.category}
-                  </span>
-                </div> */}
+          <span className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
+            {work.category}
+          </span>
+        </div> */}
+              </div>
+
+              {/* Content with Title and Arrow */}
+
+              <div className="p-6 sm:p-8 bg-white rounded-xl transition-all duration-500 ">
+                <div className="flex items-start justify-between gap-4">
+
+                  {/* TEXT CONTENT */}
+                  <div className="flex-grow">
+                    <h3 className="text-2xl font-extrabold text-gray-900 mb-2 group-hover:text-blue-700 transition-colors duration-300 leading-snug text-center">
+                      {work.title}
+                    </h3>
+
+                  </div>
+
+                  {/* ACTION BUTTON (Link) */}
+                  <Link to={work?.path} className="flex-shrink-0">
+                    <button
+                      aria-label={`View details for ${work.title}`}
+                      className="flex items-center justify-center w-14 h-14 border-2 border-blue-600 text-blue-600 
+                   rounded-full transition-all duration-300 ease-in-out 
+                   hover:bg-blue-600 hover:text-white hover:scale-105 
+                   shadow-sm group-hover:shadow-lg group-hover:border-blue-700"
+                    >
+                      {/* Using a simple ArrowRight icon for a cleaner look */}
+                      <ArrowRight className="w-6 h-6" />
+                    </button>
+                  </Link>
+                </div>
               </div>
             </div>
           ))}
         </div>
 
-        {/* CTA Section */}
 
       </div>
 
@@ -462,3 +446,4 @@ const CharacterWorkShowcase = () => {
 };
 
 export default CharacterAnimation;
+

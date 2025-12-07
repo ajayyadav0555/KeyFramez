@@ -1,60 +1,17 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { gsap } from 'gsap';
-import { Play, Pause, Volume2, VolumeX, Shapes, Zap, Palette, Sparkles, ArrowRight } from 'lucide-react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Shapes, Zap, Palette, Sparkles, ArrowRight, Video, Camera, TrendingUp } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
+// Register GSAP plugins
+gsap.registerPlugin(ScrollTrigger);
+
 const AmorphicVideos = () => {
-  const videoRef = useRef(null);
   const sectionRef = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [isMuted, setIsMuted] = useState(true);
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top 70%",
-        end: "bottom 20%",
-        toggleActions: "play none none reverse"
-      }
-    });
-
-    tl.fromTo('.amorphic-content',
-      { opacity: 0, x: -50 },
-      { opacity: 1, x: 0, duration: 1, ease: "power3.out" }
-    );
-
-    tl.fromTo('.amorphic-video',
-      { opacity: 0, x: 50, scale: 0.9 },
-      { opacity: 1, x: 0, scale: 1, duration: 1, ease: "back.out(1.7)" },
-      "-=0.5"
-    );
-
-    tl.fromTo('.service-feature',
-      { opacity: 0, y: 20 },
-      { opacity: 1, y: 0, duration: 0.6, stagger: 0.1, ease: "power2.out" },
-      "-=0.3"
-    );
-  }, []);
-
-  const togglePlay = () => {
-    if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause();
-      } else {
-        videoRef.current.play();
-      }
-      setIsPlaying(!isPlaying);
-    }
-  };
-
-  const toggleMute = () => {
-    if (videoRef.current) {
-      videoRef.current.muted = !isMuted;
-      setIsMuted(!isMuted);
-    }
-  };
-
+  // --- Data ---
   const services = [
     "Brand Transformations",
     "Product Morphing",
@@ -65,403 +22,253 @@ const AmorphicVideos = () => {
   ];
 
   const features = [
-    { icon: <Shapes className="w-5 h-5" />, text: "Fluid Morphing" },
-    { icon: <Zap className="w-5 h-5" />, text: "Seamless Transitions" },
-    { icon: <Palette className="w-5 h-5" />, text: "Dynamic Colors" },
-    { icon: <Sparkles className="w-5 h-5" />, text: "Organic Motion" }
+    { icon: <Shapes />, text: "Fluid Morphing & Distortion", color: "text-purple-400" },
+    { icon: <Zap />, text: "High-Speed, Seamless Transitions", color: "text-blue-400" },
+    { icon: <Palette />, text: "Dynamic & Reactive Color Palettes", color: "text-pink-400" },
+    { icon: <Sparkles />, text: "Organic, Physical Motion Simulation", color: "text-yellow-400" }
   ];
-
-  return (
-    <section ref={sectionRef} className="py-2 bg-white">
-      <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 " style={{
-        backgroundColor: "rgb(38, 38, 38)"
-      }}>
-        <div className="grid lg:grid-cols-2 gap-32 items-center max-w-7xl mx-auto py-20">
-
-          {/* Left Content */}
-          <div className="amorphic-content space-y-8">
-            <div className="space-y-6">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 rounded-full text-blue-600 font-semibold text-sm">
-                <Shapes className="w-4 h-4" />
-                Amorphic Videos
-              </div>
-
-              <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
-                Transform Your Vision with{' '}
-                <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                  Fluid Motion Magic
-                </span>
-              </h2>
-
-              <p className="text-lg text-white leading-relaxed">
-                Experience the magic of cinema with our <span className='font-bold text-gray-600'>Anamorphic Video Production</span>. Using professional anamorphic lenses, we create visually stunning, wide-format videos that deliver a true cinematic feel. Every frame is rich in depth, color, and emotion — capturing visuals with that signature “movie look” marked by beautiful lens flares, soft bokeh, and an immersive widescreen perspective.Perfect for <span className='font-bold text-gray-600'>advertisements, music videos, films, and brand stories</span>, our anamorphic videos elevate your content with a premium, theatrical aesthetic that stands out from ordinary visuals.
-              </p>
-            </div>
-
-            {/* Features */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {features.map((feature, index) => (
-                <div
-                  key={index}
-                  className="flex items-center gap-3 p-4 bg-gradient-to-br from-blue-50 to-indigo-50 
-                 rounded-2xl border-4 border-blue-800"
-                >
-                  <div className="text-blue-600">
-                    {feature.icon}
-                  </div>
-
-                  <span className="text-gray-700 font-medium text-sm sm:text-base">
-                    {feature.text}
-                  </span>
-                </div>
-              ))}
-            </div>
-
-            {/* Services List */}
-            <div className="space-y-4">
-              <h3 className="text-xl font-semibold text-white">Perfect For:</h3>
-              <div className="grid sm:grid-cols-2 gap-3">
-                {services.map((service, index) => (
-                  <div key={index} className="service-feature flex items-center gap-3 p-3 bg-gray-800 rounded-xl hover:bg-blue-900 transition-colors duration-300">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full" />
-                    <span className="text-white font-medium">{service}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Right Video Section */}
-          <div className="amorphic-video relative">
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl group">
-              {/* Video Player */}
-              <video
-                ref={videoRef}
-                className="w-full h-auto aspect-video object-cover"
-                src='/video.mp4'
-                muted
-                autoPlay
-                loop
-                playsInline
-              >
-                <source src="/videos/amorphic-demo.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-
-              {/* Video Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-
-              {/* Floating Badge */}
-              <div className="absolute -top-4 -right-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-2xl shadow-xl animate-pulse">
-                <div className="flex items-center gap-2 text-sm font-semibold">
-                  <Shapes className="w-4 h-4" />
-                  Fluid Animation
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-        <div className="flex items-center justify-center pb-10">
-          <div className="group relative">
-            <div className="flex items-center sm:gap-4 bg-white/95 backdrop-blur-xl sm:px-6 sm:py-4 py-2 rounded-2xl shadow-lg border border-gray-200/80 hover:shadow-xl transition-all duration-500 hover:scale-105 w-fit">
-
-              {/* Google Icon with Animation */}
-              <div className="relative">
-                <div className="flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-br from-white to-gray-50 shadow-inner border border-gray-200/60 group-hover:scale-110 transition-transform duration-500">
-                  <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-[#4285F4] shadow-lg">
-                    <svg className="w-6 h-6" viewBox="0 0 24 24">
-                      <path fill="white" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
-                      <path fill="white" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
-                      <path fill="white" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
-                      <path fill="white" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
-                    </svg>
-                  </div>
-                </div>
-                <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/10 to-green-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm -z-10"></div>
-              </div>
-
-              {/* Rating Content */}
-              <div className="flex items-center gap-4">
-                <div className="text-center">
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-2xl font-bold text-gray-900">4.8</span>
-                    <span className="text-sm text-gray-500">/5</span>
-                  </div>
-                  <div className="flex items-center gap-0.5 mt-1">
-                    {[1, 2, 3, 4, 5].map((star) => (
-                      <svg key={star} className="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
-                        <path d="M10 15l-5.878 3.09L5.82 11.545.64 7.41l6.078-.883L10 1l3.282 5.527 6.078.883-5.18 4.135 1.698 6.545z" />
-                      </svg>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="h-8 w-px bg-gradient-to-b from-gray-300/50 to-transparent"></div>
-
-                <div>
-                  <div className="flex items-center gap-2">
-                    <div className="flex">
-                      {[1, 2, 3, 4, 5].map((star) => (
-                        <svg key={star} className="w-3 h-3 text-green-500 fill-current" viewBox="0 0 20 20">
-                          <path d="M10 15l-5.878 3.09L5.82 11.545.64 7.41l6.078-.883L10 1l3.282 5.527 6.078.883-5.18 4.135 1.698 6.545z" />
-                        </svg>
-                      ))}
-                    </div>
-                    <span className="text-sm font-semibold text-gray-900">Google Reviews</span>
-                  </div>
-                  <p className="text-xs text-gray-600 mt-0.5">215+ fluid animations created</p>
-                </div>
-              </div>
-
-              {/* Trust Badge */}
-              <div className="flex items-center gap-1.5 px-3 py-1.5 bg-green-50 rounded-full border border-green-200/60">
-                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                <span className="text-xs font-medium text-green-700">Trusted</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="w-full max-w-7xl mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-
-          {/* Left Side - Video */}
-          <div className="relative group">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-gray-900 aspect-video">
-              <video
-                className="w-full h-full object-cover"
-                src="/video.mp4"
-                autoPlay
-                muted
-                loop
-              />
-            </div>
-          </div>
-
-          {/* Right Side - Text + Button Only */}
-          <div className="flex flex-col justify-center space-y-6">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
-              Ready to see more fluid transformations?
-            </h2>
-
-            {/* CTA Button Only */}
-            <button className="group w-fit bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
-              <div className="flex items-center justify-center gap-3">
-                <span>View Amorphic Portfolio</span>
-                <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" />
-              </div>
-            </button>
-          </div>
-
-        </div>
-      </div>
-
-      <AmorphicWorkShowcase />
-    </section>
-  );
-};
-
-const AmorphicWorkShowcase = () => {
-  const sectionRef = useRef(null);
-  const [playingVideo, setPlayingVideo] = useState(null);
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    // Section animation
-    gsap.fromTo(sectionRef.current,
-      { opacity: 0, y: 50 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 80%",
-          toggleActions: "play none none reverse"
-        }
-      }
-    );
-
-    // Grid items animation
-    gsap.fromTo('.work-item',
-      { opacity: 0, y: 30 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        stagger: 0.2,
-        scrollTrigger: {
-          trigger: '.work-grid',
-          start: "top 70%",
-          toggleActions: "play none none reverse"
-        }
-      }
-    );
-  }, []);
 
   const workVideos = [
     {
       id: 1,
-      title: "Brand Morphing",
-      category: "Amorphic Animation",
-      thumbnail: "/api/placeholder/400/300",
-      videoUrl: "/videos/brand-morphing.mp4",
-      description: "Fluid brand transformations and logo morphing animations"
+      title: "Brand Identity Fluidity",
+      category: "Logo Morphing",
+      videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764350661/3dmodeling/ANAMORPHIC_01_m9tqqj.mp4", // Placeholder: replace with actual video path
+      description: "Transforming static logos into dynamic, moving entities."
     },
     {
       id: 2,
-      title: "Product Transitions",
-      category: "Fluid Motion",
-      thumbnail: "/api/placeholder/400/300",
-      videoUrl: "/videos/product-transitions.mp4",
-      description: "Seamless product transformations and feature reveals"
+      title: "Conceptual Product Reveal",
+      category: "Product Showreel",
+      videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764350850/FLAT_ANAMORPHIK_LOOP_mwa1gd.mp4", // Placeholder
+      description: "Showcasing product evolution through fluid transitions."
     },
     {
       id: 3,
-      title: "Abstract Flows",
-      category: "Organic Animation",
-      thumbnail: "/api/placeholder/400/300",
-      videoUrl: "/videos/abstract-flows.mp4",
-      description: "Mesmerizing abstract patterns and fluid visual experiences"
+      title: "Abstract Art Loops",
+      category: "Generative Art",
+      videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764350654/3dmodeling/SAMPLE_PREVIEW_u28qet.mp4", // Placeholder
+      description: "Mesmerizing, continuous organic abstract animations."
     },
-    {
-      id: 4,
-      title: "UI Morphing",
-      category: "Digital Transformation",
-      thumbnail: "/api/placeholder/400/300",
-      videoUrl: "/videos/ui-morphing.mp4",
-      description: "Smooth interface transitions and interactive element morphing"
-    }
+
   ];
 
-  const togglePlay = (videoId, videoElement) => {
-    if (playingVideo === videoId) {
-      videoElement.pause();
-      setPlayingVideo(null);
-    } else {
-      // Pause all other videos
-      document.querySelectorAll('video').forEach(video => video.pause());
+  // --- Animations (GSAP) ---
+  useEffect(() => {
+    // Main content slide-in
+    gsap.fromTo('.amorphic-content',
+      { opacity: 0, x: -50 },
+      { opacity: 1, x: 0, duration: 1, ease: "power3.out", scrollTrigger: { trigger: sectionRef.current, start: "top 70%" } }
+    );
 
-      videoElement.play();
-      setPlayingVideo(videoId);
-    }
-  };
+    // Video grow/pop
+    gsap.fromTo('.amorphic-video-container',
+      { opacity: 0, x: 50, scale: 0.9 },
+      { opacity: 1, x: 0, scale: 1, duration: 1.2, ease: "back.out(1)", scrollTrigger: { trigger: sectionRef.current, start: "top 70%" } }
+    );
 
-  const toggleMute = (videoElement) => {
-    videoElement.muted = !videoElement.muted;
-  };
+    // Features stagger
+    gsap.fromTo('.feature-card',
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 0.6, stagger: 0.15, ease: "power2.out", scrollTrigger: { trigger: sectionRef.current, start: "top 60%" } }
+    );
 
+    // Work Grid items stagger
+    gsap.fromTo('.work-item',
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 0.8, stagger: 0.2, ease: "power2.out", scrollTrigger: { trigger: '.work-grid', start: "top 75%" } }
+    );
+  }, []);
+
+  // --- Component Structure ---
   return (
-    <section ref={sectionRef} className="py-20 bg-gradient-to-br from-gray-50 to-blue-50/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section ref={sectionRef} className=" text-white relative overflow-hidden pt-20">
+      {/* Background Gradients */}
+      <div className="absolute top-0 left-0 w-full h-1/2 bg-zinc-950  pointer-events-none"></div>
+      <div className="absolute bottom-0 right-0 w-1/3 h-1/3 bg-purple-900/10 blur-[150px] pointer-events-none"></div>
 
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Amorphic Video <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Portfolio</span>
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Explore our collection of fluid animations and morphing transformations that create captivating visual journeys.
-          </p>
-        </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
-        {/* Work Grid */}
-        <div className="work-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-          {workVideos.map((work) => (
-            <div
-              key={work.id}
-              className="work-item group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden hover:-translate-y-2"
-            >
-              {/* Video Container */}
-              <div className="relative aspect-video overflow-hidden bg-gray-900">
-                <video
-                  className="w-full h-full object-cover"
-                  src='/video.mp4'
-                  loop
-                  playsInline
-                  autoPlay
-                  muted
-                >
-                  <source src={work.videoUrl} type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
+        {/* 1. HERO SECTION: Title & Video Preview */}
+        <div className="grid lg:grid-cols-2 gap-16 items-center py-20">
 
-                {/* Video Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          {/* Left Content */}
+          <div className="amorphic-content space-y-8">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900/50 border border-zinc-800 rounded-full backdrop-blur-md">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
+              </span>
+              <span className="text-4xl font-semibold tracking-wide uppercase text-zinc-300">Anamorphic Videos</span>
+            </div>
+            {/* 
+            <h1 className="text-4xl md:text-6xl font-extrabold leading-tight">
+              Mastering <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Fluid Amorphic</span> Transformations
+            </h1> */}
 
-                {/* Category Badge */}
-                <div className="absolute top-4 left-4">
-                  <span className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
-                    {work.category}
-                  </span>
+            <p className="text-xl text-gray-300 leading-relaxed">
+              Experience the magic of cinema with our Anamorphic Video Production. Using professional anamorphic lenses, we create visually stunning, wide-format videos that deliver a true cinematic feel. Every frame is rich in depth, color, and emotion — capturing visuals with that signature “movie look” marked by beautiful lens flares, soft bokeh, and an immersive widescreen perspective.
+              Perfect for advertisements, music videos, films, and brand stories, our anamorphic videos elevate your content with a premium, theatrical aesthetic that stands out from ordinary visuals.
+
+            </p>
+
+          
+          </div>
+
+          <div className="hero-video-container relative group sm:w-2xl md:m-w-3xl lg:w-4xl md:h-72">
+            {/* Glow Effect behind video */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-cyan-600 to-indigo-600 rounded-3xl opacity-20 group-hover:opacity-40 blur-lg transition duration-500"></div>
+
+            <div className="relative rounded-3xl overflow-hidden aspect-video shadow-2xl bg-black border border-white/10">
+              <video
+                className="w-full h-full object-cover scale-[1.01]"
+                src='https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764350670/3dmodeling/FLAT_ANAMORPHIK_LOOP_vab6ff.mp4'
+                muted
+                autoPlay
+                loop
+                playsInline
+              />
+
+              {/* Overlay Gradient */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+
+              {/* Controls */}
+              {/* <div className="absolute bottom-4 left-4 right-4 flex justify-between items-center z-20">
+                <div className="flex items-center gap-2">
+                  <div className="px-3 py-1 bg-black/60 backdrop-blur-md rounded-lg border border-white/10 text-xs font-medium text-white/90 flex items-center gap-2">
+                    <Box size={12} /> Product Rendering
+                  </div>
                 </div>
-              </div>
 
-              {/* Title and Arrow */}
-              {/* <div className="p-6 flex items-center justify-between">
-                <h3 className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
-                  {work.title}
-                </h3>
-                <button className="flex items-center justify-center w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full hover:scale-110 transition-all duration-300 transform group-hover:translate-x-1 shadow-lg">
-                  <ArrowRight className="w-4 h-4" />
-                </button>
+                <div className="flex gap-2">
+                  <button onClick={toggleMute} className="p-2.5 rounded-full bg-white/10 backdrop-blur-md hover:bg-white/20 transition-all">
+                    {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
+                  </button>
+                  <button onClick={togglePlay} className="p-2.5 rounded-full bg-white/10 backdrop-blur-md hover:bg-white/20 transition-all">
+                    {isPlaying ? <Pause size={18} /> : <Play size={18} />}
+                  </button>
+                </div>
               </div> */}
             </div>
-          ))}
+
+            {/* Floating Badge */}
+            <div className="absolute -top-6 -right-6 hidden sm:block animate-bounce-slow">
+              <div className="bg-zinc-900 border border-zinc-700 text-white px-5 py-3 rounded-2xl shadow-xl flex items-center gap-3">
+                <div className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse"></div>
+                <span className="font-semibold text-sm">CGI Production</span>
+              </div>
+            </div>
+          </div>
         </div>
 
-        {/* CTA Section */}
-       
+        {/* 2. FEATURES GRID */}
+        {/* <div className="py-16">
+          <h2 className="text-3xl font-bold mb-10 text-center">
+            The <span className="text-blue-400">Amorphic Edge</span>
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {features.map((feature, index) => (
+              <div
+                key={index}
+                className="feature-card p-6 bg-zinc-900 rounded-xl border border-zinc-800 hover:border-blue-600 transition-all duration-300 transform hover:scale-[1.03] space-y-3 shadow-lg"
+              >
+                <div className={`p-3 rounded-full w-fit bg-zinc-800 ${feature.color}`}>
+                  {React.cloneElement(feature.icon, { className: "w-6 h-6" })}
+                </div>
+                <h3 className="text-lg font-semibold text-white">{feature.text}</h3>
+                <p className="text-sm text-gray-400">
+                  {index === 0 && "Objects transition seamlessly, retaining organic feel."}
+                  {index === 1 && "Eliminate jarring cuts with kinetic, rapid shape changes."}
+                  {index === 2 && "Colors shift and react naturally to the morphing action."}
+                  {index === 3 && "Animations mimic real-world physics for maximum immersion."}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div> */}
+
+        {/* 3. APPLICATIONS LIST */}
+        {/* <div className="py-20">
+          <div className="lg:max-w-3xl mx-auto text-center">
+            <h3 className="text-3xl font-bold mb-4">Perfect For</h3>
+            <p className="text-gray-400 text-lg mb-10">
+              Our amorphic animations elevate diverse content types with a high-impact, artistic finish.
+            </p>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {services.map((service, index) => (
+              <div key={index} className="service-feature flex items-center gap-3 p-4 bg-zinc-900 rounded-xl border border-zinc-800 hover:bg-blue-900/30 transition-colors duration-300">
+                <div className="w-2 h-2 bg-purple-500 rounded-full shadow-lg shadow-purple-500/50" />
+                <span className="text-white font-medium">{service}</span>
+              </div>
+            ))}
+          </div>
+        </div> */}
+
+
+        {/* 4. WORK SHOWCASE GRID */}
+        <div id="portfolio" className="py-20">
+          {/* <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              Amorphic Portfolio <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Highlights</span>
+            </h2>
+            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+              Witness the captivating power of fluid motion in our most recent projects.
+            </p>
+          </div> */}
+
+          <div className="work-grid grid grid-cols-1 md:grid-cols-2 gap-8 mt-40">
+            {workVideos.map((work) => (
+              <div
+                key={work.id}
+                className="work-item group bg-zinc-900 rounded-3xl shadow-xl border border-zinc-800 hover:border-blue-600 transition-all duration-500 overflow-hidden"
+              >
+                {/* Video Container */}
+                <div className="relative aspect-video overflow-hidden bg-gray-900">
+                  <video
+                    className="w-full h-full object-cover transition-transform duration-500"
+                    src={work.videoUrl}
+                    loop
+                    playsInline
+                    autoPlay
+                    muted
+                    // Added onMouseEnter/onMouseLeave for the original video hover effect
+                    onMouseEnter={e => e.currentTarget.play()}
+                    onMouseLeave={e => e.currentTarget.pause()}
+                  >
+                    <source src={work.videoUrl} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+
+                  {/* Overlay for Title on Hover */}
+                  {/* <div className="absolute inset-0 bg-black/50 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <h3 className="text-2xl font-bold text-white">{work.title}</h3>
+                    <p className="text-gray-300 mt-1">{work.description}</p>
+                  </div>
+
+                  <div className="absolute top-4 left-4">
+                    <span className="bg-gradient-to-r from-pink-600 to-purple-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
+                      {work.category}
+                    </span>
+                  </div> */}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Final CTA */}
+          {/* <div className="mt-16 text-center">
+            <button
+              onClick={() => navigate('/portfolio')}
+              className="group inline-flex items-center gap-3 bg-white text-gray-900 font-semibold py-3 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl hover:bg-gray-100"
+            >
+              <span>Explore Our Full Portfolio</span>
+              <Camera className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" />
+            </button>
+          </div> */}
+        </div>
+
       </div>
-
-      {/* Auto-play on hover functionality */}
-      <style jsx>{`
-        .work-item video {
-          transition: transform 0.3s ease;
-        }
-        
-        .work-item:hover video {
-          transform: scale(1.05);
-        }
-        
-        /* Auto-play on hover */
-        .work-item:hover video {
-          animation: gentlePlay 0.5s ease;
-        }
-        
-        @keyframes gentlePlay {
-          0% { transform: scale(1); }
-          50% { transform: scale(1.02); }
-          100% { transform: scale(1.05); }
-        }
-      `}</style>
-
-      {/* Auto-play functionality with JavaScript */}
-      <script dangerouslySetInnerHTML={{
-        __html: `
-          document.addEventListener('DOMContentLoaded', function() {
-            const workItems = document.querySelectorAll('.work-item');
-            
-            workItems.forEach(item => {
-              const video = item.querySelector('video');
-              
-              item.addEventListener('mouseenter', function() {
-                if (video && !video.playing) {
-                  video.play().catch(e => console.log('Auto-play prevented:', e));
-                }
-              });
-              
-              item.addEventListener('mouseleave', function() {
-                if (video && video.playing) {
-                  video.pause();
-                  video.currentTime = 0;
-                }
-              });
-            });
-          });
-        `
-      }} />
     </section>
   );
 };

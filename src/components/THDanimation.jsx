@@ -7,7 +7,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const ArchitectureVr = () => {
+const THDanimation = () => {
   const videoRef = useRef(null);
   const sectionRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(true);
@@ -78,21 +78,20 @@ const ArchitectureVr = () => {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-pink-500"></span>
                 </span>
-                <span className="text-3xl font-semibold tracking-wide uppercase text-zinc-300">Architecture VR</span>
+                <span className="text-3xl font-semibold tracking-wide uppercase text-zinc-300">3D CHARACTER ANIMATION</span>
               </div>
 
 
 
               <p className="text-lg text-zinc-400 leading-relaxed">
-                Experience your designs before they’re built with our Architecture VR solutions. We create immersive virtual reality environments that allow architects, developers, and clients to walk through, explore, and interact with architectural spaces in stunning detail.
+                Transform reading into an engaging, multimedia experience with our Interactive E-Book solutions. We design and develop dynamic digital books that go beyond text — combining animations, videos, sound effects, quizzes, and interactive elements to keep readers captivated from start to finish.
               </p>
 
               <p className="text-lg text-zinc-400 leading-relaxed">
-                From residential and commercial projects to urban developments and interior designs, our VR experiences bring blueprints to life — showcasing realistic lighting, materials, and spatial depth. This helps in better visualization, faster decision-making, and more impactful client presentations.
+                Perfect for education, training, storytelling, and marketing, our interactive e-books turn static content into immersive journeys that inform, entertain, and inspire. With responsive design and cross-platform compatibility, we ensure a seamless experience on any device.
               </p>
               <p className="text-lg text-zinc-400 leading-relaxed">
-                Step inside your vision with Architecture VR — where imagination meets immersive innovation.
-              </p>
+                Bring your stories and ideas to life through interactive e-books that educate, engage, and delight your audience.              </p>
 
             </div>
 
@@ -105,7 +104,7 @@ const ArchitectureVr = () => {
               <video
                 ref={videoRef}
                 className="w-full h-full object-cover scale-[1.01]"
-                src='https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764438875/Architecture_VR_-_Multi_Loop_cvby6e.mp4' // Using a placeholder URL for the demo video
+                src="https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764440544/3D_CHARECTER_ANIMATION_-_Multi_Loop_e3kxxe.mp4"
                 muted={isMuted}
                 autoPlay
                 loop
@@ -166,7 +165,12 @@ const InteractiveProductAppsWorkShowcase = () => {
 
 
   const workVideos = [
-    "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764438787/Architecture_VR_-_Loop_ppmbdq.mp4"
+    "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764440421/Asian_Paints_Project_Sales_Genie_-_Loop_nahx19.mp4",
+    "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764440474/Capex_Cashews_-_Loop_cx6hap.mp4",
+    "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764440470/HUL_CloseUp_-_Loop_zbwvcs.mp4",
+    "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764440452/India_vs_New_Zealand_-_Rassi_Bomb_and_Lal_Phataka_-_Loop_oedxhj.mp4",
+    "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764440463/India_vs_New_Zealand_-_Rockets_-_Loop_wy7rq0.mp4",
+    "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764440449/YOGA_GIRL_-_Loop_xuvwyj.mp4"
   ];
 
   return (
@@ -243,4 +247,4 @@ const InteractiveProductAppsWorkShowcase = () => {
   );
 };
 
-export default ArchitectureVr;
+export default THDanimation;

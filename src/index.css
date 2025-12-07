@@ -52,3 +52,11 @@
   height: 100%;
   object-fit: cover;
 }
+
+
+
+.custom-pagination .swiper-pagination-bullet {
+  margin: 0 6px;      /* Space between bullets */
+  width: 16px;        /* Bullet size */
+  height: 16px;
+}

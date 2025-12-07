@@ -5,7 +5,9 @@ import { Play, Pause, Volume2, VolumeX, Box, Zap, RotateCw, Camera, ArrowRight, 
   Rotate3d, 
   Star,
   CheckCircle2,
-  Cuboid } from 'lucide-react';
+  Cuboid, 
+  Building,
+  Target} from 'lucide-react';
 import { Link, Links, useNavigate } from 'react-router-dom';
 
 
@@ -69,12 +71,28 @@ const ThreeDModeling = () => {
     }
   };
 
-  const features = [
-    { icon: <Cuboid className="w-5 h-5" />, title: "3D Modeling", desc: "High-Poly & CAD" },
-    { icon: <Layers className="w-5 h-5" />, title: "Texturing", desc: "Photorealistic" },
-    { icon: <Move3d className="w-5 h-5" />, title: "Animation", desc: "Physics & rigging" },
-    { icon: <Rotate3d className="w-5 h-5" />, title: "360° Views", desc: "Interactive" }
-  ];
+  const newFeatures = [
+  {
+    icon: <Cuboid className="w-5 h-5" />,
+    title: "Product Models",
+    desc: "Realistic 3D visualizations for designs, prototypes, and digital twins.",
+  },
+  {
+    icon: <Building className="w-5 h-5" />,
+    title: "Architecture Models",
+    desc: "Detailed walkthroughs, flythroughs, and renderings that bring spaces to life.",
+  },
+  {
+    icon: <Target className="w-5 h-5" />,
+    title: "Project Simulations",
+    desc: "Accurate visualization of technical, manufacturing, or industrial processes.",
+  },
+  {
+    icon: <Camera className="w-5 h-5" />,
+    title: "Anamorphic Videos",
+    desc: "Creating large-scale optical illusions (3D displays) that captivate audiences.",
+  },
+];
 
   return (
   <>
@@ -97,37 +115,46 @@ const ThreeDModeling = () => {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
                 </span>
-                <span className="text-xs font-semibold tracking-wide uppercase text-zinc-300">3D Visualization</span>
+                <span className="text-4xl font-semibold tracking-wide uppercase text-zinc-300">3D Visualization</span>
               </div>
 
-              <h2 className="text-5xl md:text-6xl font-bold leading-tight tracking-tight">
+              {/* <h2 className="text-5xl md:text-6xl font-bold leading-tight tracking-tight">
                 Bring Your Vision to <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400">
                   Life in 3D.
                 </span>
-              </h2>
+              </h2> */}
 
               <p className="text-lg text-zinc-400 leading-relaxed max-w-xl">
-                Visualize. Interact. Experience. We turn imagination into reality with detailed 3D models, architectural renderings, and product simulations.
-              </p>
+    <strong className="text-white">Visualize. Interact. Experience.</strong> We turn imagination into reality with detailed 3D models, visualizations, and simulations — helping you showcase ideas, designs, and products with precision and flair.
+  </p>
+  
+  <h3 className="text-xl font-semibold text-zinc-300 mt-8 mb-4">
+    Our 3D Production Capabilities
+  </h3>
             </div>
 
             {/* Feature Grid (Bento Style) */}
-            <div className="grid grid-cols-2 gap-4">
-              {features.map((feature, index) => (
-                <div key={index} className="feature-card group p-4 rounded-2xl bg-zinc-900/40 border border-white/5 hover:bg-zinc-800/60 hover:border-cyan-500/30 transition-all duration-300">
-                  <div className="mb-3 p-2 w-fit rounded-lg bg-gradient-to-br from-cyan-500/10 to-indigo-500/10 text-cyan-400 group-hover:text-cyan-300 group-hover:scale-110 transition-transform duration-300">
-                    {feature.icon}
-                  </div>
-                  <h4 className="font-semibold text-zinc-200">{feature.title}</h4>
-                  <p className="text-xs text-zinc-500 mt-1">{feature.desc}</p>
-                </div>
-              ))}
-            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    {newFeatures.map((feature, index) => (
+      <div 
+        key={index} 
+        className="feature-card group p-6 rounded-2xl bg-zinc-900/40 border border-white/5 
+                   hover:bg-zinc-800/60 hover:border-cyan-500/30 transition-all duration-300"
+      >
+        <div className="mb-3 p-3 w-fit rounded-xl bg-gradient-to-br from-cyan-500/10 to-indigo-500/10 text-cyan-400 
+                        group-hover:text-cyan-300 group-hover:scale-105 transition-transform duration-300">
+          {feature.icon}
+        </div>
+        <h4 className="font-bold text-lg text-zinc-200">{feature.title}</h4>
+        <p className="text-sm text-zinc-500 mt-1">{feature.desc}</p>
+      </div>
+    ))}
+  </div>
           </div>
 
           {/* Right Video - The Hero Asset */}
-          <div className="hero-video-container relative group">
+            <div className="hero-video-container relative group sm:w-2xl md:m-w-3xl lg:w-4xl md:h-72 md:-mt-40">
             {/* Glow Effect behind video */}
             <div className="absolute -inset-1 bg-gradient-to-r from-cyan-600 to-indigo-600 rounded-3xl opacity-20 group-hover:opacity-40 blur-lg transition duration-500"></div>
             
@@ -135,7 +162,7 @@ const ThreeDModeling = () => {
               <video
                 ref={videoRef}
                 className="w-full h-full object-cover scale-[1.01]"
-                src='https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764350904/Product_Models_-_Loop_xr3he2.mp4'
+                src='https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764350670/3dmodeling/FLAT_ANAMORPHIK_LOOP_vab6ff.mp4'
                 muted={isMuted}
                 autoPlay
                 loop
@@ -146,7 +173,7 @@ const ThreeDModeling = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
 
               {/* Controls */}
-              <div className="absolute bottom-4 left-4 right-4 flex justify-between items-center z-20">
+              {/* <div className="absolute bottom-4 left-4 right-4 flex justify-between items-center z-20">
                 <div className="flex items-center gap-2">
                    <div className="px-3 py-1 bg-black/60 backdrop-blur-md rounded-lg border border-white/10 text-xs font-medium text-white/90 flex items-center gap-2">
                      <Box size={12} /> Product Rendering
@@ -161,7 +188,7 @@ const ThreeDModeling = () => {
                      {isPlaying ? <Pause size={18} /> : <Play size={18} />}
                   </button>
                 </div>
-              </div>
+              </div> */}
             </div>
 
             {/* Floating Badge */}
@@ -207,53 +234,6 @@ const ThreeDModeling = () => {
       </div>
 
       {/* SECTION 3: LIGHT MODE BRIDGE */}
-      <section className="bg-white py-24 lg:py-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            
-            {/* Visual */}
-            <div className="relative order-2 lg:order-1">
-              <div className="absolute inset-0 bg-cyan-100 rounded-[2rem] transform rotate-3 scale-105 opacity-50"></div>
-              <div className="relative rounded-[2rem] overflow-hidden shadow-2xl group">
-                 <video
-                  className="w-full h-full object-cover aspect-[4/3] group-hover:scale-105 transition-transform duration-700 ease-in-out"
-                  src="https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764350661/3dmodeling/ANAMORPHIC_01_m9tqqj.mp4"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                />
-                <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
-              </div>
-            </div>
-
-            {/* CTA Content */}
-            <div className="order-1 lg:order-2 space-y-8">
-              <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 leading-tight">
-                Not just pixels. <br/>
-                We create <span className="text-cyan-600">Dimensions.</span>
-              </h2>
-              <p className="text-lg text-zinc-600 leading-relaxed">
-                From hyper-realistic product demos to mind-bending anamorphic billboards. See how we help brands stand out in a three-dimensional world.
-              </p>
-              
-              <div className="flex flex-wrap gap-4">
-                <Link to={'/portfolio'}>
-                <button className="group relative px-8 py-4 bg-zinc-900 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300">
-                  <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-cyan-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  <div className="relative flex items-center gap-3 text-white font-semibold">
-                    <span>View  Portfolio</span>
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </button>
-                </Link>
-              
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
 
     </div>
       <ThreeDWorkShowcase /> 
@@ -375,11 +355,11 @@ const ThreeDWorkShowcase = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            3D Modeling <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Portfolio</span>
+            3D Modeling and Simulation <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"></span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          {/* <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Explore our collection of stunning 3D models and animations that bring ideas to life with unparalleled realism and creativity.
-          </p>
+          </p> */}
         </div>
 
         {/* Work Grid */}
@@ -387,44 +367,44 @@ const ThreeDWorkShowcase = () => {
           {[
             {
               id: 1,
-              title: "Amorphic Videos",
+              title: "Anamorphic Videos",
               category: "3D Animation",
-              videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764350654/3dmodeling/SAMPLE_PREVIEW_u28qet.mp4",
-              description: "Fluid and organic 3D animations that transform and evolve",
+              videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764350670/3dmodeling/FLAT_ANAMORPHIK_LOOP_vab6ff.mp4",
+              description: "Creating optical illusions that captivate audiences in real-world settings",
               path: "/services/amorphic-videos"
             },
             {
               id: 2,
               title: "Architecture Videos",
               category: "Architectural 3D",
-              videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764350882/BATHSENSE_CONCEALED_CISTERN_INSTALLATION_-_Loop_poxfai.mp4",
-              description: "Immersive architectural walkthroughs and building visualizations",
+              videoUrl: "/video.mp4",
+              description: "Walkthroughs and flythroughs that bring spaces to life",
               path: "/services/architecture-videos"
             },
             {
               id: 3,
               title: "Product Model",
               category: "3D Modeling",
-              videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764350876/3D_LAMP_fbalz4.mp4",
-              description: "Detailed 3D project models and prototype visualizations",
+              videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764350904/Product_Models_-_Loop_xr3he2.mp4",
+              description: "Realistic visualizations of your designs or prototypes",
               path: "/services/product-videos"
             },
             {
               id: 4,
               title: "Project Simulations",
               category: "3D Simulation",
-              videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764350850/FLAT_ANAMORPHIK_LOOP_mwa1gd.mp4",
-              description: "Realistic project simulations and dynamic scenario testing",
+              videoUrl: "/video.mp4",
+              description: "Technical or industrial processes visualized with accuracy",
               path: "/services/project-videos"
             },
-            {
-              id: 4,
-              title: "Project Simulations",
-              category: "3D Simulation",
-              videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764350661/3dmodeling/ANAMORPHIC_01_m9tqqj.mp4",
-              description: "Realistic project simulations and dynamic scenario testing",
-              path: "/services/project-videos"
-            }
+            // {
+            //   id: 4,
+            //   title: "Project Simulations",
+            //   category: "3D Simulation",
+            //   videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764350661/3dmodeling/ANAMORPHIC_01_m9tqqj.mp4",
+            //   description: "Realistic project simulations and dynamic scenario testing",
+            //   path: "/services/project-videos"
+            // }
           ].map((work) => (
             <div
               key={work.id}
@@ -456,21 +436,35 @@ const ThreeDWorkShowcase = () => {
               </div>
 
               {/* Content with Title and Arrow */}
-              {/* <div className="p-6">
-        <div className="flex items-center justify-between">
-          <div>
-            <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors duration-300">
-              {work.title}
-            </h3>
-            <p className="text-gray-600 text-sm">
-              {work.description}
-            </p>
-          </div>
-          <button className="flex items-center justify-center w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full hover:scale-110 transition-all duration-300 transform group-hover:translate-x-1 shadow-lg">
-          <Link to={work?.path}><ArrowRight className="w-5 h-5" /></Link>
-          </button>
-        </div>
-      </div> */}
+
+<div className="p-6 sm:p-8 bg-white rounded-xl transition-all duration-500 ">
+  <div className="flex items-start justify-between gap-4">
+    
+    {/* TEXT CONTENT */}
+    <div className="flex-grow">
+      <h3 className="text-2xl font-extrabold text-gray-900 mb-2 group-hover:text-blue-700 transition-colors duration-300 leading-snug text-center">
+        {work.title}
+      </h3>
+      <p className="text-gray-600 text-base leading-relaxed font-bold">
+        {work.description}
+      </p>
+    </div>
+
+    {/* ACTION BUTTON (Link) */}
+    <Link to={work?.path} className="flex-shrink-0">
+      <button 
+        aria-label={`View details for ${work.title}`}
+        className="flex items-center justify-center w-14 h-14 border-2 border-blue-600 text-blue-600 
+                   rounded-full transition-all duration-300 ease-in-out 
+                   hover:bg-blue-600 hover:text-white hover:scale-105 
+                   shadow-sm group-hover:shadow-lg group-hover:border-blue-700"
+      >
+        {/* Using a simple ArrowRight icon for a cleaner look */}
+        <ArrowRight className="w-6 h-6" /> 
+      </button>
+    </Link>
+  </div>
+</div>
             </div>
           ))}
         </div>
@@ -530,3 +524,66 @@ const ThreeDWorkShowcase = () => {
 };
 
 export default ThreeDModeling;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      // <section className="bg-white py-24 lg:py-32">
+      //   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      //     <div className="grid lg:grid-cols-2 gap-16 items-center">
+            
+      //       {/* Visual */}
+      //       <div className="relative order-2 lg:order-1">
+      //         <div className="absolute inset-0 bg-cyan-100 rounded-[2rem] transform rotate-3 scale-105 opacity-50"></div>
+      //         <div className="relative rounded-[2rem] overflow-hidden shadow-2xl group">
+      //            <video
+      //             className="w-full h-full object-cover aspect-[4/3] group-hover:scale-105 transition-transform duration-700 ease-in-out"
+      //             src="https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764350661/3dmodeling/ANAMORPHIC_01_m9tqqj.mp4"
+      //             autoPlay
+      //             muted
+      //             loop
+      //             playsInline
+      //           />
+      //           <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
+      //         </div>
+      //       </div>
+
+      //       {/* CTA Content */}
+      //       <div className="order-1 lg:order-2 space-y-8">
+      //         <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 leading-tight">
+      //           Not just pixels. <br/>
+      //           We create <span className="text-cyan-600">Dimensions.</span>
+      //         </h2>
+      //         <p className="text-lg text-zinc-600 leading-relaxed">
+      //           From hyper-realistic product demos to mind-bending anamorphic billboards. See how we help brands stand out in a three-dimensional world.
+      //         </p>
+              
+      //         <div className="flex flex-wrap gap-4">
+      //           <Link to={'/portfolio'}>
+      //           <button className="group relative px-8 py-4 bg-zinc-900 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300">
+      //             <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-cyan-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+      //             <div className="relative flex items-center gap-3 text-white font-semibold">
+      //               <span>View  Portfolio</span>
+      //               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+      //             </div>
+      //           </button>
+      //           </Link>
+              
+      //         </div>
+      //       </div>
+
+      //     </div>
+      //   </div>
+      // </section>

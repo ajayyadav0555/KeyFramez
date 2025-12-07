@@ -77,14 +77,14 @@ const ContactUs = () => {
         {
             icon: <Mail className="w-6 h-6" />,
             title: "Email Us",
-            detail: "info@keyframez.com",
+            detail: "projects@keyframez.com",
             subtitle: "Send us your queries anytime",
             color: "from-blue-500 to-blue-600"
         },
         {
             icon: <Phone className="w-6 h-6" />,
             title: "Call Us",
-            detail: "+91-9876543210",
+            detail: "+91-9820047207",
             subtitle: "Mon to Fri, 9AM to 6PM",
             color: "from-green-500 to-green-600"
         },
@@ -270,13 +270,13 @@ const ContactUs = () => {
                                 </h3>
                                 <div className="space-y-2">
                                     <div className="flex justify-between">
-                                        <span>Monday - Friday</span>
-                                        <span className="font-semibold">9:00 AM - 6:00 PM</span>
+                                        <span>Monday - Saturday</span>
+                                        <span className="font-semibold">10:00 AM - 6:00 PM</span>
                                     </div>
-                                    <div className="flex justify-between">
+                                    {/* <div className="flex justify-between">
                                         <span>Saturday</span>
                                         <span className="font-semibold">10:00 AM - 4:00 PM</span>
-                                    </div>
+                                    </div> */}
                                     <div className="flex justify-between">
                                         <span>Sunday</span>
                                         <span className="font-semibold">Closed</span>
