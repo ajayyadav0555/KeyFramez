@@ -106,13 +106,25 @@ const InteractiveContent = () => {
 
             <div className="space-y-10">
               <div className="reveal-text space-y-6">
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900/50 border border-zinc-800 rounded-full backdrop-blur-md">
+                {/* <div className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900/50 border border-zinc-800 rounded-full backdrop-blur-md">
                   <span className="relative flex h-2 w-2">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-400 opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-pink-500"></span>
                   </span>
                   <span className="text-3xl font-semibold tracking-wide uppercase text-zinc-300">Interactive Content Creation</span>
+                </div> */}
+
+                <div className="inline-flex items-center gap-3  py-3  backdrop-blur-md 
+                  shadow-2xl">
+
+
+                  <span className="md:text-5xl text-3xl font-extrabold tracking-tight uppercase 
+                 bg-clip-text text-transparent 
+                 bg-gradient-to-r from-blue-400 to-pink-500">
+                    Interactive Content Creation
+                  </span>
                 </div>
+
 
 
                 <p className="text-lg text-zinc-400 leading-relaxed max-w-xl">
@@ -134,7 +146,7 @@ const InteractiveContent = () => {
 
             </div>
 
-            <div className="hero-video-container relative group sm:w-2xl md:m-w-3xl lg:w-4xl md:h-72 md:-mt-40">
+            <div className="hero-video-container relative group sm:w-2xl md:m-w-3xl lg:w-3xl md:h-72 lg:-mt-40">
               <div className="absolute -inset-1 bg-gradient-to-r from-pink-600 to-violet-600 rounded-3xl opacity-20 group-hover:opacity-40 blur-lg transition duration-500"></div>
 
               <div className="relative rounded-3xl overflow-hidden aspect-video shadow-2xl bg-black border border-white/10">
@@ -152,12 +164,12 @@ const InteractiveContent = () => {
 
               </div>
 
-              <div className="absolute -top-6 -right-6 hidden sm:block animate-bounce-slow">
+              {/* <div className="absolute -top-6 -right-6 hidden sm:block animate-bounce-slow">
                 <div className="bg-zinc-900 border border-zinc-700 text-white px-5 py-3 rounded-2xl shadow-xl flex items-center gap-3">
                   <div className="w-2 h-2 rounded-full bg-pink-500 animate-pulse"></div>
                   <span className="font-semibold text-sm">Real-Time Graphics</span>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </section>
@@ -256,7 +268,7 @@ const InteractiveWorkShowcase = () => {
   const handleNavigation = (path) => {
     navigate(path);
   };
- 
+
   return (
     <section ref={sectionRef} className="py-20 bg-gradient-to-br from-gray-50 to-blue-50/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -302,7 +314,7 @@ const InteractiveWorkShowcase = () => {
             .map((work) => (
               <div
                 key={work.id}
-                className="work-item group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden hover:-translate-y-2"
+                className="work-item group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden hover:-translate-y-2 cursor-pointer" onClick={() => handleNavigation(work.path)}
               >
                 <div className="relative aspect-video overflow-hidden bg-gray-900">
                   <video
@@ -317,22 +329,23 @@ const InteractiveWorkShowcase = () => {
 
                 </div>
 
-                <div className="p-6 flex items-center justify-between">
+                <div className="p-6 flex items-center justify-between" 
+                >
                   <div className="flex-grow">
                     <h3 className="text-2xl font-extrabold text-gray-900 mb-2 group-hover:text-blue-700 transition-colors duration-300 leading-snug text-center">
                       {work.title}
                     </h3>
-                    <p className="text-gray-600 text-base leading-relaxed font-bold">
+                    {/* <p className="text-gray-600 text-base leading-relaxed font-bold">
                       {work.description}
-                    </p>
+                    </p> */}
                   </div>
 
-                  <button
+                  {/* <button
                     onClick={() => handleNavigation(work.path)}
                     className="flex items-center justify-center w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full hover:scale-110 transition-all duration-300 transform group-hover:translate-x-1 shadow-lg"
                   >
                     <ArrowRight className="w-4 h-4" />
-                  </button>
+                  </button> */}
                 </div>
               </div>
             ))}

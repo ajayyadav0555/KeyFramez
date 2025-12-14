@@ -73,13 +73,23 @@ const Compositing = () => {
                     {/* Left Content */}
                     <div className="product-apps-content space-y-10">
                         <div className="space-y-6">
-                            <div className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900/50 border border-zinc-800 rounded-full backdrop-blur-md">
+                            {/* <div className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900/50 border border-zinc-800 rounded-full backdrop-blur-md">
                                 <span className="relative flex h-2 w-2">
                                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-400 opacity-75"></span>
                                     <span className="relative inline-flex rounded-full h-2 w-2 bg-pink-500"></span>
                                 </span>
                                 <span className="text-3xl font-semibold tracking-wide uppercase text-zinc-300">Compositing and Green Screen Integration</span>
-                            </div>
+                            </div> */}
+ <div className="inline-flex items-center gap-3  py-3  backdrop-blur-md 
+                  shadow-2xl">
+
+
+                  <span className="md:text-5xl text-3xl font-extrabold tracking-tight uppercase 
+                 bg-clip-text text-transparent 
+                 bg-gradient-to-r from-blue-400 to-pink-500">
+                   Compositing and Green Screen Integration
+                  </span>
+                </div>
 
 
 
@@ -97,7 +107,7 @@ const Compositing = () => {
 
                     </div>
 
-                    <div className="product-apps-video relative group  group sm:w-2xl md:m-w-3xl lg:w-4xl md:h-72 md:-mt-40">
+                    <div className="product-apps-video relative group  group sm:w-2xl md:m-w-3xl lg:w-3xl md:h-72 lg:-mt-40">
                         <div className="absolute -inset-1 bg-gradient-to-r from-pink-600 to-violet-600 rounded-3xl opacity-20 group-hover:opacity-40 blur-lg transition duration-500"></div>
 
                         <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-black border border-white/10 aspect-video">
@@ -115,12 +125,12 @@ const Compositing = () => {
 
 
 
-                            <div className="absolute -top-6 -right-6 hidden sm:block animate-bounce-slow">
+                            {/* <div className="absolute -top-6 -right-6 hidden sm:block animate-bounce-slow">
                                 <div className="bg-zinc-900 border border-zinc-700 text-white px-5 py-3 rounded-2xl shadow-xl flex items-center gap-3">
                                     <div className="w-2 h-2 rounded-full bg-pink-500 animate-pulse"></div>
                                     <span className="font-semibold text-sm">High Engagement</span>
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>

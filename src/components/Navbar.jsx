@@ -29,29 +29,29 @@ const Navbar = () => {
 
     // Throttled scroll handler
     const handleScroll = useCallback(() => {
-        // const scrolled = window.scrollY > 20;
-        // setIsScrolled(scrolled);
+        const scrolled = window.scrollY > 20;
+        setIsScrolled(scrolled);
     }, []);
 
     // Navbar scroll effect with throttle
-    // useEffect(() => {
-    //     let ticking = false;
-    //     const updateScroll = () => {
-    //         handleScroll();
-    //         ticking = false;
-    //     };
+    useEffect(() => {
+        let ticking = false;
+        const updateScroll = () => {
+            handleScroll();
+            ticking = false;
+        };
 
 
-    //     const onScroll = () => {
-    //         if (!ticking) {
-    //             requestAnimationFrame(updateScroll);
-    //             ticking = true;
-    //         }
-    //     };
+        const onScroll = () => {
+            if (!ticking) {
+                requestAnimationFrame(updateScroll);
+                ticking = true;
+            }
+        };
 
-    //     window.addEventListener('scroll', onScroll, { passive: true });
-    //     return () => window.removeEventListener('scroll', onScroll);
-    // }, [handleScroll]);
+        window.addEventListener('scroll', onScroll, { passive: true });
+        return () => window.removeEventListener('scroll', onScroll);
+    }, [handleScroll]);
 
     // Enhanced navbar entrance animation
     // useEffect(() => {
@@ -258,14 +258,15 @@ const Navbar = () => {
         return location.pathname.startsWith(path);
     };
 
+
     return (
         <>
             {/* Main Navigation */}
             <nav
                 ref={navRef}
                 className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled
-                    ? "bg-white/95 backdrop-blur-xl shadow-lg py-2"
-                    : "bg-white/80 backdrop-blur-md py-4"
+                    ? "bg-white backdrop-blur-md py-4"
+                    : "bg-transparent  shadow-lg py-2 "
                     }`}
             >
                 <div className="w-full md:mx-auto px-4 sm:px-6 lg:px-8 flex md:justify-around items-center justify-between">
@@ -311,12 +312,12 @@ const Navbar = () => {
                                 >
                                     <Link
                                         to={item.path}
-                                        className={`relative flex items-center gap-2 py-2.5 px-4 rounded-xl transition-all duration-300 group ${isActive
-                                            ? "text-blue-600 bg-blue-50/80 font-semibold"
-                                            : "text-gray-700 hover:text-blue-600 hover:bg-gray-50/80"
+                                        className={`relative flex  items-center gap-2 py-2.5 px-4 rounded-xl transition-all duration-300 group ${isActive
+                                            ? `text-blue-600 bg-blue-200/80 font-semibold`
+                                            : "text-gray-950 hover:text-blue-600 hover:bg-gray-50/80"
                                             }`}
                                     >
-                                        <span className="relative z-10 font-medium text-sm">
+                                        <span className="relative z-10 font-medium text-lg">
                                             {item.label}
                                         </span>
                                         {isActive && (
@@ -337,13 +338,13 @@ const Navbar = () => {
                                 className={`flex items-center gap-2 py-2.5 px-4 rounded-xl transition-all duration-300 cursor-pointer group 
         ${isActivePath("/services")
                                         ? "text-blue-600 bg-blue-50/80 font-semibold"
-                                        : "text-gray-700 hover:text-blue-600 hover:bg-gray-50/80"
+                                        : "text-gray-950 hover:text-blue-600 hover:bg-gray-50/80"
                                     }`}
                             >
-                                <span className="font-medium text-sm">Services</span>
+                                <span className="font-medium text-lg">Services</span>
                                 <ChevronDown
                                     size={16}
-                                    className={`transition-transform duration-300 ${isDropdownOpen ? "rotate-180 text-blue-600" : ""}`}
+                                    className={`transition-transform duration-300 ${isDropdownOpen ? "rotate-180 text-gray-600" : ""}`}
                                 />
                             </div>
 

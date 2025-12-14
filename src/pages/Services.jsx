@@ -49,12 +49,12 @@ const Services = () => {
       description: "Bringing characters to life with expressive animation for various media.",
       path: "/services/character-animation"
     },
-    {
-      title: "Inventive Film",
-      video: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764264915/Bugworks_-_Loop_ku2ksm.mp4",
-      description: "Creative film production that pushes boundaries and tells unique stories.",
-      path: "/services/amorphic-videos"
-    },
+    // {
+    //   title: "Inventive Film",
+    //   video: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764264915/Bugworks_-_Loop_ku2ksm.mp4",
+    //   description: "Creative film production that pushes boundaries and tells unique stories.",
+    //   path: "/services/amorphic-videos"
+    // },
     {
       title: "Visual Effects (VFX)",
       video: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764352970/Compositing_and_Green_Screen_Integration_-_Loop_owjc0o.mp4",
@@ -232,7 +232,7 @@ const Services = () => {
                 className="rounded-2xl object-cover"
               />
 
-              <div className="mt-3  text-center text-black font-semibold md:text-3xl text-xl text-nowrap mb-10">
+              <div className="mt-0  text-center text-black font-semibold md:text-3xl text-xl text-nowrap mb-14">
                 {item.title}
               </div>
 

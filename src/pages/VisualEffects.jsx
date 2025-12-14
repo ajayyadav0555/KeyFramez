@@ -112,12 +112,22 @@ const VisualEffects = () => {
             {/* Left Content */}
             <div className="space-y-10">
               <div className="reveal-text space-y-6">
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900/50 border border-zinc-800 rounded-full backdrop-blur-md">
+                {/* <div className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900/50 border border-zinc-800 rounded-full backdrop-blur-md">
                   <span className="relative flex h-2 w-2">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
                   </span>
                   <span className="text-4xl font-semibold tracking-wide uppercase text-zinc-300">Visual Effects (VFX)</span>
+                </div> */}
+
+
+                <div className="inline-flex items-center gap-3  py-3  backdrop-blur-md 
+                  shadow-2xl">
+                  <span className="md:text-5xl md:text-nowrap text-3xl font-extrabold tracking-tight uppercase 
+                 bg-clip-text text-transparent 
+                 bg-gradient-to-r from-blue-400 to-indigo-500">
+                    Visual Effects (VFX)
+                  </span>
                 </div>
 
                 {/* <h2 className="text-5xl md:text-6xl font-bold leading-tight tracking-tight">
@@ -159,7 +169,7 @@ const VisualEffects = () => {
             </div>
 
             {/* Right Video - The Hero Asset */}
-            <div className="hero-video-container relative group sm:w-2xl md:m-w-3xl lg:w-4xl md:h-72 lg:-mt-60">
+            <div className="hero-video-container relative group sm:w-2xl md:m-w-3xl lg:w-3xl md:h-72 lg:-mt-60">
               {/* Glow Effect behind video */}
               <div className="absolute -inset-1 bg-gradient-to-r from-cyan-600 to-indigo-600 rounded-3xl opacity-20 group-hover:opacity-40 blur-lg transition duration-500"></div>
 
@@ -197,12 +207,12 @@ const VisualEffects = () => {
               </div>
 
               {/* Floating Badge */}
-              <div className="absolute -top-6 -right-6 hidden sm:block animate-bounce-slow">
+              {/* <div className="absolute -top-6 -right-6 hidden sm:block animate-bounce-slow">
                 <div className="bg-zinc-900 border border-zinc-700 text-white px-5 py-3 rounded-2xl shadow-xl flex items-center gap-3">
                   <div className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse"></div>
                   <span className="font-semibold text-sm">CGI Production</span>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </section>
@@ -314,8 +324,13 @@ const ThreeDWorkShowcase = () => {
               description: "Creating optical illusions that captivate audiences in real-world settings",
               path: "/services/compositing"
             },
-            { title: "CGI Environments and Set Extensions" },
-            { title: "Clean-ups, Roto, and Paint Work" },
+            { title: "CGI Environments and Set Extensions",
+             
+            },
+            { title: "Clean-ups, Roto, and Paint Work",
+               videoUrl:"https://res.cloudinary.com/dq3ubcgdd/video/upload/v1765655003/Clean-ups_Roto_and_Paint_Work_-_Multi_Loop_j8duy0.mp4",
+               path:"/services/clean"
+             },
             { title: "Motion Tracking and Match Moving" },
             { title: "Product and Particle Simulations" },
             { title: "Visual Enhancement for Corporate and Advertising Films" }
@@ -330,6 +345,8 @@ const ThreeDWorkShowcase = () => {
             //   path: "/services/project-videos"
             // }
           ].map((work) => (
+                              <Link to={work?.path} className="flex-shrink-0">
+
             <div
               key={work.id}
               className="work-item group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden hover:-translate-y-2"
@@ -373,21 +390,19 @@ const ThreeDWorkShowcase = () => {
                   </div>
 
                   {/* ACTION BUTTON (Link) */}
-                  <Link to={work?.path} className="flex-shrink-0">
-                    <button
+                    {/* <button
                       aria-label={`View details for ${work.title}`}
                       className="flex items-center justify-center w-14 h-14 border-2 border-blue-600 text-blue-600 
                    rounded-full transition-all duration-300 ease-in-out 
                    hover:bg-blue-600 hover:text-white hover:scale-105 
                    shadow-sm group-hover:shadow-lg group-hover:border-blue-700"
                     >
-                      {/* Using a simple ArrowRight icon for a cleaner look */}
                       <ArrowRight className="w-6 h-6" />
-                    </button>
-                  </Link>
+                    </button> */}
                 </div>
               </div>
             </div>
+                  </Link>
           ))}
         </div>
 

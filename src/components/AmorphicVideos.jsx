@@ -94,13 +94,24 @@ const AmorphicVideos = () => {
 
           {/* Left Content */}
           <div className="amorphic-content space-y-8">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900/50 border border-zinc-800 rounded-full backdrop-blur-md">
+            {/* <div className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900/50 border border-zinc-800 rounded-full backdrop-blur-md">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
               </span>
-              <span className="text-4xl font-semibold tracking-wide uppercase text-zinc-300">Anamorphic Videos</span>
-            </div>
+              <span className="text-4xl font-semibold tracking-wide uppercase text-zinc-300"></span>
+            </div> */}
+
+            <div className="inline-flex items-center gap-3  py-3  backdrop-blur-md 
+                  shadow-2xl">
+
+
+                  <span className="md:text-5xl text-3xl font-extrabold tracking-tight uppercase 
+                 bg-clip-text text-transparent 
+                 bg-gradient-to-r from-blue-400 to-zinc-500">
+                    Anamorphic Videos
+                  </span>
+                </div>
             {/* 
             <h1 className="text-4xl md:text-6xl font-extrabold leading-tight">
               Mastering <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Fluid Amorphic</span> Transformations
@@ -115,7 +126,7 @@ const AmorphicVideos = () => {
           
           </div>
 
-          <div className="hero-video-container relative group sm:w-2xl md:m-w-3xl lg:w-4xl md:h-72">
+          <div className="hero-video-container relative group sm:w-2xl md:m-w-3xl lg:w-3xl md:h-72 lg:-mt-20">
             {/* Glow Effect behind video */}
             <div className="absolute -inset-1 bg-gradient-to-r from-cyan-600 to-indigo-600 rounded-3xl opacity-20 group-hover:opacity-40 blur-lg transition duration-500"></div>
 
@@ -153,10 +164,10 @@ const AmorphicVideos = () => {
 
             {/* Floating Badge */}
             <div className="absolute -top-6 -right-6 hidden sm:block animate-bounce-slow">
-              <div className="bg-zinc-900 border border-zinc-700 text-white px-5 py-3 rounded-2xl shadow-xl flex items-center gap-3">
+              {/* <div className="bg-zinc-900 border border-zinc-700 text-white px-5 py-3 rounded-2xl shadow-xl flex items-center gap-3">
                 <div className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse"></div>
                 <span className="font-semibold text-sm">CGI Production</span>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

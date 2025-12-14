@@ -99,7 +99,7 @@ const Hero = () => {
                 });
             });
 
-            // Text reveal with character splitting effect
+            // // Text reveal with character splitting effect
             const titleChars = titleRef.current?.textContent?.split('') || [];
             titleRef.current.innerHTML = titleChars.map(char =>
                 char === ' ' ? ' ' : `<span class="char">${char}</span>`
@@ -130,7 +130,7 @@ const Hero = () => {
                     y: 0,
                     opacity: 1,
                     filter: "blur(0px)",
-                    duration: 1.2,
+                    duration: 0.5,
                     ease: "power3.out"
                 },
                 "-=0.5"
@@ -141,7 +141,7 @@ const Hero = () => {
                 {
                     y: 0,
                     opacity: 1,
-                    duration: 0.8,
+                    duration: 0.5,
                     stagger: 0.15,
                     ease: "power2.out"
                 },
@@ -202,6 +202,53 @@ const Hero = () => {
 
         return () => ctx.revert();
     }, []);
+
+
+
+    const lines = [
+        "We Animate Ideas.",
+        "We Bring Stories to Life"
+    ];
+
+
+    useEffect(() => {
+        const el = titleRef.current;
+        const tl = gsap.timeline({ repeat: -1 });
+
+        lines.forEach((line) => {
+            // 1️⃣ Current text goes UP & hides
+            tl.to(el, {
+                y: -40,
+                opacity: 0,
+                duration: 0.6,
+                ease: "power3.in"
+            });
+
+            // 2️⃣ Text CHANGE + reset below (instant, no animation)
+            tl.set(el, {
+                y: 40,
+                opacity: 0,
+                onComplete: () => {
+                    el.innerText = line; // 💥 THIS IS CORRECT PLACE
+                }
+            });
+
+            // 3️⃣ New text comes UP (show)
+            tl.to(el, {
+                y: 0,
+                opacity: 1,
+                duration: 0.6,
+                ease: "power3.out"
+            });
+
+            // 4️⃣ Hold text
+            tl.to(el, {
+                opacity: 1,
+                duration: 1.6
+            });
+        });
+    }, []);
+
 
     return (
         <div>
@@ -305,7 +352,7 @@ const Hero = () => {
                         id="hero-title"
                         className="text-2xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-black leading-tight mb-6 bg-gradient-to-r from-white via-cyan-100 to-purple-200 bg-clip-text text-transparent"
                     >
-                        We Animate Ideas. We Bring Stories to Life
+                        We Animate Ideas.
                     </h1>
 
                     {/* Subtitle */}

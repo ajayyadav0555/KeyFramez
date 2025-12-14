@@ -93,12 +93,17 @@ const ExplainerVideos = () => {
             {/* Left Content */}
             <div className="space-y-10">
               <div className="reveal-text space-y-6">
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900/50 border border-zinc-800 rounded-full backdrop-blur-md">
-                  <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-purple-500"></span>
+                {/*  */}
+
+                <div className="inline-flex items-center gap-3  py-3  backdrop-blur-md 
+                  shadow-2xl">
+
+
+                  <span className="md:text-5xl text-3xl font-extrabold tracking-tight uppercase 
+                 bg-clip-text text-transparent 
+                 bg-gradient-to-r from-blue-400 to-pink-500">
+                  Explainer Videos
                   </span>
-                  <span className="text-3xl font-semibold tracking-wide uppercase text-zinc-300">Explainer Videos</span>
                 </div>
 
                 {/* <h2 className="text-5xl md:text-6xl font-bold leading-tight tracking-tight">
@@ -130,7 +135,7 @@ const ExplainerVideos = () => {
             </div>
 
             {/* Right Video - The Hero Asset */}
-            <div className="hero-video-container relative group sm:w-2xl md:m-w-3xl lg:w-4xl md:h-72">
+            <div className="hero-video-container relative group sm:w-2xl md:m-w-3xl lg:w-3xl md:h-72 lg:-mt-40">
               {/* Glow Effect behind video */}
               <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-blue-600 rounded-3xl opacity-20 group-hover:opacity-40 blur-lg transition duration-500"></div>
 
@@ -149,7 +154,7 @@ const ExplainerVideos = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
 
                 {/* Controls */}
-                <div className="absolute bottom-4 left-4 right-4 flex justify-between items-center z-20">
+                {/* <div className="absolute bottom-4 left-4 right-4 flex justify-between items-center z-20">
                   <div className="flex items-center gap-2">
                     <div className="px-3 py-1 bg-black/60 backdrop-blur-md rounded-lg border border-white/10 text-xs font-medium text-white/90 flex items-center gap-2">
                       <MonitorPlay size={12} /> Motion Graphics
@@ -164,16 +169,16 @@ const ExplainerVideos = () => {
                       {isPlaying ? <Pause size={18} /> : <Play size={18} />}
                     </button>
                   </div>
-                </div>
+                </div> */}
               </div>
 
               {/* Floating Badge */}
-              <div className="absolute -top-6 -right-6 hidden sm:block animate-bounce-slow">
+              {/* <div className="absolute -top-6 -right-6 hidden sm:block animate-bounce-slow">
                 <div className="bg-zinc-900 border border-zinc-700 text-white px-5 py-3 rounded-2xl shadow-xl flex items-center gap-3">
                   <div className="w-2 h-2 rounded-full bg-purple-500 animate-pulse"></div>
                   <span className="font-semibold text-sm">2D & 3D Animation</span>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </section>
@@ -330,14 +335,14 @@ const ExplainerWorkShowcase = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section Header */}
-        <div className="text-center mb-16">
+        {/* <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Explainer Video <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Portfolio</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             See how we transform complex ideas into engaging, easy-to-understand videos that educate, engage, and convert audiences.
           </p>
-        </div>
+        </div> */}
 
         {/* Work Grid */}
         <div className="work-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-20">

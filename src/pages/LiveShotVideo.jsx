@@ -84,17 +84,20 @@ const LiveShotProduction = () => {
           <div className="absolute top-0 left-0 w-96 h-96 bg-blue-600/20 rounded-full blur-[128px] pointer-events-none" />
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-600/10 rounded-full blur-[128px] pointer-events-none" />
 
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center relative z-10">
+          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center relative z-10 ">
 
             {/* Left Content */}
             <div className="space-y-10">
               <div className="reveal-text space-y-6">
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900/50 border border-zinc-800 rounded-full backdrop-blur-md">
-                  <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+                <div className="inline-flex items-center gap-3  py-3  backdrop-blur-md 
+                  shadow-2xl">
+
+
+                  <span className="md:text-5xl text-3xl font-extrabold tracking-tight uppercase 
+                 bg-clip-text text-transparent 
+                 bg-gradient-to-r from-blue-400 to-pink-500">
+                    Live-shot Video Production
                   </span>
-                  <span className="text-3xl font-semibold tracking-wide uppercase text-zinc-300">Live-shot Video Production</span>
                 </div>
 
                 {/* <h2 className="text-5xl md:text-6xl font-bold leading-tight tracking-tight">
@@ -126,7 +129,7 @@ const LiveShotProduction = () => {
             </div>
 
             {/* Right Video - The Hero Asset */}
-            <div className="hero-video-container relative group sm:w-2xl md:m-w-3xl lg:w-4xl md:h-72">
+            <div className="hero-video-container relative group sm:w-2xl md:m-w-3xl lg:w-3xl md:h-72 lg:-mt-40">
               {/* Glow Effect behind video */}
               <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl opacity-20 group-hover:opacity-40 blur-lg transition duration-500"></div>
 
@@ -145,7 +148,7 @@ const LiveShotProduction = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
 
                 {/* Controls */}
-                <div className="absolute bottom-4 left-4 right-4 flex justify-between items-center z-20">
+                {/* <div className="absolute bottom-4 left-4 right-4 flex justify-between items-center z-20">
                   <div className="flex items-center gap-2">
                     <div className="px-3 py-1 bg-black/60 backdrop-blur-md rounded-lg border border-white/10 text-xs font-medium text-white/90">
                       4K HDR
@@ -160,16 +163,16 @@ const LiveShotProduction = () => {
                       {isPlaying ? <Pause size={18} /> : <Play size={18} />}
                     </button>
                   </div>
-                </div>
+                </div> */}
               </div>
 
               {/* Floating Badge */}
-              <div className="absolute -top-6 -right-6 lg:-right-8 hidden sm:block animate-bounce-slow">
+              {/* <div className="absolute -top-6 -right-6 lg:-right-8 hidden sm:block animate-bounce-slow">
                 <div className="bg-zinc-900 border border-zinc-700 text-white px-5 py-3 rounded-2xl shadow-xl flex items-center gap-3">
                   <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
                   <span className="font-semibold text-sm">Now Recording</span>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </section>
@@ -207,7 +210,7 @@ const LiveShotProduction = () => {
         </div>
 
         {/* SECTION 3: PORTFOLIO BRIDGE (Light Mode for contrast) */}
-      
+
 
       </div>
       <OurWorkShowcase />
@@ -331,14 +334,14 @@ const OurWorkShowcase = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section Header */}
-        <div className="text-center mb-16">
+        {/* <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Our <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Work</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Explore our portfolio of stunning visual creations that have captivated audiences and delivered results for our clients.
           </p>
-        </div>
+        </div> */}
 
         {/* Work Grid */}
         <div className="work-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-20">
@@ -505,47 +508,47 @@ const OurWorkShowcase = () => {
 
 
 
-  // <section className="bg-white py-24 lg:py-32">
-  //         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-  //           <div className="grid lg:grid-cols-2 gap-16 items-center">
+// <section className="bg-white py-24 lg:py-32">
+//         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+//           <div className="grid lg:grid-cols-2 gap-16 items-center">
 
-  //             {/* Visual */}
-  //             <div className="relative order-2 lg:order-1">
-  //               <div className="absolute inset-0 bg-blue-100 rounded-[2rem] transform rotate-3 scale-105 opacity-50"></div>
-  //               <div className="relative rounded-[2rem] overflow-hidden shadow-2xl group">
-  //                 <video
-  //                   className="w-full h-full object-cover aspect-[4/3] group-hover:scale-105 transition-transform duration-700 ease-in-out"
-  //                   src="https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764348729/BIG_BAZAAR_SPARK_-_Loop_mfpoox.mp4"
-  //                   autoPlay
-  //                   muted
-  //                   loop
-  //                   playsInline
-  //                 />
-  //                 <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
-  //               </div>
-  //             </div>
+//             {/* Visual */}
+//             <div className="relative order-2 lg:order-1">
+//               <div className="absolute inset-0 bg-blue-100 rounded-[2rem] transform rotate-3 scale-105 opacity-50"></div>
+//               <div className="relative rounded-[2rem] overflow-hidden shadow-2xl group">
+//                 <video
+//                   className="w-full h-full object-cover aspect-[4/3] group-hover:scale-105 transition-transform duration-700 ease-in-out"
+//                   src="https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764348729/BIG_BAZAAR_SPARK_-_Loop_mfpoox.mp4"
+//                   autoPlay
+//                   muted
+//                   loop
+//                   playsInline
+//                 />
+//                 <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
+//               </div>
+//             </div>
 
-  //             {/* CTA Content */}
-  //             <div className="order-1 lg:order-2 space-y-8">
-  //               <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 leading-tight">
-  //                 Not just videos. <br />
-  //                 We build <span className="text-blue-600">Assets.</span>
-  //               </h2>
-  //               <p className="text-lg text-zinc-600 leading-relaxed">
-  //                 Ready to see what happens when high-end production meets strategic storytelling? Browse our extensive portfolio of corporate and commercial work.
-  //               </p>
+//             {/* CTA Content */}
+//             <div className="order-1 lg:order-2 space-y-8">
+//               <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 leading-tight">
+//                 Not just videos. <br />
+//                 We build <span className="text-blue-600">Assets.</span>
+//               </h2>
+//               <p className="text-lg text-zinc-600 leading-relaxed">
+//                 Ready to see what happens when high-end production meets strategic storytelling? Browse our extensive portfolio of corporate and commercial work.
+//               </p>
 
-  //               <div className="flex flex-wrap gap-4">
-  //                 <Link to={'/portfolio'}> <button className="group relative px-8 py-4 bg-zinc-900 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300">
-  //                   <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-blue-600 to-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-  //                   <div className="relative flex items-center gap-3 text-white font-semibold">
-  //                     <span>View Full Portfolio</span>
-  //                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-  //                   </div>
-  //                 </button></Link>
-  //               </div>
-  //             </div>
+//               <div className="flex flex-wrap gap-4">
+//                 <Link to={'/portfolio'}> <button className="group relative px-8 py-4 bg-zinc-900 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300">
+//                   <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-blue-600 to-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+//                   <div className="relative flex items-center gap-3 text-white font-semibold">
+//                     <span>View Full Portfolio</span>
+//                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+//                   </div>
+//                 </button></Link>
+//               </div>
+//             </div>
 
-  //           </div>
-  //         </div>
-  //       </section>
+//           </div>
+//         </div>
+//       </section>

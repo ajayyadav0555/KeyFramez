@@ -26,12 +26,15 @@ import THDanimation from './components/THDanimation'
 import Compositing from './components/Compositing'
 import Aianimation from './pages/Aianimation'
 import Motivation from './pages/Motivation'
+import ScrollToTop from './components/ScrollToTop'
+import Clean from './pages/Clean-ups'
 const App = () => {
   return (
     <>
       <BrowserRouter>
+      <ScrollToTop />
         <Navbar />
-        <div className="sm:pt-30 pt-16">
+        <div className="sm:pt-0 pt-16">
           <Routes>
             <Route path='/' element={<Hero />} />
             <Route path='/about' element={<Aboutus />} />
@@ -58,6 +61,7 @@ const App = () => {
               <Route path="/services/compositing" element={<Compositing />} />
               <Route path="/services/aibasedanimation" element={<Aianimation />} />
               <Route path="/services/motivation" element={<Motivation />} />
+              <Route path="/services/clean" element={<Clean />} />
             </Route>
           </Routes>
         </div>

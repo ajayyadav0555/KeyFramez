@@ -85,9 +85,18 @@ const ProductModels = () => {
             {/* Left Content */}
             <div className="product-content space-y-10">
               <div className="space-y-6">
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900/50 border border-zinc-800 rounded-full backdrop-blur-md">
+                {/* <div className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900/50 border border-zinc-800 rounded-full backdrop-blur-md">
                   <ShoppingBag className="w-4 h-4 text-cyan-400" />
                   <span className="text-3xl font-semibold tracking-wide uppercase text-zinc-300">Product Model</span>
+                </div> */}
+                <div className="inline-flex items-center gap-3  py-3  backdrop-blur-md 
+                  shadow-2xl">
+
+
+                  <span className="md:text-5xl text-3xl font-extrabold tracking-tight uppercase 
+                 bg-clip-text text-transparent 
+                 bg-gradient-to-r from-blue-400 to-zinc-500">
+Product Model                  </span>
                 </div>
 
 
@@ -108,11 +117,13 @@ const ProductModels = () => {
                     className="feature-card group p-6 rounded-2xl bg-zinc-900/40 border border-white/5 
                                                    hover:bg-zinc-800/60 hover:border-cyan-500/30 transition-all duration-300"
                   >
-                    <div className="mb-3 p-3 w-fit rounded-xl bg-gradient-to-br from-cyan-500/10 to-indigo-500/10 text-cyan-400 
+                    <div className='flex gap-5'>
+                      <div className="mb-3 p-3 w-fit rounded-xl bg-gradient-to-br from-cyan-500/10 to-indigo-500/10 text-cyan-400 
                                                          group-hover:text-cyan-300 group-hover:scale-105 transition-transform duration-300">
                       {React.cloneElement(feature.icon, { className: "w-5 h-5" })}
                     </div>
                     <h4 className="font-bold text-lg text-zinc-200">{feature.text}</h4>
+                    </div>
                     <p className="text-sm text-zinc-500 mt-1">{feature.desc}</p>
                   </div>
                 ))}
@@ -120,7 +131,7 @@ const ProductModels = () => {
             </div>
 
             {/* Right Video - The Hero Asset */}
-            <div className="hero-video-container relative group sm:w-2xl md:m-w-3xl lg:w-4xl md:h-72  md:-mt-40">
+            <div className="hero-video-container relative group sm:w-2xl md:m-w-3xl lg:w-3xl md:h-72  lg:-mt-60">
               {/* Glow Effect behind video */}
               <div className="absolute -inset-1 bg-gradient-to-r  transition duration-500"></div>
 
@@ -214,8 +225,29 @@ const ProductWorkShowcase = () => {
       id: 2,
       title: "Luxury Watch Render",
       category: "Fashion/Jewelry",
-      videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764352101/3D_GLASS_slyk4d.mp4",
+      videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764350882/BATHSENSE_CONCEALED_CISTERN_INSTALLATION_-_Loop_poxfai.mp4",
       description: "Extreme close-up renders highlighting materials and intricate details."
+    },
+    {
+      videoUrl:"https://res.cloudinary.com/dq3ubcgdd/video/upload/v1765655530/COLGATE_SWARNA_SHAKTI_LINEUP_pcxtwt.mp4"
+    },
+    {
+      videoUrl:"https://res.cloudinary.com/dq3ubcgdd/video/upload/v1765655521/Headphone_gskj81.mp4"
+    },
+    {
+      videoUrl:"https://res.cloudinary.com/dq3ubcgdd/video/upload/v1765655528/KOHLER_BASIN_COMPOSE_sgwmak.mp4"
+    },
+    {
+      videoUrl:"https://res.cloudinary.com/dq3ubcgdd/video/upload/v1765655526/MASK_falkur.mp4"
+    },
+    {
+      videoUrl:"https://res.cloudinary.com/dq3ubcgdd/video/upload/v1765655513/PEPSI_AD_llidwn.mp4"
+    },
+    {
+      videoUrl:"https://res.cloudinary.com/dq3ubcgdd/video/upload/v1765655530/SLEEK_ajcwwz.mp4"
+    },
+    {
+      videoUrl:"https://res.cloudinary.com/dq3ubcgdd/video/upload/v1765655531/TOILET_EK_PREM_KATHA_hroc9y.mp4"
     },
     // {
     //   id: 3,

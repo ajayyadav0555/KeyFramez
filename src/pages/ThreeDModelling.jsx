@@ -110,13 +110,23 @@ const ThreeDModeling = () => {
           {/* Left Content */}
           <div className="space-y-10">
             <div className="reveal-text space-y-6">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900/50 border border-zinc-800 rounded-full backdrop-blur-md">
+              {/* <div className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900/50 border border-zinc-800 rounded-full backdrop-blur-md">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
                 </span>
                 <span className="text-4xl font-semibold tracking-wide uppercase text-zinc-300">3D Visualization</span>
-              </div>
+              </div> */}
+
+              <div className="inline-flex items-center gap-3  py-3  backdrop-blur-md 
+                  shadow-2xl">
+
+
+                  <span className="md:text-5xl text-3xl font-extrabold tracking-tight uppercase 
+                 bg-clip-text text-transparent 
+                 bg-gradient-to-r from-blue-400 to-indigo-500">
+3D Visualization                  </span>
+                </div>
 
               {/* <h2 className="text-5xl md:text-6xl font-bold leading-tight tracking-tight">
                 Bring Your Vision to <br />
@@ -154,7 +164,7 @@ const ThreeDModeling = () => {
           </div>
 
           {/* Right Video - The Hero Asset */}
-            <div className="hero-video-container relative group sm:w-2xl md:m-w-3xl lg:w-4xl md:h-72 md:-mt-40">
+            <div className="hero-video-container relative group sm:w-2xl md:m-w-3xl lg:w-3xl md:h-72 lg:-mt-40">
             {/* Glow Effect behind video */}
             <div className="absolute -inset-1 bg-gradient-to-r from-cyan-600 to-indigo-600 rounded-3xl opacity-20 group-hover:opacity-40 blur-lg transition duration-500"></div>
             
@@ -162,7 +172,7 @@ const ThreeDModeling = () => {
               <video
                 ref={videoRef}
                 className="w-full h-full object-cover scale-[1.01]"
-                src='https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764350670/3dmodeling/FLAT_ANAMORPHIK_LOOP_vab6ff.mp4'
+                src='https://res.cloudinary.com/dq3ubcgdd/video/upload/v1765655303/3D_Modelling_Simulations_-_Multi_Loop_fgwvdq.mp4'
                 muted={isMuted}
                 autoPlay
                 loop
@@ -192,12 +202,12 @@ const ThreeDModeling = () => {
             </div>
 
             {/* Floating Badge */}
-            <div className="absolute -top-6 -right-6 hidden sm:block animate-bounce-slow">
+            {/* <div className="absolute -top-6 -right-6 hidden sm:block animate-bounce-slow">
               <div className="bg-zinc-900 border border-zinc-700 text-white px-5 py-3 rounded-2xl shadow-xl flex items-center gap-3">
                  <div className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse"></div>
                  <span className="font-semibold text-sm">CGI Production</span>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
@@ -354,9 +364,9 @@ const ThreeDWorkShowcase = () => {
 
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          {/* <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             3D Modeling and Simulation <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"></span>
-          </h2>
+          </h2> */}
           {/* <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Explore our collection of stunning 3D models and animations that bring ideas to life with unparalleled realism and creativity.
           </p> */}
@@ -377,7 +387,7 @@ const ThreeDWorkShowcase = () => {
               id: 2,
               title: "Architecture Videos",
               category: "Architectural 3D",
-              videoUrl: "/video.mp4",
+              videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1765655572/Architecture_Models_-_Multi_Loop_lkihux.mp4",
               description: "Walkthroughs and flythroughs that bring spaces to life",
               path: "/services/architecture-videos"
             },
@@ -385,7 +395,7 @@ const ThreeDWorkShowcase = () => {
               id: 3,
               title: "Product Model",
               category: "3D Modeling",
-              videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764350904/Product_Models_-_Loop_xr3he2.mp4",
+              videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1765655489/Product_Models_-_Loop_xabj42.mp4",
               description: "Realistic visualizations of your designs or prototypes",
               path: "/services/product-videos"
             },
@@ -393,7 +403,7 @@ const ThreeDWorkShowcase = () => {
               id: 4,
               title: "Project Simulations",
               category: "3D Simulation",
-              videoUrl: "/video.mp4",
+              videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1765655452/Project_Simulations_-_Multi_Loop_cjacrk.mp4",
               description: "Technical or industrial processes visualized with accuracy",
               path: "/services/project-videos"
             },
@@ -411,6 +421,8 @@ const ThreeDWorkShowcase = () => {
               className="work-item group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden hover:-translate-y-2"
             >
               {/* Video Container */}
+               <Link to={work?.path} className='cursor-pointer'>
+
               <div className="relative aspect-video overflow-hidden bg-gray-900">
                 <video
                   className="w-full h-full object-cover"
@@ -436,7 +448,6 @@ const ThreeDWorkShowcase = () => {
               </div>
 
               {/* Content with Title and Arrow */}
-
 <div className="p-6 sm:p-8 bg-white rounded-xl transition-all duration-500 ">
   <div className="flex items-start justify-between gap-4">
     
@@ -445,26 +456,26 @@ const ThreeDWorkShowcase = () => {
       <h3 className="text-2xl font-extrabold text-gray-900 mb-2 group-hover:text-blue-700 transition-colors duration-300 leading-snug text-center">
         {work.title}
       </h3>
-      <p className="text-gray-600 text-base leading-relaxed font-bold">
+      {/* <p className="text-gray-600 text-base leading-relaxed font-bold">
         {work.description}
-      </p>
+        </p> */}
     </div>
 
     {/* ACTION BUTTON (Link) */}
-    <Link to={work?.path} className="flex-shrink-0">
+    {/* <Link to={work?.path} className="flex-shrink-0">
       <button 
-        aria-label={`View details for ${work.title}`}
-        className="flex items-center justify-center w-14 h-14 border-2 border-blue-600 text-blue-600 
-                   rounded-full transition-all duration-300 ease-in-out 
-                   hover:bg-blue-600 hover:text-white hover:scale-105 
+      aria-label={`View details for ${work.title}`}
+      className="flex items-center justify-center w-14 h-14 border-2 border-blue-600 text-blue-600 
+      rounded-full transition-all duration-300 ease-in-out 
+      hover:bg-blue-600 hover:text-white hover:scale-105 
                    shadow-sm group-hover:shadow-lg group-hover:border-blue-700"
       >
-        {/* Using a simple ArrowRight icon for a cleaner look */}
-        <ArrowRight className="w-6 h-6" /> 
+      <ArrowRight className="w-6 h-6" /> 
       </button>
-    </Link>
+    </Link> */}
   </div>
 </div>
+      </Link>
             </div>
           ))}
         </div>

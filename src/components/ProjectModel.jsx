@@ -1,49 +1,58 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { gsap } from 'gsap';
-import { Play, Pause, Volume2, VolumeX, Cpu, Zap, Eye, Settings, ArrowRight } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { Play, Pause, Volume2, VolumeX, Package, Zap, Eye, Sparkles, ArrowRight, Layers, Move3d, Rotate3d, Star, CheckCircle2, ShoppingBag, Box, Smartphone, Target } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const ProjectSimulations = () => {
   const videoRef = useRef(null);
   const sectionRef = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true); // Default to autoPlay=true for loop
   const [isMuted, setIsMuted] = useState(true);
 
+  const navigate = useNavigate();
+
+  // --- GSAP Animations (Adjusted to match ThreeDModeling) ---
   useEffect(() => {
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top 70%",
-        end: "bottom 20%",
-        toggleActions: "play none none reverse"
-      }
-    });
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 60%",
+          end: "bottom top",
+          toggleActions: "play none none reverse"
+        }
+      });
 
-    tl.fromTo('.simulation-content',
-      { opacity: 0, x: -50 },
-      { opacity: 1, x: 0, duration: 1, ease: "power3.out" }
-    );
+      // Hero content
+      tl.fromTo('.product-content',
+        { y: 50, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1, stagger: 0.1, ease: "power4.out" }
+      );
 
-    tl.fromTo('.simulation-video',
-      { opacity: 0, x: 50, scale: 0.9 },
-      { opacity: 1, x: 0, scale: 1, duration: 1, ease: "back.out(1.7)" },
-      "-=0.5"
-    );
+      // Video reveal (using the class from your original setup)
+      tl.fromTo('.product-video',
+        { scale: 0.9, opacity: 0, borderRadius: "50px" },
+        { scale: 1, opacity: 1, borderRadius: "24px", duration: 1.2, ease: "power3.out" },
+        "-=0.6"
+      );
 
-    tl.fromTo('.service-feature',
-      { opacity: 0, y: 20 },
-      { opacity: 1, y: 0, duration: 0.6, stagger: 0.1, ease: "power2.out" },
-      "-=0.3"
-    );
+      // Feature cards stagger
+      tl.fromTo('.feature-card',
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 0.8, stagger: 0.1, ease: "back.out(1.2)" },
+        "-=0.6"
+      );
+    }, sectionRef);
+
+    return () => ctx.revert();
   }, []);
 
   const togglePlay = () => {
     if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause();
-      } else {
-        videoRef.current.play();
-      }
+      isPlaying ? videoRef.current.pause() : videoRef.current.play();
       setIsPlaying(!isPlaying);
     }
   };
@@ -55,325 +64,200 @@ const ProjectSimulations = () => {
     }
   };
 
-  const services = [
-    "Construction Planning",
-    "Engineering Workflows",
-    "Product Functionality",
-    "Environmental Analysis",
-    "Design Concept Testing",
-    "Client Presentations"
-  ];
-
   const features = [
-    { icon: <Cpu className="w-5 h-5" />, text: "Physics-Based Motion" },
-    { icon: <Zap className="w-5 h-5" />, text: "Real-Time Rendering" },
-    { icon: <Eye className="w-5 h-5" />, text: "Interactive Visualization" },
-    { icon: <Settings className="w-5 h-5" />, text: "Data-Driven Analysis" }
+    { icon: <Package />, text: "Photorealistic Textures", desc: "Showcase materials with stunning realism." },
+    { icon: <Zap />, text: "360° Interactive Views", desc: "Allow customers to explore every angle online." },
+    { icon: <Smartphone />, text: "AR/VR Ready Assets", desc: "Models optimized for augmented and virtual reality." },
+    { icon: <Target />, text: "Technical Cutaways", desc: "Reveal internal components and functionality clearly." }
   ];
 
   return (
-    <section ref={sectionRef} className="py-2 bg-white">
-      <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 " style={{
-        backgroundColor: "rgb(38, 38, 38)"
-      }}>
-        <div className="grid lg:grid-cols-2 gap-32 items-center max-w-7xl mx-auto py-20">
+    <>
+      <section ref={sectionRef} className="bg-zinc-950 text-white overflow-hidden py-24 lg:py-32">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
-          {/* Left Content */}
-          <div className="simulation-content space-y-8">
-            <div className="space-y-6">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 rounded-full text-blue-600 font-semibold text-sm">
-                <Cpu className="w-4 h-4" />
-                Project Simulations
+          {/* Ambient Background Glows (Cyan/Indigo for 3D Tech feel) */}
+          <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-600/20 rounded-full blur-[128px] pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-indigo-600/10 rounded-full blur-[128px] pointer-events-none" />
+
+          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center relative z-10 ">
+
+            {/* Left Content */}
+            <div className="product-content space-y-10">
+              <div className="space-y-6">
+                {/* <div className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900/50 border border-zinc-800 rounded-full backdrop-blur-md">
+                  <ShoppingBag className="w-4 h-4 text-cyan-400" />
+                  <span className="text-3xl font-semibold tracking-wide uppercase text-zinc-300">Product Model</span>
+                </div> */}
+                <div className="inline-flex items-center gap-3  py-3  backdrop-blur-md 
+                  shadow-2xl">
+
+
+                  <span className="md:text-5xl text-3xl font-extrabold tracking-tight uppercase 
+                 bg-clip-text text-transparent 
+                 bg-gradient-to-r from-blue-400 to-zinc-500">
+                    Project Simulations                 </span>
+                </div>
+
+
+
+                <p className="text-lg text-white leading-relaxed max-w-xl">
+               Visualize, analyze, and refine your ideas before they’re built with our Project Simulation services. We create realistic, interactive simulations that help you experience your project in motion — from architectural designs and engineering workflows to product functionality and environmental behavior. <br />
+                Our simulations combine 3D visualization, physics-based motion, and real-time rendering to give you a clear understanding of how your project performs in the real world. Whether you’re showcasing a construction plan, testing a design concept, or presenting to clients, we turn complex data into dynamic, visually engaging experiences. <br />
+                  <span className='font-bold'> Experience precision, clarity, and innovation — all through the power of realistic project simulation.
+                  </span>
+                </p>
               </div>
 
-              <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
-                Visualize, Analyze, and Refine Your Ideas{' '}
-                <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                  Before They're Built
-                </span>
-              </h2>
-
-              <p className="text-lg text-white leading-relaxed">
-                Visualize, analyze, and refine your ideas before they're built with our Project Simulation services. 
-                We create realistic, interactive simulations that help you experience your project in motion — 
-                from architectural designs and engineering workflows to product functionality and environmental behavior.
-              </p>
-
-              <p className="text-lg text-white leading-relaxed">
-                Our simulations combine 3D visualization, physics-based motion, and real-time rendering to give you 
-                a clear understanding of how your project performs in the real world. Whether you're showcasing a 
-                construction plan, testing a design concept, or presenting to clients, we turn complex data into 
-                dynamic, visually engaging experiences.
-              </p>
-
-              <p className="text-lg text-white leading-relaxed">
-                Experience precision, clarity, and innovation — all through the power of realistic project simulation.
-              </p>
-            </div>
-
-            {/* Features */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {features.map((feature, index) => (
-                <div
-                  key={index}
-                  className="flex items-center gap-3 p-4 bg-gradient-to-br from-blue-50 to-indigo-50 
-                 rounded-2xl border-4 border-blue-800"
-                >
-                  <div className="text-blue-600">
-                    {feature.icon}
-                  </div>
-
-                  <span className="text-gray-700 font-medium text-sm sm:text-base">
-                    {feature.text}
-                  </span>
-                </div>
-              ))}
-            </div>
-
-            {/* Services List */}
-            <div className="space-y-4">
-              <h3 className="text-xl font-semibold text-white">Perfect For:</h3>
-              <div className="grid sm:grid-cols-2 gap-3">
-                {services.map((service, index) => (
-                  <div key={index} className="service-feature flex items-center gap-3 p-3 bg-gray-800 rounded-xl hover:bg-blue-900 transition-colors duration-300">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full" />
-                    <span className="text-white font-medium">{service}</span>
+              {/* Features Grid (Bento Style) */}
+              {/* <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {features.map((feature, index) => (
+                  <div
+                    key={index}
+                    className="feature-card group p-6 rounded-2xl bg-zinc-900/40 border border-white/5 
+                                                   hover:bg-zinc-800/60 hover:border-cyan-500/30 transition-all duration-300"
+                  >
+                    <div className='flex gap-5'>
+                      <div className="mb-3 p-3 w-fit rounded-xl bg-gradient-to-br from-cyan-500/10 to-indigo-500/10 text-cyan-400 
+                                                         group-hover:text-cyan-300 group-hover:scale-105 transition-transform duration-300">
+                        {React.cloneElement(feature.icon, { className: "w-5 h-5" })}
+                      </div>
+                      <h4 className="font-bold text-lg text-zinc-200">{feature.text}</h4>
+                    </div>
+                    <p className="text-sm text-zinc-500 mt-1">{feature.desc}</p>
                   </div>
                 ))}
-              </div>
+              </div> */}
             </div>
-          </div>
 
-          {/* Right Video Section */}
-          <div className="simulation-video relative">
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl group">
-              {/* Video Player */}
-              <video
-                ref={videoRef}
-                className="w-full h-auto aspect-video object-cover"
-                src='/video.mp4'
-                muted
-                autoPlay
-                loop
-                playsInline
-              >
-                <source src="/videos/project-simulation-demo.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+            {/* Right Video - The Hero Asset */}
+            <div className="hero-video-container relative group sm:w-2xl md:m-w-3xl lg:w-3xl md:h-72  lg:-mt-20">
+              {/* Glow Effect behind video */}
+              <div className="absolute -inset-1 bg-gradient-to-r  transition duration-500"></div>
 
-              {/* Video Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+              <div className="relative rounded-3xl overflow-hidden aspect-video shadow-2xl bg-black border border-white/10">
+                <video
+                  ref={videoRef}
+                  className="w-full h-full object-cover scale-[1.01]"
+                  src='https://res.cloudinary.com/dq3ubcgdd/video/upload/v1765655572/Architecture_Models_-_Multi_Loop_lkihux.mp4' // Using placeholder, client replaces this
+                  muted={isMuted}
+                  autoPlay
+                  loop
+                  playsInline
+                >
+                  <source src="/videos/product-model-demo.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
 
-              {/* Floating Badge */}
-              <div className="absolute -top-4 -right-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-2xl shadow-xl animate-pulse">
-                <div className="flex items-center gap-2 text-sm font-semibold">
-                  <Cpu className="w-4 h-4" />
-                  Real-Time Simulation
-                </div>
-              </div>
-            </div>
-          </div>
+                {/* Overlay Gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
 
-        </div>
-        <div className="flex items-center justify-center pb-10">
-          <div className="group relative">
-            <div className="flex items-center sm:gap-4 bg-white/95 backdrop-blur-xl sm:px-6 sm:py-4 py-2 rounded-2xl shadow-lg border border-gray-200/80 hover:shadow-xl transition-all duration-500 hover:scale-105 w-fit">
-
-              {/* Google Icon with Animation */}
-              <div className="relative">
-                <div className="flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-br from-white to-gray-50 shadow-inner border border-gray-200/60 group-hover:scale-110 transition-transform duration-500">
-                  <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-[#4285F4] shadow-lg">
-                    <svg className="w-6 h-6" viewBox="0 0 24 24">
-                      <path fill="white" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
-                      <path fill="white" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
-                      <path fill="white" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
-                      <path fill="white" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
-                    </svg>
-                  </div>
-                </div>
-                <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/10 to-green-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm -z-10"></div>
+                {/* Controls */}
               </div>
 
-              {/* Rating Content */}
-              <div className="flex items-center gap-4">
-                <div className="text-center">
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-2xl font-bold text-gray-900">4.9</span>
-                    <span className="text-sm text-gray-500">/5</span>
-                  </div>
-                  <div className="flex items-center gap-0.5 mt-1">
-                    {[1, 2, 3, 4, 5].map((star) => (
-                      <svg key={star} className="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
-                        <path d="M10 15l-5.878 3.09L5.82 11.545.64 7.41l6.078-.883L10 1l3.282 5.527 6.078.883-5.18 4.135 1.698 6.545z" />
-                      </svg>
-                    ))}
-                  </div>
+              {/* Floating Badge (Updated style) */}
+              {/* <div className="absolute -top-6 -right-6 hidden sm:block animate-bounce-slow">
+                <div className="bg-zinc-900 border border-zinc-700 text-white px-5 py-3 rounded-2xl shadow-xl flex items-center gap-3">
+                  <div className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse"></div>
+                  <span className="font-semibold text-sm">3D Product Assets</span>
                 </div>
-
-                <div className="h-8 w-px bg-gradient-to-b from-gray-300/50 to-transparent"></div>
-
-                <div>
-                  <div className="flex items-center gap-2">
-                    <div className="flex">
-                      {[1, 2, 3, 4, 5].map((star) => (
-                        <svg key={star} className="w-3 h-3 text-green-500 fill-current" viewBox="0 0 20 20">
-                          <path d="M10 15l-5.878 3.09L5.82 11.545.64 7.41l6.078-.883L10 1l3.282 5.527 6.078.883-5.18 4.135 1.698 6.545z" />
-                        </svg>
-                      ))}
-                    </div>
-                    <span className="text-sm font-semibold text-gray-900">Google Reviews</span>
-                  </div>
-                  <p className="text-xs text-gray-600 mt-0.5">190+ project simulations delivered</p>
-                </div>
-              </div>
-
-              {/* Trust Badge */}
-              <div className="flex items-center gap-1.5 px-3 py-1.5 bg-green-50 rounded-full border border-green-200/60">
-                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                <span className="text-xs font-medium text-green-700">Trusted</span>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
-      </div>
-      <div className="w-full max-w-7xl mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      </section>
 
-          {/* Left Side - Video */}
-          <div className="relative group">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-gray-900 aspect-video">
-              <video
-                className="w-full h-full object-cover"
-                src="/video.mp4"
-                autoPlay
-                muted
-                loop
-              />
-            </div>
-          </div>
+      {/* --- CTA BRIDGE SECTION (Seamless Transition) --- */}
 
-          {/* Right Side - Text + Button Only */}
-          <div className="flex flex-col justify-center space-y-6">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
-              Want to see more project simulations?
-            </h2>
 
-            {/* CTA Button Only */}
-            <button className="group w-fit bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
-              <div className="flex items-center justify-center gap-3">
-                <span>View Simulation Portfolio</span>
-                <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" />
-              </div>
-            </button>
-          </div>
-
-        </div>
-      </div>
-
-      <SimulationWorkShowcase />
-    </section>
+      <ProductWorkShowcase />
+    </>
   );
 };
 
-const SimulationWorkShowcase = () => {
+// --- REMAINS SIMILAR BUT WITH CONSISTENT STYLING ---
+const ProductWorkShowcase = () => {
   const sectionRef = useRef(null);
-  const [playingVideo, setPlayingVideo] = useState(null);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    // Section animation
-    gsap.fromTo(sectionRef.current,
-      { opacity: 0, y: 50 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 80%",
-          toggleActions: "play none none reverse"
-        }
-      }
-    );
+  // useEffect(() => {
+  //   // Section animation
+  //   gsap.fromTo(sectionRef.current,
+  //     { opacity: 0, y: 50 },
+  //     {
+  //       opacity: 1,
+  //       y: 0,
+  //       duration: 1,
+  //       scrollTrigger: {
+  //         trigger: sectionRef.current,
+  //         start: "top 80%",
+  //         toggleActions: "play none none reverse"
+  //       }
+  //     }
+  //   );
 
-    // Grid items animation
-    gsap.fromTo('.work-item',
-      { opacity: 0, y: 30 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        stagger: 0.2,
-        scrollTrigger: {
-          trigger: '.work-grid',
-          start: "top 70%",
-          toggleActions: "play none none reverse"
-        }
-      }
-    );
-  }, []);
+  //   // Grid items animation
+  //   gsap.fromTo('.work-item',
+  //     { opacity: 0, y: 30 },
+  //     {
+  //       opacity: 1,
+  //       y: 0,
+  //       duration: 0.8,
+  //       stagger: 0.2,
+  //       scrollTrigger: {
+  //         trigger: '.work-grid',
+  //         start: "top 70%",
+  //         toggleActions: "play none none reverse"
+  //       }
+  //     }
+  //   );
+  // }, []);
 
   const workVideos = [
     {
       id: 1,
-      title: "Construction Sequence",
-      category: "Engineering Simulation",
-      videoUrl: "/videos/construction-sequence.mp4",
-      description: "Step-by-step construction process visualization and planning"
+      title: "Wearable Tech Demo",
+      category: "Electronics 3D",
+      videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1765655461/ARCHITECTURE_Project_Simulations_-_Loop_qbdsdq.mp4",
+      description: "High-fidelity wearable electronics model with animated interface."
     },
-    {
-      id: 2,
-      title: "Mechanical Assembly",
-      category: "Product Simulation",
-      videoUrl: "/videos/mechanical-assembly.mp4",
-      description: "Interactive product assembly and disassembly simulations"
-    },
-    {
-      id: 3,
-      title: "Environmental Impact",
-      category: "Analysis Simulation",
-      videoUrl: "/videos/environmental-impact.mp4",
-      description: "Environmental behavior and impact analysis visualization"
-    },
-    {
-      id: 4,
-      title: "Workflow Optimization",
-      category: "Process Simulation",
-      videoUrl: "/videos/workflow-optimization.mp4",
-      description: "Operational workflow analysis and optimization simulations"
-    }
+    // {
+    //   id: 2,
+    //   title: "Luxury Watch Render",
+    //   category: "Fashion/Jewelry",
+    //   videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1765655583/Old_Architecture_Models_-_Loop_nk2mad.mp4",
+    //   description: "Extreme close-up renders highlighting materials and intricate details."
+    // },
+  
+    // {
+    //   id: 3,
+    //   title: "Industrial Pump Cutaway",
+    //   category: "Technical/Industrial",
+    //   videoUrl: "/videos/industrial-3d.mp4", // Using a generic industrial clip
+    //   description: "X-ray visualization of internal mechanisms for technical manuals."
+    // },
+    // {
+    //   id: 4,
+    //   title: "Outdoor Gear Configurator",
+    //   category: "Consumer Goods",
+    //   videoUrl: "/videos/outdoor-gear.mp4",
+    //   description: "Customizable 3D model for an online product configurator."
+    // }
   ];
-
-  const togglePlay = (videoId, videoElement) => {
-    if (playingVideo === videoId) {
-      videoElement.pause();
-      setPlayingVideo(null);
-    } else {
-      // Pause all other videos
-      document.querySelectorAll('video').forEach(video => video.pause());
-
-      videoElement.play();
-      setPlayingVideo(videoId);
-    }
-  };
-
-  const toggleMute = (videoElement) => {
-    videoElement.muted = !videoElement.muted;
-  };
 
   return (
     <section ref={sectionRef} className="py-20 bg-gradient-to-br from-gray-50 to-blue-50/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Project Simulations <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Portfolio</span>
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Explore our collection of realistic project simulations that transform complex data into dynamic, engaging visual experiences.
-          </p>
-        </div>
+        {/* Section Header
+                <div className="text-center mb-16">
+                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                        Product Visualization <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Showcase</span>
+                    </h2>
+                    <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                        Explore our collection of stunning 3D product models that showcase precision, realism, and engaging visual storytelling.
+                    </p>
+                </div> */}
 
         {/* Work Grid */}
         <div className="work-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
@@ -386,7 +270,7 @@ const SimulationWorkShowcase = () => {
               <div className="relative aspect-video overflow-hidden bg-gray-900">
                 <video
                   className="w-full h-full object-cover"
-                  src='/video.mp4'
+                  src={work.videoUrl} // Using placeholder, client replaces this
                   loop
                   playsInline
                   autoPlay
@@ -400,94 +284,69 @@ const SimulationWorkShowcase = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
                 {/* Category Badge */}
-                <div className="absolute top-4 left-4">
-                  <span className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
-                    {work.category}
-                  </span>
-                </div>
+                {/* <div className="absolute top-4 left-4">
+                                    <span className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
+                                        {work.category}
+                                    </span>
+                                </div> */}
               </div>
 
               {/* Title and Arrow */}
-              <div className="p-6 flex items-center justify-between">
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
-                    {work.title}
-                  </h3>
-                  <p className="text-gray-600 text-sm mt-1">
-                    {work.description}
-                  </p>
-                </div>
-                <button className="flex items-center justify-center w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full hover:scale-110 transition-all duration-300 transform group-hover:translate-x-1 shadow-lg">
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-              </div>
+              {/* <div className="p-6 flex items-center justify-between">
+                                <div>
+                                    <h3 className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
+                                        {work.title}
+                                    </h3>
+                                    <p className="text-gray-600 text-sm mt-1">
+                                        {work.description}
+                                    </p>
+                                </div>
+                                <button className="flex items-center justify-center w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full hover:scale-110 transition-all duration-300 transform group-hover:translate-x-1 shadow-lg">
+                                    <ArrowRight className="w-4 h-4" />
+                                </button>
+                            </div> */}
             </div>
           ))}
         </div>
 
         {/* CTA Section */}
-        <div className="text-center mt-16">
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl p-12 text-white">
-            <h3 className="text-3xl font-bold mb-4">
-              Ready to Simulate Your Project?
-            </h3>
-            <p className="text-xl mb-8 opacity-90">
-              Let's create realistic simulations that help you visualize, analyze, and refine your ideas before implementation.
-            </p>
-            <button className="bg-white text-blue-600 px-8 py-4 rounded-2xl font-bold text-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-              Start Your Simulation Project
-            </button>
-          </div>
-        </div>
+        {/* <div className="text-center mt-16">
+                    <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl p-12 text-white shadow-xl">
+                        <h3 className="text-3xl font-bold mb-4">
+                            Ready to Showcase Your Products in 3D?
+                        </h3>
+                        <p className="text-xl mb-8 opacity-90">
+                            Let's create stunning product models that highlight every detail and drive customer engagement.
+                        </p>
+                        <button className="group bg-white text-blue-600 px-8 py-4 rounded-2xl font-bold text-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 inline-flex items-center gap-3">
+                            Start Your Product Project
+                            <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" />
+                        </button>
+                    </div> */}
+        {/* </div> */}
       </div>
 
-      {/* Auto-play on hover functionality */}
+      {/* Auto-play CSS for hover effect */}
       <style jsx>{`
-        .work-item video {
-          transition: transform 0.3s ease;
-        }
-        
-        .work-item:hover video {
-          transform: scale(1.05);
-        }
-        
-        /* Auto-play on hover */
-        .work-item:hover video {
-          animation: gentlePlay 0.5s ease;
-        }
-        
-        @keyframes gentlePlay {
-          0% { transform: scale(1); }
-          50% { transform: scale(1.02); }
-          100% { transform: scale(1.05); }
-        }
-      `}</style>
-
-      {/* Auto-play functionality with JavaScript */}
-      <script dangerouslySetInnerHTML={{
-        __html: `
-          document.addEventListener('DOMContentLoaded', function() {
-            const workItems = document.querySelectorAll('.work-item');
-            
-            workItems.forEach(item => {
-              const video = item.querySelector('video');
-              
-              item.addEventListener('mouseenter', function() {
-                if (video && !video.playing) {
-                  video.play().catch(e => console.log('Auto-play prevented:', e));
-                }
-              });
-              
-              item.addEventListener('mouseleave', function() {
-                if (video && video.playing) {
-                  video.pause();
-                  video.currentTime = 0;
-                }
-              });
-            });
-          });
-        `
-      }} />
+        .work-item video {
+          transition: transform 0.3s ease;
+        }
+        
+        .work-item:hover video {
+          transform: scale(1.05);
+        }
+        
+        /* Auto-play on hover */
+        .work-item:hover video {
+          animation: gentlePlay 0.5s ease;
+        }
+        
+        @keyframes gentlePlay {
+          0% { transform: scale(1); }
+          50% { transform: scale(1.02); }
+          100% { transform: scale(1.05); }
+        }
+      `}</style>
     </section>
   );
 };

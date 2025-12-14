@@ -153,7 +153,7 @@ const Footer = () => {
                                     <Mail size={18} className="text-blue-400" />
                                 </div>
                                 <div>
-                                    <p className="text-sm">hari@keyframez.com</p>
+                                    <p className="text-sm">projects@keyframez.com</p>
                                     <p className="text-xs text-gray-400">Send us an email</p>
                                 </div>
                             </div>
@@ -163,7 +163,7 @@ const Footer = () => {
                                     <Phone size={18} className="text-green-400" />
                                 </div>
                                 <div>
-                                    <p className="text-sm">+1 (555) 123-4567</p>
+                                    <p className="text-sm">+91-9820047207</p>
                                     <p className="text-xs text-gray-400">Call us anytime</p>
                                 </div>
                             </div>
