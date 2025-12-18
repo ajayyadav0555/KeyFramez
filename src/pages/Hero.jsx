@@ -375,22 +375,64 @@ const Hero = () => {
 
                     {/* CTA Buttons */}
                     <div className="flex items-center justify-center gap-6 flex-wrap">
-                        <button className="hero-cta group relative inline-flex items-center gap-4 px-8 py-4 bg-gradient-to-r from-cyan-600 via-purple-600 to-indigo-600 rounded-2xl text-white font-bold text-lg shadow-2xl hover:shadow-cyan-500/25 transition-all duration-300 hover:scale-105 active:scale-95 focus:outline-none focus:ring-4 focus:ring-cyan-300/50 overflow-hidden">
-                            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
-                            <span className="relative z-10">🎬 Start Your Animation Journey</span>
-                            <svg className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                            </svg>
-                        </button>
 
-                        <button className="group inline-flex items-center gap-3 px-6 py-3 border border-white/30 rounded-xl text-white/90 hover:bg-white/10 hover:border-white/50 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white/30 backdrop-blur-sm">
-                            <span>🎞️ View Our Showreel</span>
-                            <svg className="w-4 h-4 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                        </button>
+                        {/* CTA Button */}
+                        <a
+                            href="https://www.youtube.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <button className="hero-cta group relative inline-flex items-center gap-4 px-8 py-4 bg-gradient-to-r from-cyan-600 via-purple-600 to-indigo-600 rounded-2xl text-white font-bold text-lg shadow-2xl hover:shadow-cyan-500/25 transition-all duration-300 hover:scale-105 active:scale-95 focus:outline-none focus:ring-4 focus:ring-cyan-300/50 overflow-hidden">
+                                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+                                <span className="relative z-10">🎬 Start Your Animation Journey</span>
+                                <svg
+                                    className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth={2}
+                                        d="M13 7l5 5m0 0l-5 5m5-5H6"
+                                    />
+                                </svg>
+                            </button>
+                        </a>
+
+                        {/* Showreel Button */}
+                        <a
+                            href="https://www.youtube.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <button className="group inline-flex items-center gap-3 px-6 py-3 border border-white/30 rounded-xl text-white/90 hover:bg-white/10 hover:border-white/50 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white/30 backdrop-blur-sm">
+                                <span>🎞️ View Our Showreel</span>
+                                <svg
+                                    className="w-4 h-4 group-hover:scale-110 transition-transform"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth={2}
+                                        d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
+                                    />
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth={2}
+                                        d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                                    />
+                                </svg>
+                            </button>
+                        </a>
+
                     </div>
+
 
                     {/* Scroll Indicator */}
                     {/* <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">

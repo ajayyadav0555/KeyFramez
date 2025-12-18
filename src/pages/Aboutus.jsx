@@ -78,8 +78,8 @@ const AboutUs = () => {
 
   const stats = [
     { icon: <Award className="w-6 h-6" />, number: 30, suffix: '+', label: 'Years Experience' },
-    { icon: <Users className="w-6 h-6" />, number: 100, suffix: '+', label: 'Projects Completed' },
-    { icon: <Target className="w-6 h-6" />, number: 50, suffix: '+', label: 'Happy Clients' },
+    { icon: <Users className="w-6 h-6" />, number: 5000, suffix: '+', label: 'Projects Completed' },
+    { icon: <Target className="w-6 h-6" />, number: 500, suffix: '+', label: 'Happy Clients' },
     { icon: <Sparkles className="w-6 h-6" />, number: 15, suffix: '+', label: 'Team Members' }
   ];
 
