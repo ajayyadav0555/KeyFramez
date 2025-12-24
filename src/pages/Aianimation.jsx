@@ -158,15 +158,16 @@ const Aianimation = () => {
                         </div>
 
                         {/* Right Video - The Hero Asset */}
-                        <div className="hero-video-container relative group sm:w-2xl md:m-w-3xl lg:w-4xl md:h-72 lg:-mt-60">
+                        {/* Right Video - The Hero Asset */}
+                        <div className="hero-video-container relative group sm:w-2xl md:m-w-3xl lg:w-3xl md:h-72 lg:-mt-40">
                             {/* Glow Effect behind video */}
-                            <div className="absolute -inset-1 bg-gradient-to-r from-cyan-600 to-indigo-600 rounded-3xl opacity-20 group-hover:opacity-40 blur-lg transition duration-500"></div>
+                            <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-blue-600 rounded-3xl opacity-20 group-hover:opacity-40 blur-lg transition duration-500"></div>
 
                             <div className="relative rounded-3xl overflow-hidden aspect-video shadow-2xl bg-black border border-white/10">
                                 <video
                                     ref={videoRef}
                                     className="w-full h-full object-cover scale-[1.01]"
-                                    src='/video.mp4'
+                                    src="https://res.cloudinary.com/dq3ubcgdd/video/upload/v1766595009/MULTI_dl1g6y.mp4" // Ideally use a Cloudinary link here
                                     muted={isMuted}
                                     autoPlay
                                     loop
@@ -178,30 +179,30 @@ const Aianimation = () => {
 
                                 {/* Controls */}
                                 {/* <div className="absolute bottom-4 left-4 right-4 flex justify-between items-center z-20">
-                <div className="flex items-center gap-2">
-                   <div className="px-3 py-1 bg-black/60 backdrop-blur-md rounded-lg border border-white/10 text-xs font-medium text-white/90 flex items-center gap-2">
-                     <Box size={12} /> Product Rendering
-                   </div>
-                </div>
-                
-                <div className="flex gap-2">
-                  <button onClick={toggleMute} className="p-2.5 rounded-full bg-white/10 backdrop-blur-md hover:bg-white/20 transition-all">
-                    {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
-                  </button>
-                  <button onClick={togglePlay} className="p-2.5 rounded-full bg-white/10 backdrop-blur-md hover:bg-white/20 transition-all">
-                     {isPlaying ? <Pause size={18} /> : <Play size={18} />}
-                  </button>
-                </div>
-              </div> */}
+                  <div className="flex items-center gap-2">
+                    <div className="px-3 py-1 bg-black/60 backdrop-blur-md rounded-lg border border-white/10 text-xs font-medium text-white/90 flex items-center gap-2">
+                      <MonitorPlay size={12} /> Motion Graphics
+                    </div>
+                  </div>
+
+                  <div className="flex gap-2">
+                    <button onClick={toggleMute} className="p-2.5 rounded-full bg-white/10 backdrop-blur-md hover:bg-white/20 transition-all">
+                      {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
+                    </button>
+                    <button onClick={togglePlay} className="p-2.5 rounded-full bg-white/10 backdrop-blur-md hover:bg-white/20 transition-all">
+                      {isPlaying ? <Pause size={18} /> : <Play size={18} />}
+                    </button>
+                  </div>
+                </div> */}
                             </div>
 
                             {/* Floating Badge */}
                             {/* <div className="absolute -top-6 -right-6 hidden sm:block animate-bounce-slow">
-                                <div className="bg-zinc-900 border border-zinc-700 text-white px-5 py-3 rounded-2xl shadow-xl flex items-center gap-3">
-                                    <div className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse"></div>
-                                    <span className="font-semibold text-sm">CGI Production</span>
-                                </div>
-                            </div> */}
+                <div className="bg-zinc-900 border border-zinc-700 text-white px-5 py-3 rounded-2xl shadow-xl flex items-center gap-3">
+                  <div className="w-2 h-2 rounded-full bg-purple-500 animate-pulse"></div>
+                  <span className="font-semibold text-sm">2D & 3D Animation</span>
+                </div>
+              </div> */}
                         </div>
                     </div>
                 </section>
@@ -309,15 +310,20 @@ const ThreeDWorkShowcase = () => {
                             id: 1,
                             title: "Compositing and Green Screen Integration",
                             category: "3D Animation",
-                            videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764352970/Compositing_and_Green_Screen_Integration_-_Loop_owjc0o.mp4",
+                            videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1766595087/AI_SINGLE_1_f2dcil.mp4",
                             description: "Creating optical illusions that captivate audiences in real-world settings",
                             path: "/services/compositing"
                         },
-                        { title: "CGI Environments and Set Extensions" },
-                        { title: "Clean-ups, Roto, and Paint Work" },
-                        { title: "Motion Tracking and Match Moving" },
-                        { title: "Product and Particle Simulations" },
-                        { title: "Visual Enhancement for Corporate and Advertising Films" }
+                        { videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1766595107/AI_SINGLE_2_urllom.mp4", },
+                        { videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1766595127/AI_SINGLE_3_q9dxl2.mp4", },
+                        { videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1766595140/AI_SINGLE_5_hoszfj.mp4", },
+                        { videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1766595143/AI_SINGLE_7_todthe.mp4", },
+                        { videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1766595148/AI_SINGLE_8_dqbqq8.mp4", },
+                        { videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1766595145/AI_SINGLE_9_qg4n7m.mp4", },
+                        { videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1766595158/AI_SINGLE_4_aoozsn.mp4", },
+                        { videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1766595159/AI_SINGLE_6_mloet5.mp4", },
+                        { videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1766595164/AI_SINGLE_10_trayzo.mp4", },
+                      
 
 
                         // {
@@ -337,7 +343,7 @@ const ThreeDWorkShowcase = () => {
                             <div className="relative aspect-video overflow-hidden bg-gray-900">
                                 <video
                                     className="w-full h-full object-cover"
-                                    src={"/video.mp4"}
+                                    src={work.videoUrl}
                                     loop
                                     playsInline
                                     autoPlay
@@ -360,31 +366,7 @@ const ThreeDWorkShowcase = () => {
 
                             {/* Content with Title and Arrow */}
 
-                            <div className="p-6 sm:p-8 bg-white rounded-xl transition-all duration-500 ">
-                                <div className="flex items-start justify-between gap-4">
 
-                                    {/* TEXT CONTENT */}
-                                    {/* <div className="flex-grow">
-                                        <h3 className="text-2xl font-extrabold text-gray-900 mb-2 group-hover:text-blue-700 transition-colors duration-300 leading-snug text-center">
-                                            {work.title}
-                                        </h3>
-
-                                    </div> */}
-
-                                    {/* ACTION BUTTON (Link) */}
-                                    {/* <Link to={work?.path} className="flex-shrink-0">
-                                        <button
-                                            aria-label={`View details for ${work.title}`}
-                                            className="flex items-center justify-center w-14 h-14 border-2 border-blue-600 text-blue-600 
-                   rounded-full transition-all duration-300 ease-in-out 
-                   hover:bg-blue-600 hover:text-white hover:scale-105 
-                   shadow-sm group-hover:shadow-lg group-hover:border-blue-700"
-                                        >
-                                            <ArrowRight className="w-6 h-6" />
-                                        </button>
-                                    </Link> */}
-                                </div>
-                            </div>
                         </div>
                     ))}
                 </div>

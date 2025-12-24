@@ -143,7 +143,7 @@ const ExplainerVideos = () => {
                 <video
                   ref={videoRef}
                   className="w-full h-full object-cover scale-[1.01]"
-                  src="/video.mp4" // Ideally use a Cloudinary link here
+                  src="https://res.cloudinary.com/dq3ubcgdd/video/upload/v1766594190/EXPLAINER_VIDEOS_MULTI_LOOP_iapufr.mp4" // Ideally use a Cloudinary link here
                   muted={isMuted}
                   autoPlay
                   loop
@@ -268,7 +268,7 @@ const ExplainerWorkShowcase = () => {
       title: "SaaS Product Demo",
       category: "Explainer Video",
       thumbnail: "/api/placeholder/400/300",
-      videoUrl: "/videos/saas-demo.mp4",
+      videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1766594390/12_AVENGERS_fpwnze.mp4",
       description: "Simplifying complex software features for better user adoption"
     },
     {
@@ -276,7 +276,7 @@ const ExplainerWorkShowcase = () => {
       title: "Startup Pitch Video",
       category: "Animated Explainer",
       thumbnail: "/api/placeholder/400/300",
-      videoUrl: "/videos/startup-pitch.mp4",
+      videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1766594416/FRESH_PURE_100_TENDER_COCONUT_WATER_AV_-_Loop_krmqmn.mp4",
       description: "Captivating animation to showcase startup vision and value"
     },
     {
@@ -284,7 +284,7 @@ const ExplainerWorkShowcase = () => {
       title: "Educational Content",
       category: "E-Learning",
       thumbnail: "/api/placeholder/400/300",
-      videoUrl: "/videos/educational.mp4",
+      videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1766594428/BANGLADESH_IMPRINTS_AV_gvwgpv.mp4",
       description: "Engaging learning material with animated illustrations"
     },
     {
@@ -292,7 +292,7 @@ const ExplainerWorkShowcase = () => {
       title: "App Onboarding",
       category: "Mobile Explainer",
       thumbnail: "/api/placeholder/400/300",
-      videoUrl: "/videos/app-onboarding.mp4",
+      videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1766594430/Carpe_diem_AV_-_Loop_t5r5ez.mp4",
       description: "Step-by-step guide for seamless user onboarding experience"
     },
     {
@@ -300,7 +300,7 @@ const ExplainerWorkShowcase = () => {
       title: "Service Explanation",
       category: "Motion Graphics",
       thumbnail: "/api/placeholder/400/300",
-      videoUrl: "/videos/service-explanation.mp4",
+      videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1766594431/APBL_Corporate_AV_-_Loop_w5sqmh.mp4",
       description: "Breaking down complex services into digestible content"
     },
     {
@@ -308,9 +308,34 @@ const ExplainerWorkShowcase = () => {
       title: "Brand Story",
       category: "Animated Storytelling",
       thumbnail: "/api/placeholder/400/300",
-      videoUrl: "/videos/brand-story.mp4",
+      videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1766594432/BD_Revised_AV_nsnvj6.mp4",
       description: "Emotional storytelling to connect with target audience"
-    }
+    },
+    {
+      id:7,
+      videoUrl:"https://res.cloudinary.com/dq3ubcgdd/video/upload/v1766594445/Masterstrokes_AV_2_ozqkyu.mp4"
+    },
+    {
+      id:8,
+      videoUrl:"https://res.cloudinary.com/dq3ubcgdd/video/upload/v1766594449/Dare_to_Achieve_AV_ywfpft.mp4"
+    },
+    {
+      id:9,
+      videoUrl:"https://res.cloudinary.com/dq3ubcgdd/video/upload/v1766594450/Genie_7_AV_Capability_Building_lnv9a3.mp4"
+    },
+    {
+      id:10,
+      videoUrl:"https://res.cloudinary.com/dq3ubcgdd/video/upload/v1766594463/QURIUS_AV_FINAL_uirih7.mp4"
+    },
+    {
+      id:11,
+      videoUrl:"https://res.cloudinary.com/dq3ubcgdd/video/upload/v1766594463/Opportunities_Go_Beyond_Inspirational_AV_-_Loop_a69gj6.mp4"
+    },
+    {
+      id:12,
+      videoUrl:"https://res.cloudinary.com/dq3ubcgdd/video/upload/v1766594467/SCIB_Egypt_Corporate_AV_mriuya.mp4"
+    },
+
   ];
 
   const togglePlay = (videoId, videoElement) => {
@@ -355,7 +380,7 @@ const ExplainerWorkShowcase = () => {
               <div className="relative aspect-video overflow-hidden bg-gray-900">
                 <video
                   className="w-full h-full object-cover"
-                  src='/video.mp4'
+                  src={work.videoUrl}
                   loop
                   playsInline
                   autoPlay
@@ -369,11 +394,11 @@ const ExplainerWorkShowcase = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
                 {/* Category Badge */}
-                <div className="absolute top-4 left-4">
+                {/* <div className="absolute top-4 left-4">
                   <span className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
                     {work.category}
                   </span>
-                </div>
+                </div> */}
               </div>
             </div>
           ))}
