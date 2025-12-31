@@ -91,7 +91,7 @@ const ContactUs = () => {
         {
             icon: <MapPin className="w-6 h-6" />,
             title: "Visit Us",
-            detail: "Mumbai, India",
+            detail: "S-54, Sej Plaza, Marve Road, Malad West, Mumbai-400064",
             subtitle: "Come say hello at our studio",
             color: "from-purple-500 to-purple-600"
         },

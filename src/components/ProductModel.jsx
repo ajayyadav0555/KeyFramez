@@ -131,38 +131,44 @@ Product Model                  </span>
             </div>
 
             {/* Right Video - The Hero Asset */}
-            <div className="hero-video-container relative group sm:w-2xl md:m-w-3xl lg:w-3xl md:h-72  lg:-mt-60">
-              {/* Glow Effect behind video */}
-              <div className="absolute -inset-1 bg-gradient-to-r  transition duration-500"></div>
+           {/* Parent: w-full for mobile, max-w-5xl for desktop. mx-auto keeps it centered. */}
+<div className="hero-video-container relative group w-full max-w-5xl mx-auto px-4 lg:-mt-60">
+  
+  {/* Glow Effect: Responsive blur and radius to match the video container */}
+  <div className="absolute -inset-1 bg-gradient-to-r from-cyan-600 to-indigo-600 rounded-[2rem] opacity-20 group-hover:opacity-40 blur-xl transition duration-500"></div>
 
-              <div className="relative rounded-3xl overflow-hidden aspect-video shadow-2xl bg-black border border-white/10">
-                <video
-                  ref={videoRef}
-                  className="w-full h-full object-cover scale-[1.01]"
-                  src='https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764350904/Product_Models_-_Loop_xr3he2.mp4' // Using placeholder, client replaces this
-                  muted={isMuted}
-                  autoPlay
-                  loop
-                  playsInline
-                >
-                  <source src="/videos/product-model-demo.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
+  {/* Main Container: Removed md:h-72. aspect-video handles height fluidly. */}
+  <div className="relative rounded-[2rem] overflow-hidden aspect-video shadow-2xl bg-black border border-white/10">
+    <video
+      ref={videoRef}
+      className="w-full h-full object-cover scale-[1.01]"
+      src='https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764350904/Product_Models_-_Loop_xr3he2.mp4'
+      muted={isMuted}
+      autoPlay
+      loop
+      playsInline
+    >
+      <source src="/videos/product-model-demo.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
 
-                {/* Overlay Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+    {/* Elegant darkening gradient for depth */}
+    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+    
+    {/* Hover Reveal Label */}
+    <div className="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
+        <span className="text-white/60 text-[10px] uppercase tracking-[0.3em] font-bold">3D Modeling & Simulation</span>
+    </div>
+  </div>
 
-                {/* Controls */}
-              </div>
-
-              {/* Floating Badge (Updated style) */}
-              <div className="absolute -top-6 -right-6 hidden sm:block animate-bounce-slow">
-                <div className="bg-zinc-900 border border-zinc-700 text-white px-5 py-3 rounded-2xl shadow-xl flex items-center gap-3">
-                  <div className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse"></div>
-                  <span className="font-semibold text-sm">3D Product Assets</span>
-                </div>
-              </div>
-            </div>
+  {/* Floating Badge: Adjusted for mobile visibility */}
+  <div className="absolute -top-4 -right-2 sm:-top-8 sm:-right-8 hidden xs:flex animate-bounce-slow">
+    <div className="bg-zinc-900/90 backdrop-blur-md border border-zinc-700 text-white px-4 py-2 sm:px-5 sm:py-3 rounded-2xl shadow-xl flex items-center gap-3">
+      <div className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse"></div>
+      <span className="font-semibold text-xs sm:text-sm tracking-tight">3D Product Assets</span>
+    </div>
+  </div>
+</div>
           </div>
         </div>
       </section>

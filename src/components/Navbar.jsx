@@ -266,7 +266,7 @@ const Navbar = () => {
                 ref={navRef}
                 className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled
                     ? "bg-white backdrop-blur-md py-4"
-                    : "bg-transparent  shadow-lg py-2 "
+                    : "bg-white  shadow-lg py-2 "
                     }`}
             >
                 <div className="w-full md:mx-auto px-4 sm:px-6 lg:px-8 flex md:justify-around items-center justify-between">

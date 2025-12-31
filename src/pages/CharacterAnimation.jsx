@@ -166,25 +166,35 @@ const CharacterAnimation = () => {
             </div>
 
             {/* Right Video - The Hero Asset */}
-            <div className="hero-video-container relative group sm:w-2xl md:m-w-3xl lg:w-3xl md:h-72 lg:-mt-40">
-              {/* Glow Effect behind video */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-cyan-600 to-indigo-600 rounded-3xl opacity-20 group-hover:opacity-40 blur-lg transition duration-500"></div>
+         {/* Parent: Fluid width for mobile (w-full) + capping at 1024px for desktop (max-w-5xl) */}
+<div className="hero-video-container relative group w-full max-w-5xl mx-auto px-4 lg:-mt-40">
+  
+  {/* Modern Glow: Wider blur and cyan-indigo theme for the character animation vibe */}
+  <div className="absolute -inset-1 bg-gradient-to-r from-cyan-600 to-indigo-600 rounded-[2rem] opacity-20 group-hover:opacity-40 blur-xl transition duration-500"></div>
 
-              <div className="relative rounded-3xl overflow-hidden aspect-video shadow-2xl bg-black border border-white/10">
-                <video
-                  ref={videoRef}
-                  className="w-full h-full object-cover scale-[1.01]"
-                  src='https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764440609/Character_Animation_-_Multi_Loop_iycq6t.mp4'
-                  muted={isMuted}
-                  autoPlay
-                  loop
-                  playsInline
-                />
+  {/* aspect-video handles the height automatically based on the width */}
+  <div className="relative rounded-[2rem] overflow-hidden aspect-video shadow-2xl bg-black border border-white/10">
+    <video
+      ref={videoRef}
+      className="w-full h-full object-cover scale-[1.01]"
+      src='https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764440609/Character_Animation_-_Multi_Loop_iycq6t.mp4'
+      muted={isMuted}
+      autoPlay
+      loop
+      playsInline
+    />
 
-          
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
-              </div>
-            </div>
+    {/* Soft Bottom Overlay for Depth */}
+    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
+    
+    {/* Clean Label - only visible on hover */}
+    <div className="absolute top-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+      <span className="bg-black/50 backdrop-blur-md px-3 py-1 rounded-full text-[10px] text-cyan-400 uppercase tracking-tighter border border-cyan-500/30">
+        3D Character Work
+      </span>
+    </div>
+  </div>
+</div>
           </div>
         </section>
 

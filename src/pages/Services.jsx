@@ -27,7 +27,7 @@ const Services = () => {
     },
     {
       title: "Explainer Videos",
-      video: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764264915/Bugworks_-_Loop_ku2ksm.mp4",
+      video: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1766594190/EXPLAINER_VIDEOS_MULTI_LOOP_iapufr.mp4",
       description: "Engaging animated videos that simplify complex concepts and showcase your products.",
       path: "/services/explainer-videos"
     },
@@ -63,7 +63,7 @@ const Services = () => {
     },
     {
       title: "Ai Based Animation",
-      video: "/video.mp4",
+      video: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1766595009/MULTI_dl1g6y.mp4",
       description: "Creative film production that pushes boundaries and tells unique stories.",
       path: "/services/visual-effects"
     },
@@ -181,9 +181,9 @@ const Services = () => {
           </h1>
           <div className="hero-subtitle text-base md:text-2xl text-black  mt-20 mb-12 leading-relaxed w-full ">
             Welcome to
-             <strong className="text-purple-300 font-bold"> KEYFRAMEZ </strong>
+            <strong className="text-purple-300 font-bold"> KEYFRAMEZ </strong>
             a full-service animation and video production studio that turns ideas into visually striking stories. From <span className=" font-bold">corporate videos and explainer films to 3D simulations, AR/VR experiences, and e-learning content</span>, we help brands educate, inspire, and connect with audiences.
-           <p> Our work blends creativity, strategy, and technology. Our mission is simple — to make your ideas unforgettable.</p>
+            <p> Our work blends creativity, strategy, and technology. Our mission is simple — to make your ideas unforgettable.</p>
 
           </div>
 

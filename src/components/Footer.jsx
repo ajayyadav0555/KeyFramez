@@ -60,7 +60,7 @@ const Footer = () => {
                                 <h3 className="text-2xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
                                     Keyframez
                                 </h3>
-                                <p className="text-sm text-gray-400">Visual Productions</p>
+                                {/* <p className="text-sm text-gray-400">Visual Productions</p> */}
                             </div>
                         </div>
 
@@ -72,15 +72,15 @@ const Footer = () => {
                         {/* Social Links */}
                         <div className="flex items-center gap-3">
                             {[
-                                { icon: <Facebook size={18} />, color: 'hover:text-blue-400' },
-                                { icon: <Twitter size={18} />, color: 'hover:text-blue-300' },
-                                { icon: <Instagram size={18} />, color: 'hover:text-pink-400' },
-                                { icon: <Linkedin size={18} />, color: 'hover:text-blue-500' },
-                                { icon: <Youtube size={18} />, color: 'hover:text-red-400' }
+                                // { icon: <Facebook size={18} />, color: 'hover:text-blue-400',link:"" },
+                                { icon: <Twitter size={18} />, color: 'hover:text-blue-300',link:"https://x.com/keyframezanim" },
+                                { icon: <Instagram size={18} />, color: 'hover:text-pink-400' ,link:"https://www.instagram.com/keyframezanim?igsh=MTF6d3NodG5uMzBmeQ=="},
+                                { icon: <Linkedin size={18} />, color: 'hover:text-blue-500',link:"https://www.linkedin.com/in/hari-sudhakaran-00a328296/" },
+                                { icon: <Youtube size={18} />, color: 'hover:text-red-400',link:"https://www.youtube.com/@keyframezanim" }
                             ].map((social, index) => (
                                 <a
                                     key={index}
-                                    href="#"
+                                    href={social.link}
                                     className={`w-10 h-10 rounded-xl bg-gray-800/50 backdrop-blur-sm flex items-center justify-center transition-all duration-300 transform hover:scale-110 hover:bg-gray-700/50 border border-gray-700/50 ${social.color}`}
                                 >
                                     {social.icon}
@@ -170,18 +170,18 @@ const Footer = () => {
 
                             <div className="flex items-center gap-3 text-gray-300 group hover:text-white transition-colors duration-300">
                                 <div className="w-10 h-10 rounded-xl bg-purple-500/20 flex items-center justify-center group-hover:bg-purple-500/30 transition-colors duration-300">
-                                    <MapPin size={18} className="text-purple-400" />
+                                    <MapPin size={18} className="text-purple-400 m-3" />
                                 </div>
                                 <div>
-                                    <p className="text-sm">malad west , mumbai</p>
+                                    <p className="text-sm">S-54, Sej Plaza, Marve Road, Malad West, Mumbai-400064</p>
                                     <p className="text-xs text-gray-400">Visit our office</p>
                                 </div>
                             </div>
                         </div>
 
                         {/* Newsletter */}
-                        <div className="bg-gray-800/30 backdrop-blur-sm rounded-2xl p-4 border border-gray-700/50">
-                            <h5 className="font-semibold mb-2 text-white">Newsletter</h5>
+                        {/* <div className="bg-gray-800/30 backdrop-blur-sm rounded-2xl p-4 border border-gray-700/50">
+                            <h5 className="font-semibold mb-2 text-white">Enter your email</h5>
                             <p className="text-sm text-gray-300 mb-3">Get updates on our latest projects</p>
                             <div className="flex gap-2">
                                 <input
@@ -205,7 +205,7 @@ const Footer = () => {
                                 </button>
 
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
 
@@ -218,11 +218,11 @@ const Footer = () => {
                             for creative excellence
                         </div>
 
-                        <div className="flex items-center gap-6 text-sm text-gray-400">
+                        {/* <div className="flex items-center gap-6 text-sm text-gray-400">
                             <a href="#" className="hover:text-white transition-colors duration-300">Privacy Policy</a>
                             <a href="#" className="hover:text-white transition-colors duration-300">Terms of Service</a>
                             <a href="#" className="hover:text-white transition-colors duration-300">Cookies</a>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>

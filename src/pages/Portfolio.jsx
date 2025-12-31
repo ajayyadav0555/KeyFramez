@@ -22,7 +22,7 @@ const Portfolio = () => {
         'Live-action',
         '2D Animation',
         '3D Animation',
-        'Virtual Event'
+        'Virtual Effects'
     ];
 
     const portfolioItems = [
@@ -291,7 +291,7 @@ const Portfolio = () => {
     };
 
     return (
-        <section ref={sectionRef} className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50/30 py-20">
+        <section ref={sectionRef} className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50/30 sm:pt-60">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 
                 {/* Header */}

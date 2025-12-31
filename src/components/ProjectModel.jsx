@@ -102,8 +102,8 @@ const ProjectSimulations = () => {
 
 
                 <p className="text-lg text-white leading-relaxed max-w-xl">
-               Visualize, analyze, and refine your ideas before they’re built with our Project Simulation services. We create realistic, interactive simulations that help you experience your project in motion — from architectural designs and engineering workflows to product functionality and environmental behavior. <br />
-                Our simulations combine 3D visualization, physics-based motion, and real-time rendering to give you a clear understanding of how your project performs in the real world. Whether you’re showcasing a construction plan, testing a design concept, or presenting to clients, we turn complex data into dynamic, visually engaging experiences. <br />
+                  Visualize, analyze, and refine your ideas before they’re built with our Project Simulation services. We create realistic, interactive simulations that help you experience your project in motion — from architectural designs and engineering workflows to product functionality and environmental behavior. <br />
+                  Our simulations combine 3D visualization, physics-based motion, and real-time rendering to give you a clear understanding of how your project performs in the real world. Whether you’re showcasing a construction plan, testing a design concept, or presenting to clients, we turn complex data into dynamic, visually engaging experiences. <br />
                   <span className='font-bold'> Experience precision, clarity, and innovation — all through the power of realistic project simulation.
                   </span>
                 </p>
@@ -131,15 +131,18 @@ const ProjectSimulations = () => {
             </div>
 
             {/* Right Video - The Hero Asset */}
-            <div className="hero-video-container relative group sm:w-2xl md:m-w-3xl lg:w-3xl md:h-72  lg:-mt-20">
-              {/* Glow Effect behind video */}
-              <div className="absolute -inset-1 bg-gradient-to-r  transition duration-500"></div>
+            {/* Parent: w-full for mobile, max-w-5xl for desktop. Centered with mx-auto. */}
+            <div className="hero-video-container relative group w-full max-w-5xl mx-auto px-4 lg:-mt-20">
 
-              <div className="relative rounded-3xl overflow-hidden aspect-video shadow-2xl bg-black border border-white/10">
+              {/* Glow Effect: Matches Architectural theme with a clean Cyan/Blue glow */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-[2rem] opacity-20 group-hover:opacity-40 blur-xl transition duration-500"></div>
+
+              {/* aspect-video handles the height perfectly based on the width */}
+              <div className="relative rounded-[2rem] overflow-hidden aspect-video shadow-2xl bg-black border border-white/10">
                 <video
                   ref={videoRef}
                   className="w-full h-full object-cover scale-[1.01]"
-                  src='https://res.cloudinary.com/dq3ubcgdd/video/upload/v1765655572/Architecture_Models_-_Multi_Loop_lkihux.mp4' // Using placeholder, client replaces this
+                  src='https://res.cloudinary.com/dq3ubcgdd/video/upload/v1765655572/Architecture_Models_-_Multi_Loop_lkihux.mp4'
                   muted={isMuted}
                   autoPlay
                   loop
@@ -149,19 +152,22 @@ const ProjectSimulations = () => {
                   Your browser does not support the video tag.
                 </video>
 
-                {/* Overlay Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+                {/* Elegant darkening gradient for visual depth */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
 
-                {/* Controls */}
+                {/* Hover Label: Subtle and professional */}
+                {/* <div className="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
+                  <span className="text-white/60 text-[10px] uppercase tracking-[0.3em] font-bold">Architecture Visualization</span>
+                </div> */}
               </div>
 
-              {/* Floating Badge (Updated style) */}
-              {/* <div className="absolute -top-6 -right-6 hidden sm:block animate-bounce-slow">
-                <div className="bg-zinc-900 border border-zinc-700 text-white px-5 py-3 rounded-2xl shadow-xl flex items-center gap-3">
+              {/* Floating Badge: Responsive visibility and positioning */}
+              <div className="absolute -top-4 -right-2 sm:-top-8 sm:-right-8 hidden xs:flex animate-bounce-slow">
+                <div className="bg-zinc-900/90 backdrop-blur-md border border-zinc-700 text-white px-4 py-2 sm:px-5 sm:py-3 rounded-2xl shadow-xl flex items-center gap-3">
                   <div className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse"></div>
-                  <span className="font-semibold text-sm">3D Product Assets</span>
+                  <span className="font-semibold text-xs sm:text-sm">3D Product Assets</span>
                 </div>
-              </div> */}
+              </div>
             </div>
           </div>
         </div>
@@ -228,7 +234,7 @@ const ProductWorkShowcase = () => {
     //   videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1765655583/Old_Architecture_Models_-_Loop_nk2mad.mp4",
     //   description: "Extreme close-up renders highlighting materials and intricate details."
     // },
-  
+
     // {
     //   id: 3,
     //   title: "Industrial Pump Cutaway",

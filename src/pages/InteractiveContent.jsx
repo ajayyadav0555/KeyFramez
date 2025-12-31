@@ -146,31 +146,41 @@ const InteractiveContent = () => {
 
             </div>
 
-            <div className="hero-video-container relative group sm:w-2xl md:m-w-3xl lg:w-3xl md:h-72 lg:-mt-40">
-              <div className="absolute -inset-1 bg-gradient-to-r from-pink-600 to-violet-600 rounded-3xl opacity-20 group-hover:opacity-40 blur-lg transition duration-500"></div>
+          {/* Parent: w-full for mobile, max-w-5xl for a large 'Hero' impact on desktop */}
+<div className="hero-video-container relative group w-full max-w-5xl mx-auto px-4 lg:-mt-40">
+  
+  {/* Glow Effect: Uses responsive blur and rounded values */}
+  <div className="absolute -inset-1 bg-gradient-to-r from-pink-600 to-violet-600 rounded-[2rem] opacity-20 group-hover:opacity-40 blur-xl transition duration-500"></div>
 
-              <div className="relative rounded-3xl overflow-hidden aspect-video shadow-2xl bg-black border border-white/10">
-                <video
-                  ref={videoRef}
-                  className="w-full h-full object-cover scale-[1.01]"
-                  src='https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764438734/Interactive_Content_Creation_-_Multi_Loop_ertbry.mp4'
-                  muted={isMuted}
-                  autoPlay
-                  loop
-                  playsInline
-                />
+  {/* Container: aspect-video is the key to responsive height */}
+  <div className="relative rounded-[2rem] overflow-hidden aspect-video shadow-2xl bg-black border border-white/10">
+    <video
+      ref={videoRef}
+      className="w-full h-full object-cover scale-[1.01]"
+      src='https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764438734/Interactive_Content_Creation_-_Multi_Loop_ertbry.mp4'
+      muted={isMuted}
+      autoPlay
+      loop
+      playsInline
+    />
 
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+    {/* Elegant Gradient Overlay */}
+    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+    
+    {/* Optional: Add hover-only info badge for extra "Modern" feel */}
+    <div className="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+        <span className="text-white/70 text-xs uppercase tracking-widest font-medium">Interactive Modules</span>
+    </div>
+  </div>
 
-              </div>
-
-              {/* <div className="absolute -top-6 -right-6 hidden sm:block animate-bounce-slow">
-                <div className="bg-zinc-900 border border-zinc-700 text-white px-5 py-3 rounded-2xl shadow-xl flex items-center gap-3">
-                  <div className="w-2 h-2 rounded-full bg-pink-500 animate-pulse"></div>
-                  <span className="font-semibold text-sm">Real-Time Graphics</span>
-                </div>
-              </div> */}
-            </div>
+  {/* Floating Badge: Hidden on tiny screens, scales on larger ones */}
+  <div className="absolute -top-4 -right-2 sm:-top-8 sm:-right-8 hidden xs:flex animate-bounce-slow">
+    <div className="bg-zinc-900/90 backdrop-blur-md border border-zinc-700 text-white px-4 py-2 sm:px-5 sm:py-3 rounded-2xl shadow-xl flex items-center gap-3">
+      <div className="w-2 h-2 rounded-full bg-pink-500 animate-pulse"></div>
+      <span className="font-semibold text-xs sm:text-sm tracking-tight">Real-Time Graphics</span>
+    </div>
+  </div>
+</div>
           </div>
         </section>
 

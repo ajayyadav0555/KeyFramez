@@ -156,25 +156,33 @@ const LMSLearningContent = () => {
             </div>
 
             {/* Right Video - The Hero Asset */}
-              <div className="hero-video-container relative group sm:w-2xl md:m-w-3xl lg:w-3xl md:h-72 lg:-mt-20">
-              {/* Glow Effect behind video */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-cyan-600 to-indigo-600 rounded-3xl opacity-20 group-hover:opacity-40 blur-lg transition duration-500"></div>
+            {/* Parent: w-full ensures it touches edges on mobile; max-w-5xl gives it a premium large look on desktop */}
+<div className="hero-video-container relative group w-full max-w-5xl mx-auto px-4 lg:-mt-20">
+  
+  {/* Modern Glow: cyan-indigo gradient to match the E-Learning/Tech vibe */}
+  <div className="absolute -inset-1 bg-gradient-to-r from-cyan-600 to-indigo-600 rounded-[2rem] opacity-20 group-hover:opacity-40 blur-xl transition duration-500"></div>
 
-              <div className="relative rounded-3xl overflow-hidden aspect-video shadow-2xl bg-black border border-white/10">
-                <video
-                  ref={videoRef}
-                  className="w-full h-full object-cover scale-[1.01]"
-                  src='https://res.cloudinary.com/dq3ubcgdd/video/upload/v1765655257/LMS-Based_E-Learning_Content_Creation_-_Multi_Loop_skl5ss.mp4'
-                  muted={isMuted}
-                  autoPlay
-                  loop
-                  playsInline
-                />
+  {/* aspect-video is the "secret sauce" - it calculates height automatically based on current width */}
+  <div className="relative rounded-[2rem] overflow-hidden aspect-video shadow-2xl bg-black border border-white/10">
+    <video
+      ref={videoRef}
+      className="w-full h-full object-cover scale-[1.01]"
+      src='https://res.cloudinary.com/dq3ubcgdd/video/upload/v1765655257/LMS-Based_E-Learning_Content_Creation_-_Multi_Loop_skl5ss.mp4'
+      muted={isMuted}
+      autoPlay
+      loop
+      playsInline
+    />
 
-          
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
-              </div>
-            </div>
+    {/* Elegant darkening gradient at the bottom for visual depth */}
+    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+    
+    {/* Hover Label: Modern touch for portfolio sites */}
+    <div className="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
+        <span className="text-white/60 text-[10px] uppercase tracking-[0.2em] font-semibold">LMS & E-Learning</span>
+    </div>
+  </div>
+</div>
           </div>
         </section>
 

@@ -17,6 +17,13 @@ export default function WhyChooseUsPage() {
     }
   };
 
+  const images = [
+    "/image1.png",
+    "/image2.png",
+    "/image3.png",
+    "/image4.png",
+  ];
+
   useEffect(() => {
     const ctx = gsap.context(() => {
       // Enhanced headline animation
@@ -29,7 +36,7 @@ export default function WhyChooseUsPage() {
       });
 
       // Smoother staggered cards entrance - with safety check
-  
+
 
       // Visual section animation
       if (visualRef.current) {
@@ -58,27 +65,27 @@ export default function WhyChooseUsPage() {
       // Enhanced hover effects with safety check
       cardsRef.current.forEach((card) => {
         if (!card) return;
-        
+
         const hoverIn = () =>
-          gsap.to(card, { 
-            y: -12, 
+          gsap.to(card, {
+            y: -12,
             scale: 1.02,
             rotationY: 5,
             rotationX: 2,
             boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
-            duration: 0.4, 
-            ease: "power2.out" 
+            duration: 0.4,
+            ease: "power2.out"
           });
-          
+
         const hoverOut = () =>
-          gsap.to(card, { 
-            y: 0, 
+          gsap.to(card, {
+            y: 0,
             scale: 1,
             rotationY: 0,
             rotationX: 0,
             boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
-            duration: 0.5, 
-            ease: "power3.out" 
+            duration: 0.5,
+            ease: "power3.out"
           });
 
         card.addEventListener("mouseenter", hoverIn);
@@ -137,7 +144,7 @@ export default function WhyChooseUsPage() {
       {/* Background decorative elements */}
       <div className="absolute top-0 left-0 w-72 h-72 bg-gradient-to-br from-blue-200/30 to-transparent rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tr from-purple-200/20 to-transparent rounded-full blur-3xl transform translate-x-1/3 translate-y-1/3"></div>
-      
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10" ref={containerRef}>
         {/* Enhanced Header Section */}
         <div className="max-w-4xl mx-auto text-center mb-16 lg:mb-20">
@@ -145,32 +152,30 @@ export default function WhyChooseUsPage() {
             <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full animate-pulse"></div>
             <span className="text-sm font-medium text-gray-700">Why Choose Us</span>
           </div>
-          
-          <h2 
-            ref={headlineRef} 
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight bg-gradient-to-br from-gray-900 to-gray-700 bg-clip-text text-transparent mb-6"
+
+          <h2
+            ref={headlineRef}
+            className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight bg-gradient-to-br from-gray-900 to-gray-700 bg-clip-text text-transparent mb-6"
           >
-            Exceptional Production
-            <span className="block text-transparent bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text">
+            We are proud to be associated with
+            {/* <span className="block text-transparent bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text">
               Experiences
-            </span>
+            </span> */}
           </h2>
-          
-          <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+
+          {/* <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
             We combine cutting-edge creativity, advanced technology, and reliable delivery 
             to bring your vision to life with unparalleled quality.
-          </p>
+          </p> */}
         </div>
 
         {/* Main Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start max-w-7xl mx-auto">
-          {/* Visual/Hero Card - Enhanced */}
+        {/* <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start max-w-7xl mx-auto">
           <div className="order-2 lg:order-1 flex items-center justify-center">
             <div 
               ref={visualRef}
               className="w-full max-w-lg rounded-3xl p-8 bg-gradient-to-br from-white to-gray-50/80 shadow-2xl border border-gray-200/60 backdrop-blur-sm overflow-hidden relative"
             >
-              {/* Enhanced background gradients */}
               <div className="absolute -left-20 -top-20 w-64 h-64 bg-gradient-to-tr from-blue-400/40 to-purple-300/40 rounded-full blur-3xl transform rotate-12" />
               <div className="absolute -right-16 -bottom-16 w-56 h-56 bg-gradient-to-br from-pink-400/30 to-yellow-300/30 rounded-full blur-3xl transform -rotate-12" />
               
@@ -197,7 +202,6 @@ export default function WhyChooseUsPage() {
                     </div>
                   </div>
                   
-                  {/* Floating elements */}
                   <div className="absolute top-6 right-6 w-16 h-16 rounded-2xl bg-white/80 backdrop-blur-sm shadow-lg flex items-center justify-center text-2xl border border-gray-200/50">
                     🎬
                   </div>
@@ -209,7 +213,6 @@ export default function WhyChooseUsPage() {
             </div>
           </div>
 
-          {/* Features Grid - Enhanced */}
           <div className="order-1 lg:order-2">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 lg:gap-6">
               {bullets.map((bullet, index) => (
@@ -235,7 +238,6 @@ export default function WhyChooseUsPage() {
               ))}
             </div>
 
-            {/* Enhanced footer text */}
             <div className="mt-10 p-6 rounded-2xl bg-gradient-to-r from-gray-50 to-white/50 border border-gray-200/60 backdrop-blur-sm">
               <p className="text-center text-gray-700 font-medium leading-relaxed">
                 We tailor each project to the audience and objectives — available for 
@@ -249,8 +251,42 @@ export default function WhyChooseUsPage() {
               </p>
             </div>
           </div>
-        </div>
+        </div> */}
 
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex flex-col md:flex-row justify-between items-end  gap-4">
+
+          </div>
+
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="columns-1 sm:columns-2 md:columns-2 gap-6 space-y-6">
+              {images.map((img, index) => (
+                <div
+                  key={index}
+                  className="break-inside-avoid rounded-xl overflow-hidden shadow-lg group"
+                >
+                  <img
+                    src={img}
+                    alt={`Gallery ${index + 1}`}
+                    className="w-full h-auto object-cover transform group-hover:scale-105 transition duration-500"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+          {/* 1. The parent MUST have 'group' and 'overflow-hidden' */}
+          <div className="relative overflow-hidden rounded-xl group border border-gray-200">
+            <img
+              src="/image5.png"
+              alt="Gallery"
+              /* 2. Added 'block' to remove bottom whitespace and 'duration-700' for a smoother feel */
+              className="w-full h-full object-cover block transition-transform duration-700 ease-out group-hover:scale-110"
+            />
+
+            {/* 3. Optional: Subtle overlay to make the scale pop more */}
+            <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+          </div>
+        </div>
         {/* Trust Badge - Enhanced */}
         <div className="mt-20 text-center">
           <div className="inline-flex flex-col sm:flex-row items-center gap-4 px-8 py-6 rounded-2xl bg-white/80 backdrop-blur-sm border border-gray-200/60 shadow-lg">

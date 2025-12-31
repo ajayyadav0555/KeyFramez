@@ -102,7 +102,7 @@ const ExplainerVideos = () => {
                   <span className="md:text-5xl text-3xl font-extrabold tracking-tight uppercase 
                  bg-clip-text text-transparent 
                  bg-gradient-to-r from-blue-400 to-pink-500">
-                  Explainer Videos
+                    Explainer Videos
                   </span>
                 </div>
 
@@ -135,15 +135,18 @@ const ExplainerVideos = () => {
             </div>
 
             {/* Right Video - The Hero Asset */}
-            <div className="hero-video-container relative group sm:w-2xl md:m-w-3xl lg:w-3xl md:h-72 lg:-mt-40">
-              {/* Glow Effect behind video */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-blue-600 rounded-3xl opacity-20 group-hover:opacity-40 blur-lg transition duration-500"></div>
+            {/* 1. Added w-full and max-w-5xl (large) or 4xl (medium) for scaling */}
+            <div className="hero-video-container relative group w-full max-w-5xl mx-auto px-4 lg:-mt-40">
 
-              <div className="relative rounded-3xl overflow-hidden aspect-video shadow-2xl bg-black border border-white/10">
+              {/* Glow Effect - Now scales perfectly with the container */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-blue-600 rounded-[2rem] opacity-20 group-hover:opacity-40 blur-xl transition duration-500"></div>
+
+              {/* 2. Removed fixed height h-72. aspect-video handles height based on width. */}
+              <div className="relative rounded-[2rem] overflow-hidden aspect-video shadow-2xl bg-black border border-white/10">
                 <video
                   ref={videoRef}
                   className="w-full h-full object-cover scale-[1.01]"
-                  src="https://res.cloudinary.com/dq3ubcgdd/video/upload/v1766594190/EXPLAINER_VIDEOS_MULTI_LOOP_iapufr.mp4" // Ideally use a Cloudinary link here
+                  src="https://res.cloudinary.com/dq3ubcgdd/video/upload/v1766594190/EXPLAINER_VIDEOS_MULTI_LOOP_iapufr.mp4"
                   muted={isMuted}
                   autoPlay
                   loop
@@ -152,33 +155,15 @@ const ExplainerVideos = () => {
 
                 {/* Overlay Gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
-
-                {/* Controls */}
-                {/* <div className="absolute bottom-4 left-4 right-4 flex justify-between items-center z-20">
-                  <div className="flex items-center gap-2">
-                    <div className="px-3 py-1 bg-black/60 backdrop-blur-md rounded-lg border border-white/10 text-xs font-medium text-white/90 flex items-center gap-2">
-                      <MonitorPlay size={12} /> Motion Graphics
-                    </div>
-                  </div>
-
-                  <div className="flex gap-2">
-                    <button onClick={toggleMute} className="p-2.5 rounded-full bg-white/10 backdrop-blur-md hover:bg-white/20 transition-all">
-                      {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
-                    </button>
-                    <button onClick={togglePlay} className="p-2.5 rounded-full bg-white/10 backdrop-blur-md hover:bg-white/20 transition-all">
-                      {isPlaying ? <Pause size={18} /> : <Play size={18} />}
-                    </button>
-                  </div>
-                </div> */}
               </div>
 
-              {/* Floating Badge */}
-              {/* <div className="absolute -top-6 -right-6 hidden sm:block animate-bounce-slow">
-                <div className="bg-zinc-900 border border-zinc-700 text-white px-5 py-3 rounded-2xl shadow-xl flex items-center gap-3">
+              {/* Floating Badge - Positioned to stay visible but out of the way on small screens */}
+              <div className="absolute -top-4 -right-2 sm:-top-6 sm:-right-6 hidden xs:flex animate-bounce-slow">
+                <div className="bg-zinc-900/90 backdrop-blur-md border border-zinc-700 text-white px-4 py-2 sm:px-5 sm:py-3 rounded-2xl shadow-xl flex items-center gap-3">
                   <div className="w-2 h-2 rounded-full bg-purple-500 animate-pulse"></div>
-                  <span className="font-semibold text-sm">2D & 3D Animation</span>
+                  <span className="font-semibold text-xs sm:text-sm tracking-wide">2D & 3D Animation</span>
                 </div>
-              </div> */}
+              </div>
             </div>
           </div>
         </section>
@@ -312,28 +297,28 @@ const ExplainerWorkShowcase = () => {
       description: "Emotional storytelling to connect with target audience"
     },
     {
-      id:7,
-      videoUrl:"https://res.cloudinary.com/dq3ubcgdd/video/upload/v1766594445/Masterstrokes_AV_2_ozqkyu.mp4"
+      id: 7,
+      videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1766594445/Masterstrokes_AV_2_ozqkyu.mp4"
     },
     {
-      id:8,
-      videoUrl:"https://res.cloudinary.com/dq3ubcgdd/video/upload/v1766594449/Dare_to_Achieve_AV_ywfpft.mp4"
+      id: 8,
+      videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1766594449/Dare_to_Achieve_AV_ywfpft.mp4"
     },
     {
-      id:9,
-      videoUrl:"https://res.cloudinary.com/dq3ubcgdd/video/upload/v1766594450/Genie_7_AV_Capability_Building_lnv9a3.mp4"
+      id: 9,
+      videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1766594450/Genie_7_AV_Capability_Building_lnv9a3.mp4"
     },
     {
-      id:10,
-      videoUrl:"https://res.cloudinary.com/dq3ubcgdd/video/upload/v1766594463/QURIUS_AV_FINAL_uirih7.mp4"
+      id: 10,
+      videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1766594463/QURIUS_AV_FINAL_uirih7.mp4"
     },
     {
-      id:11,
-      videoUrl:"https://res.cloudinary.com/dq3ubcgdd/video/upload/v1766594463/Opportunities_Go_Beyond_Inspirational_AV_-_Loop_a69gj6.mp4"
+      id: 11,
+      videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1766594463/Opportunities_Go_Beyond_Inspirational_AV_-_Loop_a69gj6.mp4"
     },
     {
-      id:12,
-      videoUrl:"https://res.cloudinary.com/dq3ubcgdd/video/upload/v1766594467/SCIB_Egypt_Corporate_AV_mriuya.mp4"
+      id: 12,
+      videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1766594467/SCIB_Egypt_Corporate_AV_mriuya.mp4"
     },
 
   ];

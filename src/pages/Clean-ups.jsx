@@ -154,27 +154,33 @@ const Clean = () => {
                             </div> */}
                         </div>
 
-                        {/* Right Video - The Hero Asset */}
-                        <div className="hero-video-container relative group sm:w-2xl md:m-w-3xl lg:w-3xl md:h-72 lg:-mt-60">
-                            {/* Glow Effect behind video */}
-                            <div className="absolute -inset-1 bg-gradient-to-r from-cyan-600 to-indigo-600 rounded-3xl opacity-20 group-hover:opacity-40 blur-lg transition duration-500"></div>
+             {/* Parent: w-full for mobile, max-w-5xl for desktop impact. Centered with mx-auto. */}
+<div className="hero-video-container relative group w-full max-w-5xl mx-auto px-4 lg:-mt-60">
+  
+  {/* Modern Glow: Uses indigo-cyan theme with wide blur and responsive radius */}
+  <div className="absolute -inset-1 bg-gradient-to-r from-cyan-600 to-indigo-600 rounded-[2rem] opacity-20 group-hover:opacity-40 blur-xl transition duration-500"></div>
 
-                            <div className="relative rounded-3xl overflow-hidden aspect-video shadow-2xl bg-black border border-white/10">
-                                <video
-                                    ref={videoRef}
-                                    className="w-full h-full object-cover scale-[1.01]"
-                                    src='https://res.cloudinary.com/dq3ubcgdd/video/upload/v1765655003/Clean-ups_Roto_and_Paint_Work_-_Multi_Loop_j8duy0.mp4'
-                                    muted={isMuted}
-                                    autoPlay
-                                    loop
-                                    playsInline
-                                />
+  {/* Main Container: aspect-video handles the height perfectly (16:9 ratio) */}
+  <div className="relative rounded-[2rem] overflow-hidden aspect-video shadow-2xl bg-black border border-white/10">
+    <video
+      ref={videoRef}
+      className="w-full h-full object-cover scale-[1.01]"
+      src='https://res.cloudinary.com/dq3ubcgdd/video/upload/v1765655003/Clean-ups_Roto_and_Paint_Work_-_Multi_Loop_j8duy0.mp4'
+      muted={isMuted}
+      autoPlay
+      loop
+      playsInline
+    />
 
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
-
-                            </div>
-
-                        </div>
+    {/* Elegant darkening gradient for depth and title readability */}
+    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+    
+    {/* Hover Label: Subtle reveal of the service type */}
+    {/* <div className="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
+        <span className="text-white/60 text-[10px] uppercase tracking-[0.3em] font-bold">Roto & Paint Cleanup</span>
+    </div> */}
+  </div>
+</div>
                     </div>
                 </section>
 

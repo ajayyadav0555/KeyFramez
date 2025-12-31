@@ -126,50 +126,40 @@ const AmorphicVideos = () => {
           
           </div>
 
-          <div className="hero-video-container relative group sm:w-2xl md:m-w-3xl lg:w-3xl md:h-72 lg:-mt-20">
-            {/* Glow Effect behind video */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-cyan-600 to-indigo-600 rounded-3xl opacity-20 group-hover:opacity-40 blur-lg transition duration-500"></div>
+       {/* Parent: w-full for mobile, max-width caps it for desktop. Removed fixed h-72. */}
+<div className="hero-video-container relative group w-full max-w-5xl mx-auto px-4 lg:-mt-20">
+  
+  {/* Modern Glow: Wider blur and cyan-indigo theme */}
+  <div className="absolute -inset-1 bg-gradient-to-r from-cyan-600 to-indigo-600 rounded-[2rem] opacity-20 group-hover:opacity-40 blur-xl transition duration-500"></div>
 
-            <div className="relative rounded-3xl overflow-hidden aspect-video shadow-2xl bg-black border border-white/10">
-              <video
-                className="w-full h-full object-cover scale-[1.01]"
-                src='https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764350670/3dmodeling/FLAT_ANAMORPHIK_LOOP_vab6ff.mp4'
-                muted
-                autoPlay
-                loop
-                playsInline
-              />
+  {/* Main Container: aspect-video ensures the video height stays proportional to width */}
+  <div className="relative rounded-[2rem] overflow-hidden aspect-video shadow-2xl bg-black border border-white/10">
+    <video
+      className="w-full h-full object-cover scale-[1.01]"
+      src='https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764350670/3dmodeling/FLAT_ANAMORPHIK_LOOP_vab6ff.mp4'
+      muted
+      autoPlay
+      loop
+      playsInline
+    />
 
-              {/* Overlay Gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+    {/* Elegant darkening gradient at the bottom for visual depth */}
+    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+    
+    {/* Clean Hover Reveal Label */}
+    <div className="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
+        <span className="text-white/60 text-[10px] uppercase tracking-[0.3em] font-bold">Anamorphic CGI Loop</span>
+    </div>
+  </div>
 
-              {/* Controls */}
-              {/* <div className="absolute bottom-4 left-4 right-4 flex justify-between items-center z-20">
-                <div className="flex items-center gap-2">
-                  <div className="px-3 py-1 bg-black/60 backdrop-blur-md rounded-lg border border-white/10 text-xs font-medium text-white/90 flex items-center gap-2">
-                    <Box size={12} /> Product Rendering
-                  </div>
-                </div>
-
-                <div className="flex gap-2">
-                  <button onClick={toggleMute} className="p-2.5 rounded-full bg-white/10 backdrop-blur-md hover:bg-white/20 transition-all">
-                    {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
-                  </button>
-                  <button onClick={togglePlay} className="p-2.5 rounded-full bg-white/10 backdrop-blur-md hover:bg-white/20 transition-all">
-                    {isPlaying ? <Pause size={18} /> : <Play size={18} />}
-                  </button>
-                </div>
-              </div> */}
-            </div>
-
-            {/* Floating Badge */}
-            <div className="absolute -top-6 -right-6 hidden sm:block animate-bounce-slow">
-              {/* <div className="bg-zinc-900 border border-zinc-700 text-white px-5 py-3 rounded-2xl shadow-xl flex items-center gap-3">
-                <div className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse"></div>
-                <span className="font-semibold text-sm">CGI Production</span>
-              </div> */}
-            </div>
-          </div>
+  {/* Floating Badge: Hidden on mobile, scales on larger screens */}
+  <div className="absolute -top-4 -right-2 sm:-top-8 sm:-right-8 hidden xs:flex animate-bounce-slow">
+    <div className="bg-zinc-900/90 backdrop-blur-md border border-zinc-700 text-white px-4 py-2 sm:px-5 sm:py-3 rounded-2xl shadow-xl flex items-center gap-3">
+      <div className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse"></div>
+      <span className="font-semibold text-xs sm:text-sm">CGI Production</span>
+    </div>
+  </div>
+</div>
         </div>
 
         {/* 2. FEATURES GRID */}

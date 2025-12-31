@@ -66,7 +66,7 @@ const Compositing = () => {
     ];
 
     return (
-        <section className=" bg-zinc-950 text-white overflow-hidden">
+        <section className=" bg-zinc-950 text-white overflow-hidden sm:mt-20">
             <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
                 <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center py-20">
 
@@ -80,16 +80,16 @@ const Compositing = () => {
                                 </span>
                                 <span className="text-3xl font-semibold tracking-wide uppercase text-zinc-300">Compositing and Green Screen Integration</span>
                             </div> */}
- <div className="inline-flex items-center gap-3  py-3  backdrop-blur-md 
+                            <div className="inline-flex items-center gap-3  py-3  backdrop-blur-md 
                   shadow-2xl">
 
 
-                  <span className="md:text-5xl text-3xl font-extrabold tracking-tight uppercase 
+                                <span className="md:text-5xl text-3xl font-extrabold tracking-tight uppercase 
                  bg-clip-text text-transparent 
                  bg-gradient-to-r from-blue-400 to-pink-500">
-                   Compositing and Green Screen Integration
-                  </span>
-                </div>
+                                    Compositing and Green Screen Integration
+                                </span>
+                            </div>
 
 
 
@@ -102,37 +102,46 @@ const Compositing = () => {
                             </p>
                             <p className="text-lg text-zinc-400 leading-relaxed">
                                 From blockbuster-style effects to subtle visual polish, we deliver clean, cohesive shots that bring every creative vision to life.             </p>
-                            <p  className="text-lg text-zinc-400 leading-relaxed">Experience the art of visual storytelling — where every frame feels real, no matter how impossible the scene.</p>
+                            <p className="text-lg text-zinc-400 leading-relaxed">Experience the art of visual storytelling — where every frame feels real, no matter how impossible the scene.</p>
                         </div>
 
                     </div>
 
-                    <div className="product-apps-video relative group  group sm:w-2xl md:m-w-3xl lg:w-3xl md:h-72 lg:-mt-40">
-                        <div className="absolute -inset-1 bg-gradient-to-r from-pink-600 to-violet-600 rounded-3xl opacity-20 group-hover:opacity-40 blur-lg transition duration-500"></div>
+                    {/* Parent: w-full for mobile, max-w-5xl for cinematic desktop width. mx-auto centers it. */}
+<div className="product-apps-video relative group w-full max-w-5xl mx-auto px-4 lg:-mt-40">
+  
+  {/* Modern Glow: responsive blur and radius */}
+  <div className="absolute -inset-1 bg-gradient-to-r from-pink-600 to-violet-600 rounded-[2rem] opacity-20 group-hover:opacity-40 blur-xl transition duration-500"></div>
 
-                        <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-black border border-white/10 aspect-video">
-                            <video
-                                ref={videoRef}
-                                className="w-full h-full object-cover scale-[1.01]"
-                                src="https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764352970/Compositing_and_Green_Screen_Integration_-_Loop_owjc0o.mp4"
-                                muted={isMuted}
-                                autoPlay
-                                loop
-                                playsInline
-                            />
+  {/* aspect-video handles the height perfectly based on the current width (16:9 ratio) */}
+  <div className="relative rounded-[2rem] overflow-hidden aspect-video shadow-2xl bg-black border border-white/10">
+    <video
+      ref={videoRef}
+      className="w-full h-full object-cover scale-[1.01]"
+      src="https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764352970/Compositing_and_Green_Screen_Integration_-_Loop_owjc0o.mp4"
+      muted={isMuted}
+      autoPlay
+      loop
+      playsInline
+    />
 
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+    {/* Elegant darkening gradient for depth and overlay contrast */}
+    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+    
+    {/* Hover Label: Subtle and professional */}
+    {/* <div className="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
+        <span className="text-white/70 text-[10px] uppercase tracking-[0.3em] font-bold">VFX Compositing Showcase</span>
+    </div> */}
+  </div>
 
-
-
-                            {/* <div className="absolute -top-6 -right-6 hidden sm:block animate-bounce-slow">
-                                <div className="bg-zinc-900 border border-zinc-700 text-white px-5 py-3 rounded-2xl shadow-xl flex items-center gap-3">
-                                    <div className="w-2 h-2 rounded-full bg-pink-500 animate-pulse"></div>
-                                    <span className="font-semibold text-sm">High Engagement</span>
-                                </div>
-                            </div> */}
-                        </div>
-                    </div>
+  {/* Floating Badge: Responsive positioning and auto-hide on mobile if needed */}
+  <div className="absolute -top-4 -right-2 sm:-top-8 sm:-right-8 hidden xs:flex animate-bounce-slow">
+    <div className="bg-zinc-900/90 backdrop-blur-md border border-zinc-700 text-white px-4 py-2 sm:px-5 sm:py-3 rounded-2xl shadow-xl flex items-center gap-3">
+      <div className="w-2 h-2 rounded-full bg-pink-500 animate-pulse"></div>
+      <span className="font-semibold text-xs sm:text-sm tracking-tight">VFX Integration</span>
+    </div>
+  </div>
+</div>
                 </div>
 
 
@@ -175,11 +184,11 @@ const InteractiveProductAppsWorkShowcase = () => {
 
 
     const workVideos = [
-       "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764352912/Dr._Chandraprakash_Dwivedi_-_Green_Screen_ffar1t.mp4",
-       "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764352891/HARISHCHANDRA_-_GREEN_SCREEN_vio2ns.mp4",
-       "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764352915/SHIVAJI_MAHARAJ_-_GREEN_SCREEN_x0zdva.mp4",
-       "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764352922/Train_Shot_-_Green_Screen_vdrbav.mp4",
-       "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764352918/VIVEKANAND_-_GREEN_SCREEN_etbixg.mp4"
+        "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764352912/Dr._Chandraprakash_Dwivedi_-_Green_Screen_ffar1t.mp4",
+        "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764352891/HARISHCHANDRA_-_GREEN_SCREEN_vio2ns.mp4",
+        "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764352915/SHIVAJI_MAHARAJ_-_GREEN_SCREEN_x0zdva.mp4",
+        "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764352922/Train_Shot_-_Green_Screen_vdrbav.mp4",
+        "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764352918/VIVEKANAND_-_GREEN_SCREEN_etbixg.mp4"
 
     ];
 
