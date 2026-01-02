@@ -237,8 +237,13 @@ const Navbar = () => {
         { label: "Home", path: "/" },
         { label: "About", path: "/about" },
         { label: "Contact", path: "/contact" },
-        { label: "Portfolio", path: "/portfolio" }
+        {
+            label: "Youtube",
+            path: "https://www.youtube.com/@keyframezanim/videos",
+            external: true
+        }
     ];
+
 
     const handleServiceClick = (path) => {
         navigate(path);
@@ -303,30 +308,44 @@ const Navbar = () => {
                     {/* Desktop Navigation */}
                     <div className="hidden md:flex items-center gap-1">
                         {navItems.map((item, index) => {
-                            const isActive = isActivePath(item.path);
+                            const isActive = !item.external && isActivePath(item.path);
+
+                            const commonClasses = `relative flex items-center gap-2 py-2.5 px-4 rounded-xl transition-all duration-300 group ${isActive
+                                    ? "text-blue-600 bg-blue-200/80 font-semibold"
+                                    : "text-gray-950 hover:text-blue-600 hover:bg-gray-50/80"
+                                }`;
+
                             return (
                                 <div
                                     key={item.label}
                                     className="relative"
-                                    ref={el => menuItemsRef.current[index] = el}
+                                    ref={(el) => (menuItemsRef.current[index] = el)}
                                 >
-                                    <Link
-                                        to={item.path}
-                                        className={`relative flex  items-center gap-2 py-2.5 px-4 rounded-xl transition-all duration-300 group ${isActive
-                                            ? `text-blue-600 bg-blue-200/80 font-semibold`
-                                            : "text-gray-950 hover:text-blue-600 hover:bg-gray-50/80"
-                                            }`}
-                                    >
-                                        <span className="relative z-10 font-medium text-lg">
-                                            {item.label}
-                                        </span>
-                                        {isActive && (
-                                            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-blue-600 rounded-full" />
-                                        )}
-                                    </Link>
+                                    {item.external ? (
+                                        <a
+                                            href={item.path}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className={commonClasses}
+                                        >
+                                            <span className="relative z-10 font-medium text-lg">
+                                                {item.label}
+                                            </span>
+                                        </a>
+                                    ) : (
+                                        <Link to={item.path} className={commonClasses}>
+                                            <span className="relative z-10 font-medium text-lg">
+                                                {item.label}
+                                            </span>
+                                            {isActive && (
+                                                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 bg-blue-600 rounded-full" />
+                                            )}
+                                        </Link>
+                                    )}
                                 </div>
                             );
                         })}
+
 
                         {/* Enhanced Services Dropdown */}
                         <div

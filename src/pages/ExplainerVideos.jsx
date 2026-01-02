@@ -248,14 +248,14 @@ const ExplainerWorkShowcase = () => {
   }, []);
 
   const workVideos = [
-    {
-      id: 1,
-      title: "SaaS Product Demo",
-      category: "Explainer Video",
-      thumbnail: "/api/placeholder/400/300",
-      videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1766594390/12_AVENGERS_fpwnze.mp4",
-      description: "Simplifying complex software features for better user adoption"
-    },
+    // {
+    //   id: 1,
+    //   title: "SaaS Product Demo",
+    //   category: "Explainer Video",
+    //   thumbnail: "/api/placeholder/400/300",
+    //   videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1766594390/12_AVENGERS_fpwnze.mp4",
+    //   description: "Simplifying complex software features for better user adoption"
+    // },
     {
       id: 2,
       title: "Startup Pitch Video",
@@ -272,14 +272,14 @@ const ExplainerWorkShowcase = () => {
       videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1766594428/BANGLADESH_IMPRINTS_AV_gvwgpv.mp4",
       description: "Engaging learning material with animated illustrations"
     },
-    {
-      id: 4,
-      title: "App Onboarding",
-      category: "Mobile Explainer",
-      thumbnail: "/api/placeholder/400/300",
-      videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1766594430/Carpe_diem_AV_-_Loop_t5r5ez.mp4",
-      description: "Step-by-step guide for seamless user onboarding experience"
-    },
+    // {
+    //   id: 4,
+    //   title: "App Onboarding",
+    //   category: "Mobile Explainer",
+    //   thumbnail: "/api/placeholder/400/300",
+    //   videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1766594430/Carpe_diem_AV_-_Loop_t5r5ez.mp4",
+    //   description: "Step-by-step guide for seamless user onboarding experience"
+    // },
     {
       id: 5,
       title: "Service Explanation",
@@ -300,10 +300,10 @@ const ExplainerWorkShowcase = () => {
       id: 7,
       videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1766594445/Masterstrokes_AV_2_ozqkyu.mp4"
     },
-    {
-      id: 8,
-      videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1766594449/Dare_to_Achieve_AV_ywfpft.mp4"
-    },
+    // {
+    //   id: 8,
+    //   videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1766594449/Dare_to_Achieve_AV_ywfpft.mp4"
+    // },
     {
       id: 9,
       videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1766594450/Genie_7_AV_Capability_Building_lnv9a3.mp4"
@@ -312,10 +312,10 @@ const ExplainerWorkShowcase = () => {
       id: 10,
       videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1766594463/QURIUS_AV_FINAL_uirih7.mp4"
     },
-    {
-      id: 11,
-      videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1766594463/Opportunities_Go_Beyond_Inspirational_AV_-_Loop_a69gj6.mp4"
-    },
+    // {
+    //   id: 11,
+    //   videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1766594463/Opportunities_Go_Beyond_Inspirational_AV_-_Loop_a69gj6.mp4"
+    // },
     {
       id: 12,
       videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1766594467/SCIB_Egypt_Corporate_AV_mriuya.mp4"

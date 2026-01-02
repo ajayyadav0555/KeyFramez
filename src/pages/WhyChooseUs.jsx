@@ -22,6 +22,7 @@ export default function WhyChooseUsPage() {
     "/image2.png",
     "/image3.png",
     "/image4.png",
+    "/image5.png"
   ];
 
   useEffect(() => {
@@ -259,7 +260,7 @@ export default function WhyChooseUsPage() {
           </div>
 
           <div className="max-w-7xl mx-auto px-4">
-            <div className="columns-1 sm:columns-2 md:columns-2 gap-6 space-y-6">
+            <div className="columns-1 sm:columns-2 md:columns-2 lg:columns-3 gap-6 max-sm:gap-20 space-y-6">
               {images.map((img, index) => (
                 <div
                   key={index}
@@ -275,9 +276,20 @@ export default function WhyChooseUsPage() {
             </div>
           </div>
           {/* 1. The parent MUST have 'group' and 'overflow-hidden' */}
-          <div className="relative overflow-hidden rounded-xl group border border-gray-200">
+          <div className="relative overflow-hidden rounded-xl group border border-gray-200 max-sm:mt-10">
             <img
-              src="/image5.png"
+              src="/image6.png"
+              alt="Gallery"
+              /* 2. Added 'block' to remove bottom whitespace and 'duration-700' for a smoother feel */
+              className="w-full h-full object-cover block transition-transform duration-700 ease-out group-hover:scale-110"
+            />
+
+            {/* 3. Optional: Subtle overlay to make the scale pop more */}
+            <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+          </div>
+          <div className="relative overflow-hidden rounded-xl group border border-gray-200 max-sm:mt-10">
+            <img
+              src="/image7.png"
               alt="Gallery"
               /* 2. Added 'block' to remove bottom whitespace and 'duration-700' for a smoother feel */
               className="w-full h-full object-cover block transition-transform duration-700 ease-out group-hover:scale-110"
