@@ -169,41 +169,41 @@ const VisualEffects = () => {
             </div>
 
             {/* Right Video - The Hero Asset */}
-          {/* Parent: w-full for small screens, max-width caps it for desktop, mx-auto centers it */}
-<div className="hero-video-container relative group w-full max-w-5xl mx-auto px-4 lg:-mt-60">
-  
-  {/* Glow Effect: Uses responsive rounding and wider blur for a "bloom" look */}
-  <div className="absolute -inset-1 bg-gradient-to-r from-cyan-600 to-indigo-600 rounded-[2rem] opacity-20 group-hover:opacity-40 blur-xl transition duration-500"></div>
+            {/* Parent: w-full for small screens, max-width caps it for desktop, mx-auto centers it */}
+            <div className="hero-video-container relative group w-full max-w-5xl mx-auto px-4 lg:-mt-60">
 
-  {/* Main Container: Removed md:h-72 to let aspect-video control height fluidly */}
-  <div className="relative rounded-[2rem] overflow-hidden aspect-video shadow-2xl bg-black border border-white/10">
-    <video
-      ref={videoRef}
-      className="w-full h-full object-cover scale-[1.01]"
-      src='/video.mp4'
-      muted={isMuted}
-      autoPlay
-      loop
-      playsInline
-    />
+              {/* Glow Effect: Uses responsive rounding and wider blur for a "bloom" look */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-cyan-600 to-indigo-600 rounded-[2rem] opacity-20 group-hover:opacity-40 blur-xl transition duration-500"></div>
 
-    {/* Elegant Bottom Shadow Overlay */}
-    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
-    
-    {/* Clean Label Overlay (Visible on Hover) */}
-    <div className="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
-        <span className="text-white/50 text-[10px] uppercase tracking-[0.3em] font-bold">CGI Showreel</span>
-    </div>
-  </div>
+              {/* Main Container: Removed md:h-72 to let aspect-video control height fluidly */}
+              <div className="relative rounded-[2rem] overflow-hidden aspect-video shadow-2xl bg-black border border-white/10">
+                <video
+                  ref={videoRef}
+                  className="w-full h-full object-cover scale-[1.01]"
+                  src='/video.mp4'
+                  muted={isMuted}
+                  autoPlay
+                  loop
+                  playsInline
+                />
 
-  {/* Floating Badge: Positioned for mobile and desktop screens */}
-  <div className="absolute -top-4 -right-2 sm:-top-8 sm:-right-8 hidden xs:flex animate-bounce-slow">
-    <div className="bg-zinc-900/90 backdrop-blur-md border border-zinc-700 text-white px-4 py-2 sm:px-5 sm:py-3 rounded-2xl shadow-xl flex items-center gap-3">
-      <div className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse"></div>
-      <span className="font-semibold text-xs sm:text-sm tracking-tight">CGI Production</span>
-    </div>
-  </div>
-</div>
+                {/* Elegant Bottom Shadow Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+
+                {/* Clean Label Overlay (Visible on Hover) */}
+                <div className="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
+                  <span className="text-white/50 text-[10px] uppercase tracking-[0.3em] font-bold">CGI Showreel</span>
+                </div>
+              </div>
+
+              {/* Floating Badge: Positioned for mobile and desktop screens */}
+              <div className="absolute -top-4 -right-2 sm:-top-8 sm:-right-8 hidden xs:flex animate-bounce-slow">
+                <div className="bg-zinc-900/90 backdrop-blur-md border border-zinc-700 text-white px-4 py-2 sm:px-5 sm:py-3 rounded-2xl shadow-xl flex items-center gap-3">
+                  <div className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse"></div>
+                  <span className="font-semibold text-xs sm:text-sm tracking-tight">CGI Production</span>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -314,16 +314,18 @@ const ThreeDWorkShowcase = () => {
               description: "Creating optical illusions that captivate audiences in real-world settings",
               path: "/services/compositing"
             },
-            { title: "CGI Environments and Set Extensions",
-             
+            // {
+            //   title: "CGI Environments and Set Extensions",
+
+            // },
+            {
+              title: "Clean-ups, Roto, and Paint Work",
+              videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1765655003/Clean-ups_Roto_and_Paint_Work_-_Multi_Loop_j8duy0.mp4",
+              path: "/services/clean"
             },
-            { title: "Clean-ups, Roto, and Paint Work",
-               videoUrl:"https://res.cloudinary.com/dq3ubcgdd/video/upload/v1765655003/Clean-ups_Roto_and_Paint_Work_-_Multi_Loop_j8duy0.mp4",
-               path:"/services/clean"
-             },
-            { title: "Motion Tracking and Match Moving" },
-            { title: "Product and Particle Simulations" },
-            { title: "Visual Enhancement for Corporate and Advertising Films" }
+            // { title: "Motion Tracking and Match Moving" },
+            // { title: "Product and Particle Simulations" },
+            // { title: "Visual Enhancement for Corporate and Advertising Films" }
 
 
             // {
@@ -335,51 +337,51 @@ const ThreeDWorkShowcase = () => {
             //   path: "/services/project-videos"
             // }
           ].map((work) => (
-                              <Link to={work?.path} className="flex-shrink-0">
+            <Link to={work?.path} className="flex-shrink-0">
 
-            <div
-              key={work.id}
-              className="work-item group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden hover:-translate-y-2"
-            >
-              {/* Video Container */}
-              <div className="relative aspect-video overflow-hidden bg-gray-900">
-                <video
-                  className="w-full h-full object-cover"
-                  src={work.videoUrl || "/video.mp4"}
-                  loop
-                  playsInline
-                  autoPlay
-                  muted
-                >
-                  <source src={work.videoUrl} type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
+              <div
+                key={work.id}
+                className="work-item group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden hover:-translate-y-2"
+              >
+                {/* Video Container */}
+                <div className="relative aspect-video overflow-hidden bg-gray-900">
+                  <video
+                    className="w-full h-full object-cover"
+                    src={work.videoUrl || "/video.mp4"}
+                    loop
+                    playsInline
+                    autoPlay
+                    muted
+                  >
+                    <source src={work.videoUrl} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
 
-                {/* Video Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  {/* Video Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-                {/* Category Badge */}
-                {/* <div className="absolute top-4 left-4">
+                  {/* Category Badge */}
+                  {/* <div className="absolute top-4 left-4">
           <span className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
             {work.category}
           </span>
         </div> */}
-              </div>
+                </div>
 
-              {/* Content with Title and Arrow */}
+                {/* Content with Title and Arrow */}
 
-              <div className="p-6 sm:p-8 bg-white rounded-xl transition-all duration-500 ">
-                <div className="flex items-start justify-between gap-4">
+                <div className="p-6 sm:p-8 bg-white rounded-xl transition-all duration-500 ">
+                  <div className="flex items-start justify-between gap-4">
 
-                  {/* TEXT CONTENT */}
-                  <div className="flex-grow">
-                    <h3 className="text-2xl font-extrabold text-gray-900 mb-2 group-hover:text-blue-700 transition-colors duration-300 leading-snug text-center">
-                      {work.title}
-                    </h3>
+                    {/* TEXT CONTENT */}
+                    <div className="flex-grow">
+                      <h3 className="text-2xl font-extrabold text-gray-900 mb-2 group-hover:text-blue-700 transition-colors duration-300 leading-snug text-center">
+                        {work.title}
+                      </h3>
 
-                  </div>
+                    </div>
 
-                  {/* ACTION BUTTON (Link) */}
+                    {/* ACTION BUTTON (Link) */}
                     {/* <button
                       aria-label={`View details for ${work.title}`}
                       className="flex items-center justify-center w-14 h-14 border-2 border-blue-600 text-blue-600 
@@ -389,10 +391,10 @@ const ThreeDWorkShowcase = () => {
                     >
                       <ArrowRight className="w-6 h-6" />
                     </button> */}
+                  </div>
                 </div>
               </div>
-            </div>
-                  </Link>
+            </Link>
           ))}
         </div>
 

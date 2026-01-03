@@ -285,6 +285,8 @@ const AboutUs = () => {
                     className="absolute inset-0 bg-cover bg-center"
                     style={{
                       backgroundImage: "url('/hari.png')",
+                      backgroundSize: "100% 100%",
+
                     }}
                   />
                   {/* Subtle overlay for depth */}
@@ -313,11 +315,11 @@ const AboutUs = () => {
                     </p>
 
                     <p>
-                     An Electrical and Electronics Engineering graduate, Mr. Hari went on to earn his Master’s in Industrial Design from the prestigious Industrial Design Centre, IIT Bombay — one of India’s leading institutions for design innovation
+                      An Electrical and Electronics Engineering graduate, Mr. Hari went on to earn his Master’s in Industrial Design from the prestigious Industrial Design Centre, IIT Bombay — one of India’s leading institutions for design innovation
                     </p>
 
                     <p>
-                     Throughout his career, he has seamlessly blended creativity with technology, contributing to projects that push the boundaries of visual storytelling and interactive media. His deep understanding of design thinking, combined with a strong technical foundation, has guided Keyframez to become a studio known for precision, innovation, and artistic excellence.
+                      Throughout his career, he has seamlessly blended creativity with technology, contributing to projects that push the boundaries of visual storytelling and interactive media. His deep understanding of design thinking, combined with a strong technical foundation, has guided Keyframez to become a studio known for precision, innovation, and artistic excellence.
                     </p>
                     <p>When he’s not busy shaping visual narratives, Hari is often exploring new tools, technologies, and ideas — staying true to his lifelong belief that learning never stops and imagination has no limits.</p>
                   </div>
@@ -354,7 +356,7 @@ const AboutUs = () => {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                       </svg>
                       <p>
-                       With over 15 years of experience in the world of animation and visual storytelling, Mr. Sushant Ghadi brings a rare blend of technical expertise and creative finesse to Keyframez. A High Diploma in Animation (HDA) graduate from the prestigious Arena Multimedia Academy, Andheri (W) — one of India’s leading animation training institutes — Sushant has built a solid foundation in both design and motion arts.
+                        With over 15 years of experience in the world of animation and visual storytelling, Mr. Sushant Ghadi brings a rare blend of technical expertise and creative finesse to Keyframez. A High Diploma in Animation (HDA) graduate from the prestigious Arena Multimedia Academy, Andheri (W) — one of India’s leading animation training institutes — Sushant has built a solid foundation in both design and motion arts.
                       </p>
                     </div>
 
@@ -364,7 +366,7 @@ const AboutUs = () => {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.468 9.24 5.235 7.9 5.8c-2.83 1.14-5.113 2.57-7.1 5.373a1 1 0 00.512 1.503c.758.125 1.503.435 2.198.922 1.402.97 3.39 1.543 5.41.986 2.373-.655 4.331-1.353 6.014-1.928 2.348-.792 4.706-1.127 6.474-.834.755.12 1.548.51 2.228 1.107.828.73.57 1.579.57 1.579"></path>
                       </svg>
                       <p>
-                       Before joining Keyframez, he honed his craft across diverse creative roles — from working as a Graphics Designer at Swapnali Printers, Andheri (W) between 2007 and 2010, to serving as a Video Editor at Sukh Sagar Institute, Andheri (W) from 2011 to 2012. His keen eye for detail, strong design sensibilities, and passion for bringing ideas to life through animation continue to inspire and elevate the creative standards at Keyframez.
+                        Before joining Keyframez, he honed his craft across diverse creative roles — from working as a Graphics Designer at Swapnali Printers, Andheri (W) between 2007 and 2010, to serving as a Video Editor at Sukh Sagar Institute, Andheri (W) from 2011 to 2012. His keen eye for detail, strong design sensibilities, and passion for bringing ideas to life through animation continue to inspire and elevate the creative standards at Keyframez.
                       </p>
                     </div>
 
@@ -385,9 +387,12 @@ const AboutUs = () => {
                 {/* LEFT COLUMN CONTENT (Image - Now on the Right) */}
                 <div className="relative w-full h-96 lg:h-[920px] rounded-3xl overflow-hidden shadow-2xl shadow-blue-200/50 transform transition-all duration-700 hover:scale-[1.01] hover:shadow-blue-300/70 lg:col-start-2 lg:row-start-1">
                   <div
-                    className="absolute inset-0 bg-cover bg-center"
+                    className="absolute inset-0 bg-contain bg-no-repeat bg-center"
                     style={{
-                      backgroundImage: "url('/Keyframez.png')", /* Should use Sushant's image path */
+                      backgroundImage: "url('/sushant.jpeg')",
+                      backgroundSize: "100% 100%",
+
+                      /* Should use Sushant's image path */
                     }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>

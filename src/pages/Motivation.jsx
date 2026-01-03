@@ -107,10 +107,10 @@ const Motivation = () => {
                   </span>
                 </h2> */}
 
-            <p className="text-lg text-zinc-400 leading-relaxed max-w-xl">
-  Ignite passion and purpose with our powerful motivational AVs. <br />
-  Through compelling storytelling, impactful visuals, and uplifting sound design, we create films that inspire action, build confidence, and leave a lasting emotional impact.
-</p>
+                <p className="text-lg text-zinc-400 leading-relaxed max-w-xl">
+                  Ignite passion and purpose with our powerful motivational AVs. <br />
+                  Through compelling storytelling, impactful visuals, and uplifting sound design, we create films that inspire action, build confidence, and leave a lasting emotional impact.
+                </p>
 
               </div>
 
@@ -129,37 +129,37 @@ const Motivation = () => {
             </div>
 
             {/* Right Video - The Hero Asset */}
-          {/* 1. Added w-full for mobile and max-w constraints for large screens */}
-<div className="hero-video-container relative group w-full max-w-5xl mx-auto px-4 lg:-mt-40">
-  
-  {/* Glow Effect - Matches the responsiveness of the parent */}
-  <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-[2rem] opacity-20 group-hover:opacity-40 blur-xl transition duration-500"></div>
+            {/* 1. Added w-full for mobile and max-w constraints for large screens */}
+            <div className="hero-video-container relative group w-full max-w-5xl mx-auto px-4 lg:-mt-40">
 
-  {/* 2. Changed rounded-3xl to slightly larger for the 'Big' feel, kept aspect-video */}
-  <div className="relative rounded-[2rem] overflow-hidden aspect-video shadow-2xl bg-black border border-white/10">
-    <video
-      ref={videoRef}
-      /* 3. Changed object-cover to object-center to ensure the video looks good at any size */
-      className="w-full h-full object-cover scale-[1.01]" 
-      src='https://res.cloudinary.com/dq3ubcgdd/video/upload/v1767290325/MULTI_vpacw3.mp4'
-      muted={isMuted}
-      autoPlay
-      loop
-      playsInline
-    />
+              {/* Glow Effect - Matches the responsiveness of the parent */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-[2rem] opacity-20 group-hover:opacity-40 blur-xl transition duration-500"></div>
 
-    {/* Overlay Gradient */}
-    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
-  </div>
+              {/* 2. Changed rounded-3xl to slightly larger for the 'Big' feel, kept aspect-video */}
+              <div className="relative rounded-[2rem] overflow-hidden aspect-video shadow-2xl bg-black border border-white/10">
+                <video
+                  ref={videoRef}
+                  /* 3. Changed object-cover to object-center to ensure the video looks good at any size */
+                  className="w-full h-full object-cover scale-[1.01]"
+                  src='https://res.cloudinary.com/dq3ubcgdd/video/upload/v1767290325/MULTI_vpacw3.mp4'
+                  muted={isMuted}
+                  autoPlay
+                  loop
+                  playsInline
+                />
 
-  {/* Floating Badge - Optimized position for responsive screens */}
-  <div className="absolute -top-4 -right-2 sm:-top-6 sm:-right-6 hidden xs:block animate-bounce-slow">
-    <div className="bg-zinc-900/90 backdrop-blur-md border border-zinc-700 text-white px-4 py-2 sm:px-5 sm:py-3 rounded-2xl shadow-xl flex items-center gap-3">
-      <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-      <span className="font-semibold text-xs sm:text-sm tracking-wide">Now Recording</span>
-    </div>
-  </div>
-</div>
+                {/* Overlay Gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+              </div>
+
+              {/* Floating Badge - Optimized position for responsive screens */}
+              <div className="absolute -top-4 -right-2 sm:-top-6 sm:-right-6 hidden xs:block animate-bounce-slow">
+                <div className="bg-zinc-900/90 backdrop-blur-md border border-zinc-700 text-white px-4 py-2 sm:px-5 sm:py-3 rounded-2xl shadow-xl flex items-center gap-3">
+                  <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                  <span className="font-semibold text-xs sm:text-sm tracking-wide">Now Recording</span>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -257,21 +257,32 @@ const OurWorkShowcase = () => {
     //   description: "Cinematic corporate storytelling for global brand"
     // },
     {
-    
+
       videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1767290311/SINGLE_1_fv88dj.mp4",
     },
     {
-     
+
       videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1767290319/SINGLE_2_lhbzav.mp4",
     },
     {
-     
+
       videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1767290313/SINGLE_3_qgvb8c.mp4",
     },
     {
-   
+
       videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1767290320/SINGLE_4_ynp01g.mp4",
     },
+    {
+      videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1766594390/12_AVENGERS_fpwnze.mp4",
+    },
+    {
+      videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1766594430/Carpe_diem_AV_-_Loop_t5r5ez.mp4",
+    }, {
+      videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1766594449/Dare_to_Achieve_AV_ywfpft.mp4"
+    },
+    {
+       videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1766594463/Opportunities_Go_Beyond_Inspirational_AV_-_Loop_a69gj6.mp4"
+    }
     // {
     //   id: 6,
     //   title: "Character Animation",
@@ -303,7 +314,7 @@ const OurWorkShowcase = () => {
     <section ref={sectionRef} className="py-20 bg-gradient-to-br from-gray-50 to-blue-50/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-      
+
 
         {/* Work Grid */}
         <div className="work-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-20">
@@ -330,15 +341,15 @@ const OurWorkShowcase = () => {
                 {/* Video Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-            
+
               </div>
 
-             
+
             </div>
           ))}
         </div>
 
-      
+
       </div>
 
       <style jsx>{`
