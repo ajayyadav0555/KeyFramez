@@ -180,7 +180,7 @@ const VisualEffects = () => {
                 <video
                   ref={videoRef}
                   className="w-full h-full object-cover scale-[1.01]"
-                  src='/video.mp4'
+                  src='https://res.cloudinary.com/dq3ubcgdd/video/upload/v1767628674/Clean-ups_Roto_and_Paint_Work_-_Multi_Loop_l90w9k.mp4'
                   muted={isMuted}
                   autoPlay
                   loop
