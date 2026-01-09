@@ -19,19 +19,22 @@ const Footer = () => {
     const [input, setInput] = useState("")
     const navItems = [
         { label: 'Home', path: '/' },
-        { label: 'About Us', path: '/about-us' },
-        { label: 'Services', path: '/services' },
-        { label: 'Portfolio', path: '/portfolio' },
+        { label: 'About Us', path: '/about' },
+        // { label: 'Services', path: '/services' },
+        // { label: 'Portfolio', path: '/portfolio' },
     ];
     const SERVICES = [
         { name: "Video Production", path: "live-shot-video" },
         { name: "Explainer Videos", path: "explainer-videos" },
         { name: "3D Animation", path: "3d-modelling" },
-        { name: "Visual Effects", path: "visual-effects" },
+        // { name: "Visual Effects", path: "visual-effects" },
         { name: "Interactive Content Creation", path: "interactive-content" },
         { name: "Character Animation", path: "character-animation" },
         { name: "LMS-Based E-Learning Content", path: "lms-content" },
-        { name: "Visual-effects", path: "visual-effects" }
+        { name: "Visual-effects", path: "visual-effects" },
+        { name: "Ai Based Animation", path: "aibasedanimation" },
+        { name: "Motivational AV's", path: "motivation" },
+
     ];
 
     return (

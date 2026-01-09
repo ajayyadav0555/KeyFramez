@@ -65,13 +65,13 @@ const Services = () => {
       title: "Ai Based Animation",
       video: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1766595009/MULTI_dl1g6y.mp4",
       description: "Creative film production that pushes boundaries and tells unique stories.",
-      path: "/services/visual-effects"
+      path: "/services/aibasedanimation"
     },
     {
       title: "Motivational AV's",
       video: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1767290325/MULTI_vpacw3.mp4",
       description: "Creative film production that pushes boundaries and tells unique stories.",
-      path: "/services/visual-effects"
+      path: "/services/motivation"
     },
 
 

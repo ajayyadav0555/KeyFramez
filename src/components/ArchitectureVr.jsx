@@ -80,16 +80,16 @@ const ArchitectureVr = () => {
                 </span>
                 <span className="text-3xl font-semibold tracking-wide uppercase text-zinc-300">Architecture VR</span>
               </div> */}
-               <div className="inline-flex items-center gap-3  py-3  backdrop-blur-md 
+              <div className="inline-flex items-center gap-3  py-3  backdrop-blur-md 
                   shadow-2xl">
 
 
-                  <span className="md:text-5xl text-3xl font-extrabold tracking-tight uppercase 
+                <span className="md:text-5xl text-3xl font-extrabold tracking-tight uppercase 
                  bg-clip-text text-transparent 
                  bg-gradient-to-r from-blue-400 to-pink-500">
-                   Architecture VR
-                  </span>
-                </div>
+                  Architecture VR
+                </span>
+              </div>
 
 
 
@@ -109,41 +109,41 @@ const ArchitectureVr = () => {
 
           </div>
 
-         {/* Parent: Fluid width for mobile, capped at 1024px for desktop. mx-auto for centering. */}
-<div className="product-apps-video relative group w-full max-w-5xl mx-auto px-4 lg:-mt-40">
-  
-  {/* Ambient Glow Effect: Responsive blur and wider radius */}
-  <div className="absolute -inset-1 bg-gradient-to-r from-pink-600 to-violet-600 rounded-[2rem] opacity-20 group-hover:opacity-40 blur-xl transition duration-500"></div>
+          {/* Parent: Fluid width for mobile, capped at 1024px for desktop. mx-auto for centering. */}
+          <div className="product-apps-video relative group w-full max-w-5xl mx-auto px-4 lg:-mt-40">
 
-  {/* aspect-video handles the height perfectly based on the width (16:9 ratio) */}
-  <div className="relative rounded-[2rem] overflow-hidden aspect-video shadow-2xl bg-black border border-white/10">
-    <video
-      ref={videoRef}
-      className="w-full h-full object-cover scale-[1.01]"
-      src='https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764438875/Architecture_VR_-_Multi_Loop_cvby6e.mp4'
-      muted={isMuted}
-      autoPlay
-      loop
-      playsInline
-    />
+            {/* Ambient Glow Effect: Responsive blur and wider radius */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-pink-600 to-violet-600 rounded-[2rem] opacity-20 group-hover:opacity-40 blur-xl transition duration-500"></div>
 
-    {/* Elegant darkening gradient for depth and readability */}
-    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
-    
-    {/* Hover Reveal Label */}
-    <div className="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
-        <span className="text-white/70 text-[10px] uppercase tracking-[0.3em] font-bold">Virtual Architecture Tour</span>
-    </div>
-  </div>
+            {/* aspect-video handles the height perfectly based on the width (16:9 ratio) */}
+            <div className="relative rounded-[2rem] overflow-hidden aspect-video shadow-2xl bg-black border border-white/10">
+              <video
+                ref={videoRef}
+                className="w-full h-full object-cover scale-[1.01]"
+                src='https://res.cloudinary.com/dq3ubcgdd/video/upload/v1764438875/Architecture_VR_-_Multi_Loop_cvby6e.mp4'
+                muted={isMuted}
+                autoPlay
+                loop
+                playsInline
+              />
 
-  {/* Floating Badge: Responsive visibility for a cleaner mobile look */}
-  <div className="absolute -top-4 -right-2 sm:-top-8 sm:-right-8 hidden xs:flex animate-bounce-slow">
-    <div className="bg-zinc-900/90 backdrop-blur-md border border-zinc-700 text-white px-4 py-2 sm:px-5 sm:py-3 rounded-2xl shadow-xl flex items-center gap-3">
-      <div className="w-2 h-2 rounded-full bg-pink-500 animate-pulse"></div>
-      <span className="font-semibold text-xs sm:text-sm">High Engagement</span>
-    </div>
-  </div>
-</div>
+              {/* Elegant darkening gradient for depth and readability */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+
+              {/* Hover Reveal Label */}
+              <div className="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
+                <span className="text-white/70 text-[10px] uppercase tracking-[0.3em] font-bold">Virtual Architecture Tour</span>
+              </div>
+            </div>
+
+            {/* Floating Badge: Responsive visibility for a cleaner mobile look */}
+            <div className="absolute -top-4 -right-2 sm:-top-8 sm:-right-8 hidden xs:flex animate-bounce-slow">
+              <div className="bg-zinc-900/90 backdrop-blur-md border border-zinc-700 text-white px-4 py-2 sm:px-5 sm:py-3 rounded-2xl shadow-xl flex items-center gap-3">
+                <div className="w-2 h-2 rounded-full bg-pink-500 animate-pulse"></div>
+                <span className="font-semibold text-xs sm:text-sm">High Engagement</span>
+              </div>
+            </div>
+          </div>
         </div>
 
 

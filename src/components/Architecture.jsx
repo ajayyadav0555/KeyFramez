@@ -276,7 +276,7 @@ const ProductWorkShowcase = () => {
               <div className="relative aspect-video overflow-hidden bg-gray-900">
                 <video
                   className="w-full h-full object-cover"
-                  src={work.videoUrl} // Using placeholder, client replaces this
+                  src={work.videoUrl} 
                   loop
                   playsInline
                   autoPlay
