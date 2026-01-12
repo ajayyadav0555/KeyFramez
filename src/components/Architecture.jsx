@@ -231,7 +231,8 @@ const ProductWorkShowcase = () => {
       id: 2,
       title: "Luxury Watch Render",
       category: "Fashion/Jewelry",
-      videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1765655583/Old_Architecture_Models_-_Loop_nk2mad.mp4",
+      videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1768232992/Old_Architecture_Models_-_Loop_h22v8l.mp4",
+      // videoUrl: "https://res.cloudinary.com/dq3ubcgdd/video/upload/v1765655583/Old_Architecture_Models_-_Loop_nk2mad.mp4",
       description: "Extreme close-up renders highlighting materials and intricate details."
     },
   
